@@ -3,7 +3,7 @@
 ## S4vitar extractports
 
 
-```
+```bash
 
 # Used: 
 # nmap -p- --open -T5 -v -n ip -oG allPorts
@@ -25,7 +25,7 @@ function extractPorts(){
 
 ## Fully TTYs
 
-```
+```bash
 
 script /dev/null -c bash
 CTRL+Z
