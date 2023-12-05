@@ -233,6 +233,39 @@ Nos va a mostrar el html:
 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/46e077e1-320d-4ca2-b790-d85eb6d0e98d)
 
+## Terminal Shortcuts
+
+```bash
+
+Terminal 
+
+CTRL + A #Ir al incio
+CTRL + E # Ir al final 
+ALT + B # Una palabra antes (Before)
+ALT + F # Para adelante
+
+Man 
+
+CTRl + Shift #Buscar
+n # para buscar adelante
+shift + n ( osea N) # para buscar hacia atras
+g Ir a la primera linea del manual man
+
+TMUX
+
+CTRL + B Shift + ! # Para un panel convertirlo en una ventana nueva.
+CTRL + B Shift + [ # Para copiar se hace
+Copy mode CTRL + Space # Selecciona 
+CTRL + W # Eso es copia
+CTRL + B + SHIFT + ] # pega lo copiado
+#Buscar
+Ya en el copy mode
+CTRL + s
+CTRL + r
+n # para buscar en de abajo para arriba otra concidencia
+SHIFT + n # para buscar en orden inverso.
+```
+
 
 
 
