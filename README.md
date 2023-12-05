@@ -266,7 +266,7 @@ n # para buscar en de abajo para arriba otra concidencia
 SHIFT + n # para buscar en orden inverso.
 ```
 
-
+> https://superuser.com/questions/231002/how-can-i-search-within-the-output-buffer-of-a-tmux-shell
 
 
 
