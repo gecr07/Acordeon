@@ -36,6 +36,21 @@ export SHELL=bash
 stty rows  51 columns 189
 ```
 
+## Python Fully TTY
+
+> https://book.hacktricks.xyz/generic-methodologies-and-resources/shells/full-ttys
+
+````python 
+
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+(inside the nc session) CTRL+Z;stty raw -echo; fg; ls; export SHELL=/bin/bash; export TERM=screen; stty rows 38 columns 116; reset;
+````
+
+
+
+
+
 
 ## Spawn shells
 
