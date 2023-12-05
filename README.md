@@ -172,9 +172,66 @@ guion=$(printf "\055")
 comando con guiones | sed 's/\//${HOME}/g' # esto lo que hace es donde encuentre un / lo va substituir por lo que valga $HOME
 ```
 
+## Python break points
+
+Para esto se necesita importar la libreria pdb 
+
+```python3
+#pip uninstall pyelftools -y
+#pip install pyelftools==0.29
+
+ 
+from pwn import * 
+
+import requests
+import pdb# break point--------------------------------------------------------------------------->
+import signal#USas signal para capturar el CTRL+C
+import sys
+import urllib3
+import time# aqui se usa time.sleep
+import re # explresiones regulares
+
+def def_handler(sig, frame):
+        print("\n\n[!] Saliendo...\n")
+        sys.exit(1)
 
 
+#CTRL+C
+signal.signal(signal.SIGINT, def_handler)
 
+main_url="https://10.129.68.239/index.php"
+
+def executeCommand():
+        s=requests.session()
+        urllib3.disable_warnings()
+        s.verify = False
+        r = s.get(main_url)
+        pdb.set_trace()#break point------------------------------------------------------------->
+        #print(r.text)<
+
+
+if __name__== '__main__':
+#       time.sleep(10)
+        executeCommand()
+
+
+```
+
+Cuando ejecutas el programa entra en una especie de depurador de consola algunos comandos son: aprieta l
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/ef1babf7-f3be-4693-a6a3-5ea5f907c6b7)
+
+> https://realpython.com/python-debugging-pdb/
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/92c89275-1dfd-41e2-ba62-a2f89265958d)
+
+Ahora quiero ver la repuesta recuerda que al final por detras todo tiene clases entonces:
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/f08b5052-a678-49fb-9cf5-bd9b4b21cfdf)
+
+Nos va a mostrar el html:
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/46e077e1-320d-4ca2-b790-d85eb6d0e98d)
 
 
 
