@@ -49,10 +49,6 @@ python3 -c 'import pty; pty.spawn("/bin/bash")'
 ````
 
 
-
-
-
-
 ## Spawn shells
 
 Recuerda cuando estes en una web e intentes ejecutar una reverse shell. Cambia el & por %26 
@@ -101,6 +97,8 @@ os.system("chmod u+s /bin/bash")
 
 ```
 wfuzz -c --hc=404 -t 200 -w rockyou.txt http://example.com/FUZZ
+## Follow redirect
+-L
 
 ```
 
@@ -140,11 +138,39 @@ chmod u+s /bin/bash
 
 ```
 
+## Grep -P -E
+
+### grep -E:
+
+> La opción -E habilita el uso de expresiones regulares extendidas (ERE).En las expresiones regulares extendidas, ciertos caracteres especiales como +, ?, () tienen significados especiales sin necesidad de ser precedidos por un carácter de escape \.
+Por ejemplo, con grep -E, puedes utilizar + para representar "uno o más repeticiones", y no necesitas escaparlo como \+.
+
+```
+grep -Ei "user|pass|note|key"
+
+````
+
+En el ejemplo anterior va a buscar esos strings es como or el | 
+
+### grep -P 
+
+> La opción -P habilita el uso de expresiones regulares de Perl (PCRE).Las expresiones regulares de Perl son más poderosas y flexibles que las expresiones regulares básicas (BRE) o extendidas (ERE).
+
+> Permite utilizar la mayoría de las características avanzadas de Perl en las expresiones regulares, como el uso de (?...) para grupos no capturadores, lookaheads, lookbehinds, etc. Es especialmente útil si necesitas características más avanzadas que las proporcionadas por las expresiones regulares básicas o extendidas.
 
 
+## Ascii
 
+```
+man ascii
+# Por ejemplo para imprimir el guion si es un bad char
 
+printf "\055"; echo
+guion=$(printf "\055")
+## Ahora por ejemplo de hacer que el / que es un bad char supongamos que  la variable env es /
 
+comando con guiones | sed 's/\//${HOME}/g' # esto lo que hace es donde encuentre un / lo va substituir por lo que valga $HOME
+```
 
 
 
