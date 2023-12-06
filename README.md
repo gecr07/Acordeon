@@ -269,7 +269,11 @@ SHIFT + n # para buscar en orden inverso.
 > https://superuser.com/questions/231002/how-can-i-search-within-the-output-buffer-of-a-tmux-shell
 
 
+## Batcat
 
+```bash
+batcat file -l ruby
+```
 
 
 
