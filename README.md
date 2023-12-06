@@ -99,6 +99,8 @@ os.system("chmod u+s /bin/bash")
 wfuzz -c --hc=404 -t 200 -w rockyou.txt http://example.com/FUZZ
 ## Follow redirect
 -L
+## Esconder por tamaño total de caracteres
+--hh=totaldecaracteres
 
 ```
 
@@ -275,7 +277,11 @@ SHIFT + n # para buscar en orden inverso.
 batcat file -l ruby
 ```
 
+## SSH enum
 
+Esto se puede de la version < 7.79 (para abajo)
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/fd6442e6-ffa2-484d-9f73-e8bfca42c944)
 
 
 
