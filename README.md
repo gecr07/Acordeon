@@ -284,7 +284,14 @@ Esto se puede de la version < 7.79 (para abajo)
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/fd6442e6-ffa2-484d-9f73-e8bfca42c944)
 
 
+## grep
 
+Para buscar una palabra ( y que grep muestre la linea) y que inicie y acabe.
+
+```
+## -n imprime la linea
+grep -n "^api$"
+```
 
 
 
