@@ -448,13 +448,42 @@ cat file | tr -d '\n'
 grep -v "00 00 00 00"
 ```
 
+## Dynamic Port Fowarding SSH
+
+Primero vamos a editar el archivo de configuracion de proxychains
 
 
+```
+nano /etc/proxychains.conf
+
+socks4 127.0.0.1 1080
+
+```
+
+Segundo nos vamos a conectar a la maquina por ssh con la opcion -D
+
+```
+ssh user@10.10.1.8 -D 1080 # mismo puerto que el socks4 que definimos
+```
 
 
+##  Revisar puetos en uso (lsof)
 
+Para revisar un puerto si esta en uso:
 
+```
+lsof -i:1080 
+```
+Y en este ejemplo lo usan para comunicarse con el vncviewer en los puertos 5901
 
+```
+proxychains vncviwer -passwd secret_key 127.0.0.1:5901
+```
+Para usar nmap se tiene que usar la -sT afuerzas TCP connect
+
+```
+nmap -sT -p21,22,80 erev0s.com
+```
 
 
 
