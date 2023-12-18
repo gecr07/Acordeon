@@ -312,7 +312,7 @@ batcat file -l ruby
 
 ## SSH enum
 
-Esto se puede de la version < 7.79 (para abajo)
+Esto se puede de la version < 7.79 (para abajo)  IGUAL CHECA PORQUE PUEDEN SALIR MAS VERCIONES EN EL FUTURO ESTO ES UNA GUIA NOMAS.
 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/fd6442e6-ffa2-484d-9f73-e8bfca42c944)
 
@@ -486,10 +486,30 @@ Para revisar un puerto si esta en uso:
 lsof -i:1080 
 ```
 
+## Certificados SSL
 
+Se puede checar con openssl.
 
+```
+openssl s_client -connect 10.10.14.1:443
+```
 
+Igual con sslscan 
 
+```
+sslscan https://10.10.1.1/
+```
+
+## Python pasar a hex
+
+Para pasar a hex se hace asi.
+
+```
+python3
+hex(10)
+Nos regresa la 0xa
+```
+![image](https://github.com/gecr07/Acordeon/assets/63270579/35cf4197-6bbb-4803-8d78-315157d1e3ca)
 
 
 
