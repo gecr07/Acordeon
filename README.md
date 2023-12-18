@@ -388,6 +388,15 @@ chmod 600 id_rsa
 john -w=/usr/share/wordlists/rockyou.txt hash
 ```
 
+## Chown
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/c369ca96-3758-4148-990e-dbd372b75df6)
+
+Ahora para que los grupos puedan leer y escribir
+
+```
+chmod g+rw archivo
+```
 
 
 
