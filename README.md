@@ -137,6 +137,27 @@ wfuzz -c --hc=404 -t 200 -w rockyou.txt http://example.com/FUZZ
 
 ```
 
+Para poner mas palabras y que fuzze para meter un segundo payload.
+
+```
+wfuzz -c --hc=404 -t 200 -w rockyou.txt -z list,php-html http://example.com/FUZZ.FUZ2Z
+```
+
+Para enumerar los subdominios
+
+```
+wfuzz -c -t 200 --hh=11439 -w direcbotiry23medium.txt -H "FUZZ.cronos.htb"  http://example.com
+```
+
+## GOBuster
+
+Para enumerar subdominios
+
+```
+gobuster vhost -u http://cronos.htb/ -w /subdomains.txt -t 200
+```
+
+
 ## PHP reverse shell 
 
 
