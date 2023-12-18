@@ -23,6 +23,28 @@ function extractPorts(){
 }
 ```
 
+## Stenografia
+
+```
+strings onm.jpg -n 10 #Lineas que tengan mas de 10 caracteres
+
+```
+
+Para ver los metadatos
+
+```
+exiftool omg.jpg
+```
+
+Datos escondidos
+
+```
+steghide info omg.jpg
+```
+Existen herramientas de fuenrza bruta que ayudan a esto busca "steghide brute force".
+
+
+
 ## Fully TTYs
 
 ```bash
@@ -297,6 +319,16 @@ Para buscar una palabra ( y que grep muestre la linea) y que inicie y acabe.
 ## -n imprime la linea
 grep -n "^api$"
 ```
+
+## Matar procesos (Kill)
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/656f1836-1ecf-4f16-9de6-8532e9051523)
+
+```
+CTRL+Z
+kill %
+```
+
 
 
 
