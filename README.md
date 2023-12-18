@@ -398,14 +398,55 @@ Ahora para que los grupos puedan leer y escribir
 chmod g+rw archivo
 ```
 
+## Dirty Cow
+
+ Esta vulnerablidad esta en kernels viejos. Esta entre el rango 2.6.22 < 3.9
+
+```
+searchsploit dirty cow 
+```
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/374d5cb5-50ec-4ffb-b7f0-e431a9a6b9b0)
 
 
+## XCLIP
 
+Se usa para copiar de la consola al porta papeles.
 
+```
+cat file| xclip -sel clip 
+```
 
+## GCC compilar
 
+En los exploit casi siempre te dice como compiarlo asi que busca como:
 
+```
+cat exploit.c | grep gcc
+```
 
+Para la compilacion
+
+```
+gcc exploit.c -o dirty_out
+```
+
+## Curl
+
+Peticiones GET se puede hacer sin el -X para este tipo de peticiones.
+
+```
+curl -s -X GET "http://10.10.0.10/browse.php?file=something.txt"
+```
+
+## Borrar caracteres tr y grep -v
+
+Para borrar caracteres usa el grep -v y el tr -d
+
+```
+cat file | tr -d '\n'
+grep -v "00 00 00 00"
+```
 
 
 
