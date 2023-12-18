@@ -23,6 +23,17 @@ function extractPorts(){
 }
 ```
 
+## Nmap
+
+Para tirarle categorias de scripts para probar vulnerabilidades
+
+```
+nmap --script "vuln and safe" -p443 10.10.10.17.1 -oN Scan
+```
+
+
+
+
 ## Stenografia
 
 ```
@@ -305,11 +316,18 @@ Esto se puede de la version < 7.79 (para abajo)
 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/fd6442e6-ffa2-484d-9f73-e8bfca42c944)
 
+
 Para probar passwords
 
 ```
 sshpass -p 'passwd' ssh user@127.0.0.1
 ```
+
+Pero si buscas sshenum python3 salen scripts.
+
+> https://github.com/epi052/cve-2018-15473/blob/master/ssh-username-enum.py
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/b53a5a8f-da0a-449f-8ce8-ca765caca76e)
 
 ## grep
 
@@ -329,11 +347,46 @@ CTRL+Z
 kill %
 ```
 
+## HEX a ASCII (xxd)
+
+Para pasar de hex a ascii usa:
+
+```
+xxd -ps -r;echo
+
+```
+
+## CEWL
+
+Listas de palabras para brute force de lo mismo que esta en la pagina sirve por ejemplo para encontrar el usuario hype en Valentine (machine).
+
+```
+cewl -v --depth 2 --write lista.txt http://10.129.44.3/dev/
+
+```
+
+## Sponge
+
+Escribir sobre el mismo archivo que modificaste (bastante util ahorra comandos y no acepta echos cuidado con eso)
+
+```
+cat id_rsa | tr -d ' ' | xxd -ps -r | sponge id_rsa
+```
 
 
+## id_rsa (600 y 700)
 
+Son permisos que son validos (600 y 700).  En general, se recomienda que solo el propietario tenga acceso de lectura y escritura al archivo. 
 
+```
+chmod 600 id_rsa
+```
 
+## JTR (ssh2john)
+
+```
+john -w=/usr/share/wordlists/rockyou.txt hash
+```
 
 
 
