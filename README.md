@@ -555,7 +555,15 @@ done
 find \-perm -4000 2>/dev/null 
 ```
 
+## Watch 
 
+Para ver comandos cada segundo
+
+```bash
+
+watch -n 1 ls -la /bin/bash
+
+```
 
 
 
