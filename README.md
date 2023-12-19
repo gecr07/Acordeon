@@ -532,9 +532,28 @@ Nos regresa la 0xa
 ```
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/35cf4197-6bbb-4803-8d78-315157d1e3ca)
 
+## Procmon
 
+Para ver procesos alternativa del pspy
 
+```
+#!/bin/bash
 
+old_process=$(ps -eo command)
+
+while true; do
+	new_process=$(ps -eo command)
+	diff <(echo "$old_process") <(echo "$new_process") | grep "[\>\<]" | grep -v "procmon.sh" | grep -v "command"
+	old_process=$new_process
+done
+
+```
+
+## Permisos SUID
+
+```
+find \-perm -4000 2>/dev/null 
+```
 
 
 
