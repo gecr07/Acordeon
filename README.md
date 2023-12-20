@@ -67,7 +67,8 @@ stty -echo raw;fg
 export TERM=xterm
 export SHELL=bash
 stty size # por si no sabes las medidas de tu pantalla
-stty rows  51 columns 189
+stty rows  51 columns 189 # Patalla grande
+stty rows  40 columns 167 # pantalla de lab viejita
 ```
 
 ## Python Fully TTY
