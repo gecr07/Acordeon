@@ -573,8 +573,22 @@ A veces es mejor usar telenet en vez de nc consideralo.
 telnet 10.10.1.14 110
 ```
 
+## MSFVENOM
 
+Para ver las payloads disponibles.
 
+```
+msfvenom -l payloads | grep java
+```
+
+## Multiples interfaces
+
+Usa el comando
+
+```
+hostname -I
+
+```
 
 
 
