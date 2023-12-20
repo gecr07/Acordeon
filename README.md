@@ -360,13 +360,19 @@ Para buscar una palabra ( y que grep muestre la linea) y que inicie y acabe.
 grep -n "^api$"
 ```
 
-## Matar procesos (Kill)
+## Matar procesos (Kill killall)
 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/656f1836-1ecf-4f16-9de6-8532e9051523)
 
 ```
 CTRL+Z
 kill %
+```
+
+> El comando killall en Linux se utiliza para enviar una señal de terminación a procesos basándose en sus nombres. A diferencia del comando kill, que requiere especificar el ID del proceso (PID), killall permite matar procesos por su nombre.
+
+```
+killall openvpn
 ```
 
 ## HEX a ASCII (xxd)
