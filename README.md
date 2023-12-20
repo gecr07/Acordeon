@@ -565,6 +565,13 @@ watch -n 1 ls -la /bin/bash
 
 ```
 
+## Telnet
+
+A veces es mejor usar telenet en vez de nc consideralo.
+
+```
+telnet 10.10.1.14 110
+```
 
 
 
