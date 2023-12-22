@@ -603,6 +603,11 @@ hostname -I
 
 ```
 
+## Impacket
+
+Tienen todas las herramientas para trabajar con AD entonces busca las tools primero con impacket ejemplo: impacket-secretsdump...
+
+
 
 
 
