@@ -117,6 +117,12 @@ find \-perm -4000 2>/dev/null #SUID
 
 ```
 
+Buscar solo archivos dentro de una carpeta
+
+```
+find . -type f
+```
+
 ## SUID
 
 ```python
