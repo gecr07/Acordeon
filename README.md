@@ -640,8 +640,14 @@ wfuzz -c --hc=404 -t 200 -w /usr/share/wordlists/seclists/Discovery/Web-Content/
 ```
 
 
+## lsblk checar particiones
 
+Sirve para ver como esta configurado el disco
 
+```
+lsblk
+
+```
 
 
 
