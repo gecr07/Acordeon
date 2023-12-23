@@ -623,8 +623,21 @@ wpscan -v --disable-tls-checks --enumerate u,p --url  https://brainfuck.htb/
 
 ```
 
+## Enumerar plugins sin WPSCAN ( es un check que se debe de hacer)
+
+Me ha pasado que wpscan no te da los plugins que existen en la maquina. Se tiene que hacer manualmente.
+```
+find . -name \*plugin\* | grep -i wp
+seclist/Discovery/Web-Content/CMS/wp-plugins.fuzz.txt
+
+```
+
+Ojo esta lista ya tiene una ruta /wp-content/plugins entonces has fuzzing asi:
 
 
+```
+wfuzz -c --hc=404 -t 200 -w /usr/share/wordlists/seclists/Discovery/Web-Content/CMS/wp-plugins.fuzz.txt http://10.129.1.185:80/webservices/wp/FUZZ 
+```
 
 
 
