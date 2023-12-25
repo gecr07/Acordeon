@@ -123,6 +123,12 @@ Buscar solo archivos dentro de una carpeta
 find . -type f
 ```
 
+Buscar arhivos solo en el la carpeta ( primer nivel) que empiecen por un punto
+
+```
+find /var/tmp -maxdepth 1 -type f -name ".*"
+```
+
 ## SUID
 
 ```python
@@ -221,6 +227,17 @@ En el ejemplo anterior va a buscar esos strings es como or el |
 
 > Permite utilizar la mayoría de las características avanzadas de Perl en las expresiones regulares, como el uso de (?...) para grupos no capturadores, lookaheads, lookbehinds, etc. Es especialmente útil si necesitas características más avanzadas que las proporcionadas por las expresiones regulares básicas o extendidas.
 
+
+```
+# Este ejemplo se usa el only match se activan las reg ex de perl y se escapa el punto despues se busca que despues del punto existan 40 caracteres
+grep -oP '\.\w{40}'
+
+```
+
+## Enlace simbolico
+
+Son como los accesos directos pero para linux existen otros enlaces aparte de los simbolicos los duros.
+
 ```
 ln -s -f /root/root.txt index.html
 
@@ -229,13 +246,6 @@ ln: Es el comando para crear enlaces.
 -f: Es la opción que indica que, si ya existe un archivo llamado index.html, se debe sobrescribir sin preguntar.
 
 ```
-
-
-## Enlace simbolico
-
-Son como los accesos directos pero para linux existen otros enlaces aparte de los simbolicos los duros.
-
-
 
 ## Ascii
 
@@ -704,4 +714,21 @@ tar -zxvf masa_out -C /directorio/out
 -f: La opción que permite especificar el nombre del archivo tar del cual se extraerán los archivos. Debe ir seguido del nombre del archivo.
 
 ```
+
+## Bash 
+
+While con un or
+
+```bash
+
+# loop until there's a change in cur
+echo "Waiting for archive filename to change..."
+while [ "$start" == "$cur" -o "$cur" == "" ] ; do
+    sleep 10;
+    cur=$(find /var/tmp -maxdepth 1 -type f -name ".*");
+done
+
+```
+
+Fuente > https://0xdf.gitlab.io/2018/10/20/htb-tartarsauce.html
 
