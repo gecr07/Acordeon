@@ -664,6 +664,24 @@ nc -lvnp 9002 | tee linpeas.out
 ```
 
 
+## Tar
+
+Para comprimir un archivo con esta herramienta 
+
+```
+tar -zcvf /var/tmp/masa_out.gz /var/www/html
+###
+tar.gz
+-z: La opción que indica a tar que debe usar gzip para comprimir el archivo.
+-c: La opción que indica a tar que debe crear un nuevo archivo.
+-v: La opción "verbose" que proporciona una salida detallada durante el proceso.
+-f: La opción que permite especificar el nombre del archivo tar que se creará.
+
+```
+Para descomprimir 
+
+```
 
 
+```
 
