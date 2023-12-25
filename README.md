@@ -221,6 +221,21 @@ En el ejemplo anterior va a buscar esos strings es como or el |
 
 > Permite utilizar la mayoría de las características avanzadas de Perl en las expresiones regulares, como el uso de (?...) para grupos no capturadores, lookaheads, lookbehinds, etc. Es especialmente útil si necesitas características más avanzadas que las proporcionadas por las expresiones regulares básicas o extendidas.
 
+```
+ln -s -f /root/root.txt index.html
+
+ln: Es el comando para crear enlaces.
+-s: Es la opción que indica que se debe crear un enlace simbólico.
+-f: Es la opción que indica que, si ya existe un archivo llamado index.html, se debe sobrescribir sin preguntar.
+
+```
+
+
+## Enlace simbolico
+
+Son como los accesos directos pero para linux existen otros enlaces aparte de los simbolicos los duros.
+
+
 
 ## Ascii
 
@@ -681,7 +696,12 @@ tar.gz
 Para descomprimir 
 
 ```
-
+tar -zxvf masa_out -C /directorio/out
+###
+-z: La opción que indica a tar que el archivo está comprimido con gzip y debe descomprimirse durante la extracción.
+-x: La opción que indica a tar que debe extraer archivos del archivo tar.
+-v: La opción "verbose" que proporciona una salida detallada durante el proceso.
+-f: La opción que permite especificar el nombre del archivo tar del cual se extraerán los archivos. Debe ir seguido del nombre del archivo.
 
 ```
 
