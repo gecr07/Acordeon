@@ -732,3 +732,10 @@ done
 
 Fuente > https://0xdf.gitlab.io/2018/10/20/htb-tartarsauce.html
 
+Un if que verifica si la variable tienen valor
+
+```
+if [ "$filename" ]; then
+echo "El archivos tienen nombre..."
+fi
+```
