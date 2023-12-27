@@ -993,3 +993,46 @@ Ahora para ver que hay dentro el dir jala igualmente.
 dir \\10.10.14.80\smbFolder
 ```
 
+
+## Watson exploit suggerster
+
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/6a57ad18-0799-4b95-8063-782b3f5ac01f)
+
+
+Pues ya esta descontinuado desde el 2021.
+
+> https://github.com/rasta-mouse/Watson
+
+
+## Visual studio compilar (Diferentes Frameworks y arquitecturas)
+
+Para compilar con visual estudio diferentes arquitectura y frameworks.
+
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/958a95da-9077-4a75-b027-6aea613f819e)
+
+
+> https://0xdf.gitlab.io/2019/03/05/htb-devel.html
+
+
+## Enumerar los Net Frameworks
+
+Para saber si compilamos un proyecto y que Net Framework se puede compilar hay dos vias por el reg query y visitando la carpeta. Ojo la del reg por lo que entendi te muestra la version mas alta que se tenga instalado.
+
+```
+reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP"
+```
+
+
+Por otra parte ver la carpeta si muestra todos los que estan instalados. (esto lo vi en la maquina DEVEL
+
+```
+c:\Windows\Microsoft.NET\Framework>dir /A:D
+dir solo mostrara los directorios para esa es la opcion D
+```
+
+## Paginas de exploits de windows precompilados (Privilege escalation)
+
+> https://github.com/abatchy17/WindowsExploits
+> https://github.com/SecWiki/windows-kernel-exploits
