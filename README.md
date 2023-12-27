@@ -1039,3 +1039,13 @@ dir solo mostrara los directorios para esa es la opcion D
 > https://github.com/SecWiki/windows-kernel-exploits
 
 > https://rootrecipe.medium.com/windows-kernel-exploitation-fe268f43bb35
+
+## IIS rutas por defecto
+
+La ruta por defecto (y estaba en la maquina DEVEl)
+
+```
+c:\inetpub\wwwroot
+# Esta ruta fue donde me llevo cuanod ejecute la reverse shell
+C:\windows\system32\inetsrv
+```
