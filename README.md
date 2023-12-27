@@ -948,7 +948,8 @@ En kali seclist tiene nc.exe
 
 ```
 > https://www.hackingarticles.in/powershell-for-pentester-windows-reverse-shell/
-
+> https://www.hackingarticles.in/windows-for-pentester-certutil/
+> https://medium.com/@PenTest_duck/almost-all-the-ways-to-file-transfer-1bd6bf710d65
 
 ## Descargar archivos
 
