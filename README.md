@@ -740,6 +740,14 @@ echo "El archivos tienen nombre..."
 fi
 ```
 
+## Tomcat
+
+La ruta donde se encuentra el panel de control por defecto en un servido tomcat es:
+
+```
+http://localhost:8080/manager/html
+```
+
 # Windows
 
 Saber la arquitectura de un sistema
@@ -747,6 +755,15 @@ Saber la arquitectura de un sistema
 ```
 echo %PROCESSOR_ARCHITECTURE%
 ```
+
+Saber la arquitectura del sistema con "systeminfo"
+
+```
+systeminfo
+```
+![image](https://github.com/gecr07/Acordeon/assets/63270579/9b123cd6-ed32-42b4-a551-26731068ad4c)
+
+
 
 ## IIS 
 
