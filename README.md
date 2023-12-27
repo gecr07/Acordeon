@@ -739,3 +739,19 @@ if [ "$filename" ]; then
 echo "El archivos tienen nombre..."
 fi
 ```
+
+# Windows
+
+Saber la arquitectura de un sistema
+
+```
+echo %PROCESSOR_ARCHITECTURE%
+```
+
+## IIS 
+
+Las rutas de un IIS son
+
+````
+
+```
