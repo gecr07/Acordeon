@@ -1035,4 +1035,5 @@ dir solo mostrara los directorios para esa es la opcion D
 ## Paginas de exploits de windows precompilados (Privilege escalation)
 
 > https://github.com/abatchy17/WindowsExploits
+
 > https://github.com/SecWiki/windows-kernel-exploits
