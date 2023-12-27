@@ -1037,3 +1037,5 @@ dir solo mostrara los directorios para esa es la opcion D
 > https://github.com/abatchy17/WindowsExploits
 
 > https://github.com/SecWiki/windows-kernel-exploits
+
+> https://rootrecipe.medium.com/windows-kernel-exploitation-fe268f43bb35
