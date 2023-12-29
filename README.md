@@ -1054,3 +1054,37 @@ c:\inetpub\wwwroot
 # Esta ruta fue donde me llevo cuanod ejecute la reverse shell
 C:\windows\system32\inetsrv
 ```
+
+## Powershell rutas
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/1a37fd88-23c6-4976-97cd-8edc4fe90f23)
+
+Entonces para llamar a powershell desde un proceso de 32bit y que regrese un proc de 64:
+
+```
+C:\Windows\SysNative\WindowsPowerShell\v1.0\powershell.exe
+```
+
+Pero el HFS corre en 32 recuerda. La siguiente ruta va a lanzar el ps en 32bits
+
+```
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
