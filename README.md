@@ -665,7 +665,7 @@ wpscan -v --disable-tls-checks --enumerate u,p --url  https://brainfuck.htb/
 
 ```
 
-## Enumerar plugins sin WPSCAN ( es un check que se debe de hacer)
+## Enumerar plugins sin WPSCAN ( es un check que se debe de hacer) visto en maquina Tartarsauce
 
 Me ha pasado que wpscan no te da los plugins que existen en la maquina. Se tiene que hacer manualmente.
 ```
