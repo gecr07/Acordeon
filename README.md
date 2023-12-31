@@ -21,6 +21,7 @@ function extractPorts(){
 	echo -e "[*] Ports copied to clipboard\n"  >> extractPorts.tmp
 	cat extractPorts.tmp; rm extractPorts.tmp
 }
+
 ```
 
 ## Nmap
