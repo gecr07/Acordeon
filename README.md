@@ -482,13 +482,6 @@ searchsploit dirty cow
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/374d5cb5-50ec-4ffb-b7f0-e431a9a6b9b0)
 
 
-## XCLIP
-
-Se usa para copiar de la consola al porta papeles.
-
-```
-cat file| xclip -sel clip 
-```
 
 ## GCC compilar
 
@@ -773,6 +766,12 @@ http://localhost:8080/manager/html
 
 ## XCLIP
 
+Se usa para copiar de la consola al porta papeles.
+
+```
+cat file| xclip -sel clip 
+```
+
 Copiar desde la consola a VM a Windows...
 
 ```bash
@@ -786,6 +785,16 @@ echo "80,135,139,445,1521,5985,47001,49152,49153,49154,49155,49159,49160,49161,m
 
 > https://unix.stackexchange.com/questions/69111/how-to-target-multiple-selections-with-xclip/69134#69134
 
+## Remplazar caracteres TR 
+
+Para remplazar caracteres usa tr de la siguiente manera
+
+```
+cat /usr/share/metasploit-framework/data/wordlists/oracle_default_userpass.txt | tr ' ' '/'
+ahora queda asi
+user pass
+user/pass
+```
 
 # Windows
 
