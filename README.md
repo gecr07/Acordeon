@@ -172,7 +172,8 @@ wfuzz -c --hc=404 -t 200 -w rockyou.txt -z list,php-html http://example.com/FUZZ
 Para enumerar los subdominios
 
 ```
-wfuzz -c -t 200 --hh=11439 -w direcbotiry23medium.txt -H "FUZZ.cronos.htb"  http://example.com
+wfuzz -c -t 200 --hh=11439 -w direcbotiry23medium.txt -H "Host: FUZZ.cronos.htb"  http://example.com
+wfuzz -c --hw=55 --hc=404 -t 200 -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -H "Host: FUZZ.silo.htb"  http://silo.htb/
 ```
 
 ## GOBuster
