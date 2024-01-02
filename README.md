@@ -770,6 +770,22 @@ La ruta donde se encuentra el panel de control por defecto en un servido tomcat 
 http://localhost:8080/manager/html
 ```
 
+## XCLIP
+
+Copiar desde la consola a VM a Windows...
+
+```bash
+echo "80,135,139,445,1521,5985,47001,49152,49153,49154,49155,49159,49160,49161,49162" |  xclip -i -sel p -f | xclip -i -sel c
+
+#La version corta pero que imprime lo que vas a copiar(cosa que yo no le veo problema)
+
+echo "80,135,139,445,1521,5985,47001,49152,49153,49154,49155,49159,49160,49161,masa" |  xclip -i -sel p -f
+
+```
+
+
+
+
 # Windows
 
 ## Arquitecura x86 o x64
