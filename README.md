@@ -783,7 +783,7 @@ echo "80,135,139,445,1521,5985,47001,49152,49153,49154,49155,49159,49160,49161,m
 
 ```
 
-
+> https://unix.stackexchange.com/questions/69111/how-to-target-multiple-selections-with-xclip/69134#69134
 
 
 # Windows
