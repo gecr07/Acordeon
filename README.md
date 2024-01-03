@@ -680,6 +680,9 @@ Ojo esta lista ya tiene una ruta /wp-content/plugins entonces has fuzzing asi:
 wfuzz -c --hc=404 -t 200 -w /usr/share/wordlists/seclists/Discovery/Web-Content/CMS/wp-plugins.fuzz.txt http://10.129.1.185:80/webservices/wp/FUZZ 
 ```
 
+![image](https://github.com/gecr07/Acordeon/assets/63270579/01cbaa09-66af-4c73-b60e-c9c8041a730b)
+
+
 
 ## lsblk checar particiones
 
