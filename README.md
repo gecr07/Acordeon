@@ -1180,7 +1180,11 @@ whoami /priv
 whoami /all #miembro de que grupos
 ```
 
+## Exploits de windows
 
+Una pagina interesante que tiene exploits de windows compilados.
+
+> https://github.com/SecWiki/windows-kernel-exploits/tree/master
 
 
 
