@@ -1263,3 +1263,17 @@ netstat -nat
 net localgroup Administrators  s4vitar /add
 ```
 
+## Revisar todos los Grupos
+
+```
+
+net localgroup
+```
+
+## Revisar un grupo en especifico
+
+En este caso revisamos quienes son los miembros del grupo Administrators.
+```
+net localgroup Administrators
+
+```
