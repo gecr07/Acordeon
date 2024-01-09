@@ -1224,8 +1224,7 @@ Get-Process
 El segundo metodo es por cmd
 
 ```
-
-
+tasklist /V
 ```
 
 ## Añadir usuarios en windows
