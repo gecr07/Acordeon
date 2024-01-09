@@ -1236,6 +1236,12 @@ Para añadir un usuerio
 net user masa password /add
 ```
 
+## Puertos abiertos
 
+```
+netstat -ano
+netstat -nat
+
+```
 
 
