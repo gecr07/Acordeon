@@ -1017,6 +1017,9 @@ En kali seclist tiene nc.exe
 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/da729171-7475-4f3c-9968-2aafbc38b221)
 
+De donde s4vitar baja su nc.exe
+
+> https://eternallybored.org/misc/netcat/
 
 ```
 
@@ -1288,7 +1291,7 @@ net share attacker_folder=C:\Windows\Temp /GRANT:Administrators,FULL
 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/e46560bd-2981-4887-aa70-1d324c1ba00a)
 
-
+> https://book.hacktricks.xyz/windows-hardening/basic-cmd-for-pentesters
 
 ## Crackmapexec
 
