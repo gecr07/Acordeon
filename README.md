@@ -838,6 +838,14 @@ systeminfo
 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/9b123cd6-ed32-42b4-a551-26731068ad4c)
 
+## Buscar archivos
+
+
+Esto es desde powershell pero desde cmd solo quita lo primero
+
+```
+cmd /c dir /r /s user.txt
+```
 
 ## Reverse shell for windows
 
@@ -1206,7 +1214,19 @@ Una pagina interesante que tiene exploits de windows compilados.
 > https://github.com/SecWiki/windows-kernel-exploits/tree/master
 
 
+## Ver procesos (2 metodos)
 
+El primer metodo es con powershell
+
+```
+Get-Process
+```
+El segundo metodo es por cmd
+
+```
+
+
+```
 
 
 
