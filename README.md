@@ -1228,7 +1228,13 @@ El segundo metodo es por cmd
 
 ```
 
+## Añadir usuarios en windows
 
+Para añadir un usuerio
+
+```
+net user masa password /add
+```
 
 
 
