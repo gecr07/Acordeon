@@ -1277,3 +1277,60 @@ En este caso revisamos quienes son los miembros del grupo Administrators.
 net localgroup Administrators
 
 ```
+
+## Crear un recurso compartido
+
+Crea un recurso compartido y lo llama attacker_folder le da una ruta y pone a los adminsitradores que tienen completo control.
+
+```
+net share attacker_folder=C:\Windows\Temp /GRANT:Administrators,FULL
+```
+
+## Crackmapexec
+
+Para enumerar el puerto 445 basico
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/932937ba-7211-4c25-bcf9-ef5c3217e212)
+
+
+```
+crackmapexec smb 127.0.0.1
+```
+
+Para probar si la contrasea es valida pone un +
+
+```
+crackmapexec smb 127.0.0.1 -u 's4vitar' -p 'password123.'
+```
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/6c38263e-4908-4ba3-98e7-8a93c26eef81)
+
+Para enumerar los shares
+
+```
+crackmapexec smb 127.0.0.1 -u 's4vitar' -p 'password123.' --shares
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
