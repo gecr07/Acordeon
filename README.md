@@ -1257,4 +1257,9 @@ netstat -nat
 
 ```
 
+## Agregar a un usuario al grupo de Administrators
+
+```
+net localgroup Administrators  s4vitar /add
+```
 
