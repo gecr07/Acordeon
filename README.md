@@ -1093,6 +1093,14 @@ c:\inetpub\wwwroot
 C:\windows\system32\inetsrv
 ```
 
+## IIS OS Recon
+
+Se puede detectar si es Windows o Linux lo que existe por detras ya que en la URL lo que pongas es case insesitive te lleva al mismo lado mientras que en Linux no.
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/ada17927-0075-4b35-abd5-6fbc67debbc8)
+
+
+
 ## Powershell rutas
 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/1a37fd88-23c6-4976-97cd-8edc4fe90f23)
