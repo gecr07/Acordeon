@@ -216,6 +216,16 @@ Una variacion de reverse shell
 mkdir -p /uno/subdirectorio2/tres
 ```
 
+## TCPDUMP
+
+Para poder ponernos a la escucha y enviarnos pings
+
+```
+sudo tcpdump -i tun0 icmp -n
+
+# -n: Indica a tcpdump que no realice la resolución de nombres y direcciones IP, sino que muestre directamente las direcciones numéricas
+```
+
 
 ## Shebang
 
