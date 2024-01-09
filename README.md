@@ -1286,6 +1286,10 @@ Crea un recurso compartido y lo llama attacker_folder le da una ruta y pone a lo
 net share attacker_folder=C:\Windows\Temp /GRANT:Administrators,FULL
 ```
 
+![image](https://github.com/gecr07/Acordeon/assets/63270579/e46560bd-2981-4887-aa70-1d324c1ba00a)
+
+
+
 ## Crackmapexec
 
 Para enumerar el puerto 445 basico
