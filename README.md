@@ -217,9 +217,23 @@ Una variacion de reverse shell
 mkdir -p /uno/subdirectorio2/tres
 ```
 
+## WhatWeb
+
+Esta es una herramienta muy simple que te dice que cabeceras tiene pero lo interesante es que si le pones el modo -v te puede decir de donde las saca.
+
+```
+whatweb IP -v
+```
+
 ## TCPDUMP
 
-Para poder ponernos a la escucha y enviarnos pings
+Para ponerme a la escucha en una interfaz en este caso tun0
+
+```
+sudo tcpdump -i tun0 -w Captura.cap
+```
+
+Para poder ponernos a la escucha (solo protocolo icmp) y enviarnos pings
 
 ```
 sudo tcpdump -i tun0 icmp -n
@@ -520,6 +534,8 @@ Peticiones GET se puede hacer sin el -X para este tipo de peticiones.
 ```
 curl -s -X GET "http://10.10.0.10/browse.php?file=something.txt"
 ```
+
+Para enviar peticiones https y evitar que cheque los certificados usa la opcion -k.
 
 ## Borrar caracteres tr y grep -v
 
