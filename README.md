@@ -854,24 +854,39 @@ Recordar la maquina atacante es el servidor y la maquina vitima el cliente. En e
 
 ```
 
+# Python
+
+## Trasformar de bytes a  UTF-8
+
+Para trasformar un string que esta en formato de bytes usa decode() y para quitar caracteres.
+
+```python
+b'.php'
+b'.php'.decode()
+b'.php'.decode().strip()
+```
+
+
+
+
 # Windows
 
 ## Arquitecura x86 o x64
 
 Saber la arquitectura de un sistema ojo es diferente la arquitectura del sistema que del proceso si la maquina es de 32 bit no hay tema pero de 64 puede correr ambos. Ojo ahi
 
-```
+```cmd
 echo %PROCESSOR_ARCHITECTURE%
 ```
 Para saber la arquitectura desde powershell
 
-```
+```powershell
 PS C:\Users\kostas\Desktop> [Environment]::Is64BitProcess
 ```
 
 Saber la arquitectura del sistema con "systeminfo"
 
-```
+```cmd
 systeminfo
 ```
 
@@ -882,7 +897,7 @@ systeminfo
 
 Esto es desde powershell pero desde cmd solo quita lo primero
 
-```
+```cmd
 cmd /c dir /r /s user.txt
 ```
 
