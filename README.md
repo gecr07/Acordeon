@@ -230,7 +230,7 @@ whatweb IP -v
 Para ponerme a la escucha en una interfaz en este caso tun0
 
 ```
-sudo tcpdump -i tun0 -w Captura.cap -n
+sudo tcpdump -i tun0 -w Captura.cap -n -v
 
 # -n para que evite aplicarnos la resolucion dns
 ```
@@ -242,7 +242,14 @@ sudo tcpdump -i tun0 icmp -n
 
 # -n: Indica a tcpdump que no realice la resolución de nombres y direcciones IP, sino que muestre directamente las direcciones numéricas
 ```
+## TSHARK
 
+Este es un Wireshark pero de consola los comando basicos son:
+
+```
+tshark -r Captura.cap -Y "http" 2>/dev/null
+#El Y es el filtro en este caso se quiere filtrar por peticiones http
+```
 
 ## Shebang
 
