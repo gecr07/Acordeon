@@ -230,7 +230,9 @@ whatweb IP -v
 Para ponerme a la escucha en una interfaz en este caso tun0
 
 ```
-sudo tcpdump -i tun0 -w Captura.cap
+sudo tcpdump -i tun0 -w Captura.cap -n
+
+# -n para que evite aplicarnos la resolucion dns
 ```
 
 Para poder ponernos a la escucha (solo protocolo icmp) y enviarnos pings
