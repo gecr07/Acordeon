@@ -909,6 +909,12 @@ Para listar y buscar usa estas opciones
 dir /a:h
 ```
 
+En powershell
+
+```
+Get-ChildItem -Force
+```
+
 ## Reverse shell for windows
 
 > Nishang is a framework of scripts and payloads that enables using PowerShell for offensive security. I’ll show the reverse shell, but there is a ton more stuff in here.
