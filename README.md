@@ -892,6 +892,24 @@ systeminfo
 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/9b123cd6-ed32-42b4-a551-26731068ad4c)
 
+
+Con powershell este fragmento de codigo lo saque del sherlock.
+
+```
+function Get-Architecture {
+
+    # This is the CPU architecture.  Returns "64-bit" or "32-bit".
+    $CPUArchitecture = (Get-WmiObject Win32_OperatingSystem).OSArchitecture
+
+    # This is the process architecture, e.g. are we an x86 process running on a 64-bit system.  Retuns "AMD64" or "x86".
+    $ProcessArchitecture = $env:PROCESSOR_ARCHITECTURE
+
+    return $CPUArchitecture, $ProcessArchitecture
+
+}
+
+```
+
 ## Buscar archivos
 
 
