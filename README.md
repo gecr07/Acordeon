@@ -901,6 +901,14 @@ Esto es desde powershell pero desde cmd solo quita lo primero
 cmd /c dir /r /s user.txt
 ```
 
+## Buscar archivos ocultos
+
+Para listar y buscar usa estas opciones
+
+```
+dir /a:h
+```
+
 ## Reverse shell for windows
 
 > Nishang is a framework of scripts and payloads that enables using PowerShell for offensive security. I’ll show the reverse shell, but there is a ton more stuff in here.
