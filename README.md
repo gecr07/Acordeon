@@ -1404,6 +1404,12 @@ net share attacker_folder=C:\Windows\Temp /GRANT:Administrators,FULL
 
 ## Crackmapexec
 
+Sesiones nulas igual se puede
+
+```
+crackmapexec smb <target(s)> -u '' -p ''
+```
+
 Para enumerar el puerto 445 basico
 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/932937ba-7211-4c25-bcf9-ef5c3217e212)
