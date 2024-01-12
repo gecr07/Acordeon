@@ -808,6 +808,35 @@ La ruta donde se encuentra el panel de control por defecto en un servido tomcat 
 http://localhost:8080/manager/html
 ```
 
+### Passwords por defecto
+
+```
+password
+
+Password1
+password1
+admin
+tomcat
+tomcat
+manager
+role1
+tomcat
+changethis
+Password1
+changethis
+password
+password1
+r00t
+root
+toor
+tomcat
+s3cret
+password1
+password
+admin
+changethis
+```
+
 ## XCLIP
 
 Se usa para copiar de la consola al porta papeles.
