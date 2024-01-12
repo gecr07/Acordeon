@@ -177,6 +177,14 @@ wfuzz -c -t 200 --hh=11439 -w direcbotiry23medium.txt -H "Host: FUZZ.cronos.htb"
 wfuzz -c --hw=55 --hc=404 -t 200 -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -H "Host: FUZZ.silo.htb"  http://silo.htb/
 ```
 
+Para poder mandar payloads de diferentes listas usa:
+
+```
+wfuzz -z file,/usr/share/seclists/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt -z file,/usr/share/wordlists/rockyou.txt -z file,file-extensions.txt  -p localhost:8080 http://10.129.185.202:8080/FUZZFUZ2Z.FUZ3Z 
+
+
+```
+
 ## GOBuster
 
 Para enumerar subdominios
