@@ -982,6 +982,31 @@ En powershell
 Get-ChildItem -Force
 ```
 
+Buscar archivos de una extencion 
+
+```
+Get-ChildItem -Recurse -Filter *.kdbx -Force | Select-Object FullName
+```
+
+## Alternative data streams
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/408d5854-40cb-4f53-b6b5-c8932c8bd6b1)
+
+
+Es una manera de esconder cosas y se ve algo como esto:
+
+
+Para listar este tipo de archivos
+
+```
+dir /R
+more < hm.txt:root.txt
+
+```
+
+
+
+
 ## Reverse shell for windows
 
 > Nishang is a framework of scripts and payloads that enables using PowerShell for offensive security. I’ll show the reverse shell, but there is a ton more stuff in here.
