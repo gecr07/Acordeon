@@ -1619,6 +1619,7 @@ Tiene la capacidad de con el output del systeminfo genera las vulns pero da much
 Esta es una herramienta donde puedes escalar privilegios si esta el SetImpersonate privilege activado. En la maquina Jeeves me funciono sin el CLSID (default BITS:{4991d34b-80a1-4291-83b6-3328366b9097}) sin embargo, en las otras si tuve que ponerlo.
 
 ```
+En el contexto de Windows, el CLSID (Class ID o Identificador de Clase) es un identificador único globalmente para una clase de objetos COM (Component Object Model). En el caso específico que mencionas, BITS se refiere a Background Intelligent Transfer Service, que es un servicio de Windows utilizado para la transferencia de archivos en segundo plano, comúnmente utilizado por Windows Update y otros servicios.
 
 .\JuicyPotato.exe -t * -l 1337 -p C:\Windows\System32\cmd.exe -a "/c net user s4vitar password123. /add"
 
