@@ -1471,6 +1471,16 @@ psexec.py WORKGROUP/s4vitar@10.10.14.22 cmd.exe
 Password:
 ```
 
+## Windows exploit suggester Next generation
+
+WES-NG is a tool based on the output of Windows' systeminfo utility which provides the list of vulnerabilities the OS is vulnerable to, including any exploits for these vulnerabilities. Every Windows OS between Windows XP and Windows 11, including their Windows Server counterparts, is supported.
+
+> https://github.com/bitsadmin/wesng
+
+Tiene la capacidad de con el output del systeminfo genera las vulns pero da muchos falsos positivos.
+
+
+
 
 
 
