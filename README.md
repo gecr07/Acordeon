@@ -916,6 +916,10 @@ john -w=/usr/share/wordlists/rockyou.txt hash
 
 
 ```
+Como alternativa esta el keepassxc que tiene interfaz grafica yo creo esta mejor...
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/b6c243ea-15cc-4793-907d-7a184cad8c1c)
+
 
 ## LFI payloads
 
