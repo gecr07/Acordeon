@@ -185,6 +185,8 @@ wfuzz -z file,/usr/share/seclists/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt -
 
 ```
 
+> https://www.pinguytaz.net/index.php/2019/10/18/wfuzz-navaja-suiza-del-pentesting-web-1-3/
+
 ## GOBuster
 
 Para enumerar subdominios
