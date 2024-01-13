@@ -903,6 +903,18 @@ b'.php'.decode()
 b'.php'.decode().strip()
 ```
 
+## Keepass (gestor de contraseñas)
+
+La extencion de las bases de datos es ***.kdbx**** 
+
+```
+keepass2john CEH.kdbx
+
+john -w=/usr/share/wordlists/rockyou.txt hash
+
+
+```
+
 
 
 
