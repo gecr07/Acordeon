@@ -904,6 +904,11 @@ b'.php'
 b'.php'.decode()
 b'.php'.decode().strip()
 ```
+Para trasformar de str a bytes entonces seria
+
+```
+
+```
 
 ## Keepass (gestor de contraseñas)
 
