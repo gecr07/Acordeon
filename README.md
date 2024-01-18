@@ -3,7 +3,6 @@
 ## S4vitar extractports
 
 
-
 ```bash
 
 # Used: 
@@ -1316,7 +1315,19 @@ Ahora para ver que hay dentro el dir jala igualmente.
 ```
 dir \\10.10.14.80\smbFolder
 ```
+## SMB NULL sessions
 
+Prueba ambas herramientas para estar seguro a veces fallan es mejor probar con ambas
+
+```
+smbclient -L 10.10.10.59 -N
+```
+
+Y ahora con SQLMAP
+
+```
+smbmap -H 10.10.14.12 -u 'null'
+```
 
 ## Watson exploit suggerster
 
