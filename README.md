@@ -268,6 +268,13 @@ tshark -r Captura.cap -Y "http" 2>/dev/null
 chmod u+s /bin/bash
 
 ```
+## Convertir mayusculas a minusculas y alrreves
+
+Para hacer esta convercion usa esto:
+
+```
+tr '[:upper:]' '[:lower:]'
+```
 
 ## Grep -P -E
 
