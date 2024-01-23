@@ -1654,7 +1654,17 @@ En el contexto de Windows, el CLSID (Class ID o Identificador de Clase) es un id
 > https://github.com/ohpe/juicy-potato
 
 
+## Ver credenciales de windows Winlogon (for autologon)
 
+
+NOta en la maquina bart usa esto 0xd pero se tiene que ejecutar en un proceso de 64 bits siempre intenta ejecutar una shell con ese procesos de x64
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/8693f721-bd5d-4ab7-9412-05060968d7c5)
+
+
+```
+reg query "HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon" 2>nul | findstr "DefaultUserName DefaultDomainName DefaultPassword"
+```
 
 
 
