@@ -1667,7 +1667,13 @@ reg query "HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon" 2>nul | f
 ```
 
 
+## Montar un recurso con windows
 
+Si tienes las contraseñas de un usuario administrador o el admin puedes montar el disco c con todos los privilegios...
+
+```
+ net use x: \\localhost\c$ /user:administrator 3130438f31186fbaf962f407711faddb
+```
 
 
 
