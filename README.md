@@ -114,6 +114,13 @@ sudo -u asuser whoami
 
 ```
 
+## TR Mayusculas a Minusculas
+
+Para cambiar de mayusculas a minuculas
+
+```
+tr '[:upper:]' '[:lower:]'
+```
 
 ## Enum
 
