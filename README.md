@@ -1757,7 +1757,14 @@ Si tienes las contraseñas de un usuario administrador o el admin puedes montar 
  net use x: \\localhost\c$ /user:administrator 3130438f31186fbaf962f407711faddb
 ```
 
+## Powershell Execution Policy Bypass
 
+Para brincarse la execution policy se hace asi
+
+```
+ powershell.exe -ExecutionPolicy Bypass -File .\prueba.ps1
+
+```
 
 
 
