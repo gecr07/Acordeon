@@ -1767,9 +1767,35 @@ Para brincarse la execution policy se hace asi
 ```
 
 
+## Debuggear scritps Powershell
+
+Para debuggear scripts usa "Wait-Debugger". cuando estes dentro usa h para ver como ir paso a paso.
+
+```
+Wait-Debugger
+
+function prueba {
+	
+	$var1="Uno"
+	$var2="Dos"
+
+}
 
 
+prueba
 
+$masa="Hola Masa"
+
+echo "Hola mundo"
+```
+
+La s entra dentro de las funciones y si quieres ver donde va usa l ademas si quieres ver el valor de una variable solo nombrala por ejemplo $var1
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/ebcf1685-8ee9-462e-bb72-62e1d9ac177e)
+
+## Powershell codigo de estado $?
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/585128cf-4a8d-433f-a2e2-bfe7e9077fde)
 
 
 
