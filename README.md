@@ -486,10 +486,25 @@ xxd -ps -r;echo
 
 ## CEWL
 
-Listas de palabras para brute force de lo mismo que esta en la pagina sirve por ejemplo para encontrar el usuario hype en Valentine (machine).
+Listas de palabras para brute force de lo mismo que esta en la pagina sirve por ejemplo para encontrar el usuario Valentine (machine).
 
 ```
 cewl -v --depth 2 --write lista.txt http://10.129.44.3/dev/
+
+```
+
+
+Esto sirve para crear diccionarios en base a las mismas palabras de la pagina.
+
+```
+cewl -w cewl-forum.txt -e -a http://forum.bart.htb
+
+‐e, ‐‐email
+                     Include email addresses.
+
+ ‐a, ‐‐meta
+                     Include meta data.
+
 
 ```
 
