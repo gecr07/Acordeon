@@ -644,6 +644,12 @@ curl -s -X GET "http://10.10.0.10/browse.php?file=something.txt"
 
 Para enviar peticiones https y evitar que cheque los certificados usa la opcion -k.
 
+Peticiones POST para registrar un usuario.
+
+```
+curl -X POST http://internal-01.bart.htb/simple_chat/login_form.php -d "uname=masa&password=masa1234"
+```
+
 ## Borrar caracteres tr y grep -v
 
 Para borrar caracteres usa el grep -v y el tr -d
@@ -1103,6 +1109,9 @@ Combina esto con wfuzz y podrias probar LFIs aunque siempre intenta manual pero 
 ....\....\....\....\....\....\....\....\
 ```
 
+## Proyecctos Opensource
+
+Pues asi como revisas siempre si hay contraseñas por defecto tambien esta bien que intentes ver si el proyecto es open source y si puedes aprobechar eso.
 
 
 # Windows
