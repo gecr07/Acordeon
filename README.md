@@ -1920,3 +1920,14 @@ Para hacer el Kerberoasting es importante tener sincronizado el reloj con el DC 
 ```
 ntpdate IPDC
 ```
+
+## ASREPRoast
+
+Para cuando tienes usuarios pero no contraseñas si no tienen habilitado el Pre Auth de Kerberos son vulnerables.
+
+
+
+
+
+
+
