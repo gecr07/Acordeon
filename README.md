@@ -1913,4 +1913,10 @@ hashcat -m 13100 -a 0 GetUserSPNs.out /usr/share/wordlists/rockyou.txt --force
 
 ```
 
+## Sincronixar reloj
 
+Para hacer el Kerberoasting es importante tener sincronizado el reloj con el DC para ello usa
+
+```
+ntpdate IPDC
+```
