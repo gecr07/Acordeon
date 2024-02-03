@@ -191,6 +191,12 @@ wfuzz -z file,/usr/share/seclists/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt -
 
 ```
 
+### WFUZZ Post request y esconder char len
+
+```
+wfuzz -c -t 200 --hh=7074  -w /usr/share/seclists/Usernames/top-usernames-shortlist.txt -d "username=FUZZ&password=masa" http://falafel.htb/login.php
+```
+
 > https://www.pinguytaz.net/index.php/2019/10/18/wfuzz-navaja-suiza-del-pentesting-web-1-3/
 
 ## GOBuster
