@@ -114,6 +114,15 @@ sudo -u asuser whoami
 
 ```
 
+## Mount (montar un share)
+
+De nuevo para no estar listando cada uno de los directorios monta mejor.
+
+```
+mkdir /mnt/smb
+mount -t cifs //10.0.1.1/ACCT /mnt/smb -o username=Finance,password=Acc0unting,rw #Puedes poner solo r o ambas read write.
+```
+
 ## FTP mount
 
 Cuando tiene credenciales y no quieres estar buscando uno por uno(carpeta)
