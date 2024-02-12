@@ -114,6 +114,14 @@ sudo -u asuser whoami
 
 ```
 
+## FTP mount
+
+Cuando tiene credenciales y no quieres estar buscando uno por uno(carpeta)
+
+```
+curlftpfs ftp.example.com /mnt/ftp/ -o user=username:'password',allow_other
+```
+
 ## TR Mayusculas a Minusculas
 
 Para cambiar de mayusculas a minuculas
