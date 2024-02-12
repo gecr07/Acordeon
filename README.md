@@ -242,6 +242,14 @@ progrmaa &> /dev/null & disown
  
 ```
 
+firefox: Es el comando para ejecutar el navegador web Firefox.
+
+&> /dev/null: Redirige tanto la salida estándar (stdout) como la salida de error estándar (stderr) del comando firefox al dispositivo especial /dev/null. /dev/null es un dispositivo especial en sistemas Unix y Linux que se utiliza para descartar datos. Por lo tanto, este comando asegura que cualquier salida generada por Firefox se descarte y no se muestre en la pantalla o en ningún archivo de registro.
+
+&: Este símbolo se utiliza para ejecutar el comando en segundo plano, lo que significa que el navegador Firefox se ejecutará en segundo plano y no bloqueará la terminal desde la que se lanzó.
+
+disown: Este comando se utiliza para desvincular el proceso del terminal actual, lo que significa que el proceso Firefox continuará ejecutándose incluso si cierras la terminal desde la que lo lanzaste. Esto evita que el proceso sea terminado cuando cierras la terminal.
+
 ## mkdir crear mas de un directorio 
 
 ```bash
