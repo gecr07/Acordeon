@@ -1941,6 +1941,8 @@ smbclient //10.10.10.100/Users -U active.htb\\SVC_TGS%GPPstillStandingStrong2k18
 
 smbclient //10.10.10.100/C$ -U active.htb\\administrator%Ticketmaster1968
 
+smbmap -H 0110.10.1 -u "Usern" -p "Password123" -r "ACCT" #Listas que hay dentro de acct es un recurso compartido con permisos de lectura
+
 ```
 
 ## Kerberoasting
