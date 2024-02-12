@@ -120,6 +120,10 @@ Cuando tiene credenciales y no quieres estar buscando uno por uno(carpeta)
 
 ```
 curlftpfs ftp.example.com /mnt/ftp/ -o user=username:'password',allow_other
+
+# Cuando se termine de usar para desmontar
+
+umount /mnt/ftp/
 ```
 
 ## TR Mayusculas a Minusculas
