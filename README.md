@@ -1821,6 +1821,15 @@ crackmapexec smb 10.129.185.202 -u 'Adminsitrator' -H e0fb1fb85756c24235ff238cbe
 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/62a75e78-4ef2-4778-997d-ce92b69333de)
 
+### WinRm
+
+Se puede probar si las credenciales funcionan para WinRM puerto ***5985 y 5986***
+
+```bash
+ crackmapexec winrm 10.10.11.108 -u svc-printer -p '1edFg43012!!'
+
+```
+
 
 ## Pass the hash
 
