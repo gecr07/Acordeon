@@ -1233,6 +1233,8 @@ Saber la arquitectura del sistema con "systeminfo"
 
 ```cmd
 systeminfo
+#PS
+Get-ComputerInfo
 ```
 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/9b123cd6-ed32-42b4-a551-26731068ad4c)
