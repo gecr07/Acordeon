@@ -1068,7 +1068,10 @@ b'.php'.decode().strip()
 Para trasformar de str a bytes entonces seria
 
 ```
+mi_cadena = "Hola mundo"
+mi_cadena_en_bytes = mi_cadena.encode('utf-8')
 
+print(mi_cadena_en_bytes)
 ```
 
 Para pasar a hex se hace asi.
