@@ -1686,8 +1686,8 @@ Ahora para escalar vamos a hacer reconocimiento basico..
 
 ```
 systeminfo
-net user
-net localgroup
+net user # PS Get-LocalUser
+net localgroup # PS Get-LocalGroup
 netstat -ano
 whoami /priv
 whoami /all #miembro de que grupos
