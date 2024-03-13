@@ -141,14 +141,6 @@ curlftpfs ftp.example.com /mnt/ftp/ -o user=username:'password',allow_other
 umount /mnt/ftp/
 ```
 
-## TR Mayusculas a Minusculas
-
-Para cambiar de mayusculas a minuculas
-
-```
-tr '[:upper:]' '[:lower:]'
-```
-
 ## Enum
 
 ```
