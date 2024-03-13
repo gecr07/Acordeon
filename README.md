@@ -398,6 +398,13 @@ grep -oP '\.\w{40}'
 
 ```
 
+Para buscar una palabra ( y que grep muestre la linea) y que inicie y acabe.
+
+```
+## -n imprime la linea
+grep -n "^api$"
+```
+
 ## Enlace simbolico
 
 Son como los accesos directos pero para linux existen otros enlaces aparte de los simbolicos los duros.
@@ -606,14 +613,7 @@ Pero si buscas sshenum python3 salen scripts.
 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/b53a5a8f-da0a-449f-8ce8-ca765caca76e)
 
-## grep
 
-Para buscar una palabra ( y que grep muestre la linea) y que inicie y acabe.
-
-```
-## -n imprime la linea
-grep -n "^api$"
-```
 
 ## Matar procesos (Kill killall)
 
