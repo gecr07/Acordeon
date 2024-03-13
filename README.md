@@ -33,8 +33,6 @@ nmap --script "vuln and safe" -p443 10.10.10.17.1 -oN Scan
 ```
 
 
-
-
 ## Stenografia
 
 ```
@@ -71,18 +69,6 @@ stty size # por si no sabes las medidas de tu pantalla
 stty rows  51 columns 189 # Patalla grande
 stty rows  40 columns 167 # pantalla de lab viejita
 ```
-
-## Python Fully TTY
-
-> https://book.hacktricks.xyz/generic-methodologies-and-resources/shells/full-ttys
-
-````python 
-
-python3 -c 'import pty; pty.spawn("/bin/bash")'
-
-(inside the nc session) CTRL+Z;stty raw -echo; fg; ls; export SHELL=/bin/bash; export TERM=screen; stty rows 38 columns 116; reset;
-````
-
 
 ## Spawn shells
 
@@ -1093,6 +1079,17 @@ hex(10)
 Nos regresa la 0xa
 ```
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/35cf4197-6bbb-4803-8d78-315157d1e3ca)
+
+### Python Fully TTY
+
+> https://book.hacktricks.xyz/generic-methodologies-and-resources/shells/full-ttys
+
+````python 
+
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+(inside the nc session) CTRL+Z;stty raw -echo; fg; ls; export SHELL=/bin/bash; export TERM=screen; stty rows 38 columns 116; reset;
+````
 
 ## Keepass (gestor de contraseñas)
 
