@@ -1693,6 +1693,23 @@ whoami /priv
 whoami /all #miembro de que grupos
 ```
 
+Obtener informacion de un grupo o un usuario
+
+```
+net user svc-printer
+net localgroup 
+```
+## Grupos con privilegios
+
+Algunos de los grupos que tienen privilegios son:
+
+```
+Server Operators
+
+Administrators
+```
+> https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#server-operators
+
 ## Exploits de windows
 
 Una pagina interesante que tiene exploits de windows compilados.
