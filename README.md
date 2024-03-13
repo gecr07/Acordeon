@@ -1710,6 +1710,16 @@ Administrators
 ```
 > https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#server-operators
 
+## Servicios de Windows
+
+Para ver los servicios usa:
+
+```
+services # PS Get-Service
+
+```
+
+
 ## Exploits de windows
 
 Una pagina interesante que tiene exploits de windows compilados.
