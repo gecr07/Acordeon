@@ -807,16 +807,6 @@ Igual con sslscan
 sslscan https://10.10.1.1/
 ```
 
-## Python pasar a hex
-
-Para pasar a hex se hace asi.
-
-```
-python3
-hex(10)
-Nos regresa la 0xa
-```
-![image](https://github.com/gecr07/Acordeon/assets/63270579/35cf4197-6bbb-4803-8d78-315157d1e3ca)
 
 ## Procmon
 
@@ -1094,6 +1084,15 @@ Para trasformar de str a bytes entonces seria
 ```
 
 ```
+
+Para pasar a hex se hace asi.
+
+```
+python3
+hex(10)
+Nos regresa la 0xa
+```
+![image](https://github.com/gecr07/Acordeon/assets/63270579/35cf4197-6bbb-4803-8d78-315157d1e3ca)
 
 ## Keepass (gestor de contraseñas)
 
