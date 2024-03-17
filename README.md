@@ -40,7 +40,7 @@ Eso crea la llave publica y privada ahora pon la llave publica en el directorio 
 cat id_ed25519.pub | tr -d '\n' | xclip -sel clip
 ```
 
-Finalmente en la maquina tarjet
+Finalmente en la maquina target
 
 ```
 cd .ssh
