@@ -24,6 +24,31 @@ function extractPorts(){
 
 ```
 
+## SSH
+
+Para poder usar la llave privada que tu mismo creaste has lo siguiente:
+
+```
+## Kali
+ssh-keygen
+
+```
+
+Eso crea la llave publica y privada ahora pon la llave publica en el directorio authorized_keys en la maquina victima
+
+```
+cat id_ed25519.pub | tr -d '\n' | xclip -sel clip
+```
+
+Finalmente en la maquina tarjet
+
+```
+cd .ssh
+echo "akhsjkd" > authorized_keys
+
+ssh -i id_rsa strapi@10.10.14.57 
+```
+
 ## Nmap
 
 Para tirarle categorias de scripts para probar vulnerabilidades
