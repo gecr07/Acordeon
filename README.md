@@ -44,7 +44,7 @@ Finalmente en la maquina target
 
 ```
 cd .ssh
-echo "akhsjkd" > authorized_keys
+ echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDIK/xSi58QvP1UqH+nBwpD1WQ7IaxiVdTpsg5U19G3d nobody@nothing" >> authorized_keys
 
 ssh -i id_rsa strapi@10.10.14.57 
 ```
