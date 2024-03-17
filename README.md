@@ -1052,6 +1052,10 @@ Recordar la maquina atacante es el servidor y la maquina vitima el cliente. En e
 
 .\chisel.exe client IPKALI:4321 R:445:127.0.0.1:445
 
+# Ejemplo
+./chisel cliente KALI_IP:PORT    PORT_VICTIM:A_DONDE:PORT_KALI
+./chisel client 10.10.14.57:1234 R:8000:localhost:8001
+
 ```
 
 # Python
