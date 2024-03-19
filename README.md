@@ -160,6 +160,12 @@ Content-Type: application/octet-stream
 
 ```
 
+## NodeShell
+
+Para crear reverse shell que funcione
+
+> https://github.com/ajinabraham/Node.Js-Security-Course/blob/master/nodejsshell.py
+
 ## NOSQL LOGINS FORMS
 
 En los logins siempre prueba tanto inyecciones SQL como NO SQL
