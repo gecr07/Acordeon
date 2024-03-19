@@ -169,6 +169,32 @@ Content-Type: application/octet-stream
 
 ```
 
+## Mongo
+
+Para conectarte a una base de datos mongo(y tambien con la de mysql) sin necesitad de usuario y password
+
+```
+mongo mongodb://localhost/blog
+
+## Si tienes credenciales
+
+mongo mongodb://usuario:contraseña@host:puerto/nombreDeLaBaseDeDatos
+
+```
+
+Para ver las bases de datos y tablas usa:
+
+```
+show dbs
+
+use nombreDeLaBaseDeDatos
+
+show collections
+
+db.nombre_tabla.find()
+
+```
+
 ## NodeShell
 
 Para crear reverse shell que funcione
@@ -202,6 +228,12 @@ ETC
 ```
 
 > https://book.hacktricks.xyz/pentesting-web/login-bypass
+
+## Alternativa a netstat
+
+```
+ss -lnpt
+```
 
 ## FTP mount
 
