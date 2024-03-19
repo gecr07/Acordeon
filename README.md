@@ -24,6 +24,15 @@ function extractPorts(){
 
 ```
 
+## Hydra Proxy
+
+Para poder pasar por un proxy usa:
+
+```
+export HYDRA_PROXY_HTTP=http://127.0.0.1:8080 
+```
+> https://github.com/gnebbia/hydra_notes
+
 ## SSH
 
 Para poder usar la llave privada que tu mismo creaste has lo siguiente:
