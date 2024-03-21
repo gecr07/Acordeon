@@ -888,6 +888,14 @@ searchsploit dirty cow
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/374d5cb5-50ec-4ffb-b7f0-e431a9a6b9b0)
 
 
+## Borrado seguro
+
+Para borrar seguro algo asi como una tecnica anti forense
+
+```
+shred -zun 10 -v payload.php
+```
+
 
 ## GCC compilar
 
