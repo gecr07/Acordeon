@@ -998,6 +998,12 @@ Funciona mejor con un tunnel asi
  ssh -i id_ed25519 strapi@10.10.11.105 -L:8000:127.0.0.1:8000
 ```
 
+Para poder realizar un un tunel socks en otro puero osea ya cuanod saltaste aotro segmento.
+
+```
+./chisel client 10.10.1.2 R:8888:socks 
+```
+
 ##  Revisar puetos en uso (lsof)
 
 Para revisar un puerto si esta en uso:
