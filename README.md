@@ -1278,6 +1278,30 @@ Recordar la maquina atacante es el servidor y la maquina vitima el cliente. En e
 
 ```
 
+### socks
+
+Pues para traerte todos los puertos (por asi decirlo)
+
+```
+./chisel client 10.0.kali:1234 R:socks
+
+# Te abre un tunel por el puerto 1080 ( por default)
+#Primero se utiliza strict chain
+
+[ProxyList]
+# add proxy here ...
+# meanwile
+# defaults set to "tor"
+#socks4         127.0.0.1 9050
+socks5 127.0.0.1 1080
+
+## Para escanear mas rapido con nmap
+
+seq 1 65535 | xargs -P -I {} proxychains nmap -sT -Pn -p{} -open -T5 -v -n 10.1.10.12 2>/dev/null
+
+```
+
+
 # Python
 
 ## Trasformar de bytes a  UTF-8
