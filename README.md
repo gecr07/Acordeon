@@ -941,11 +941,15 @@ Y en este ejemplo lo usan para comunicarse con el vncviewer en los puertos 5901
 ```
 proxychains vncviwer -passwd secret_key 127.0.0.1:5901
 ```
-Para usar nmap se tiene que usar la -sT afuerzas TCP connect
+Para usar nmap se tiene que usar la -sT afuerzas TCP connect pero recuerda poner delante el proxychains
 
 ```
-nmap -sT -p21,22,80 erev0s.com
+proxychains nmap -sT -p21,22,80 127.0.0.1
 ```
+
+Para usar con Firefox.
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/aedce8ce-0b8d-41cf-b36d-ffe04c084c2c)
 
 
 
