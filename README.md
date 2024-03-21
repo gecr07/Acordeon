@@ -33,6 +33,14 @@ export HYDRA_PROXY_HTTP=http://127.0.0.1:8080
 ```
 > https://github.com/gnebbia/hydra_notes
 
+## Ver errores stdout
+
+Para redirigir el stderr al stdout usa:
+
+```
+comando ( que no genera output) 2>&1
+```
+
 ## SSH
 
 Para poder usar la llave privada que tu mismo creaste has lo siguiente:
