@@ -974,9 +974,21 @@ proxychains nmap -sT -p21,22,80 127.0.0.1
 
 Para usar con Firefox.
 
-![image](https://github.com/gecr07/Acordeon/assets/63270579/aedce8ce-0b8d-41cf-b36d-ffe04c084c2c)
+![image](https://github.com/gecr07/Acordeon/assets/63270579/78343db1-365d-492e-a870-94108fa2e110)
 
 
+```
+## En el archivo de configuracion
+
+socks4 127.0.0.1 1080
+
+### ssh
+
+ssh -i id_ed25519 strapi@10.10.11.105 -D 1080
+
+#Aun no entiendo por da problemas....
+
+```
 
 ##  Revisar puetos en uso (lsof)
 
