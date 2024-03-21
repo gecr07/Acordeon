@@ -988,6 +988,8 @@ ssh -i id_ed25519 strapi@10.10.11.105 -D 1080
 
 #Aun no entiendo por da problemas....
 
+http://localhost:8000/
+
 ```
 
 ##  Revisar puetos en uso (lsof)
