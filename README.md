@@ -33,6 +33,14 @@ export HYDRA_PROXY_HTTP=http://127.0.0.1:8080
 ```
 > https://github.com/gnebbia/hydra_notes
 
+## APACHE
+
+Las rutas de apache que generalmente se utilizan son:
+
+```
+/etc/apache2/sites-enabled/
+```
+
 ## Ver errores stdout
 
 Para redirigir el stderr al stdout usa:
@@ -1066,7 +1074,13 @@ impacket-secretsdump -ntds ntds.dit -system system.bin LOCAL
 ```
 
 
-## WPSCAN
+## WORDPRESS
+
+Algunas rutas que vale la pena ver son las configuraciones de este:
+
+```
+/etc/wordpress/config-default.php
+```
 
 Aqui tienes los comandos basicos para enumerar un WP
 
@@ -1082,7 +1096,7 @@ wpscan --url http://10.10.1.1/blog --enumerate u,vp --plugins.detection aggressi
 ```
 
 
-## Enumerar plugins sin WPSCAN ( es un check que se debe de hacer) visto en maquina Tartarsauce
+### Enumerar plugins sin WPSCAN ( es un check que se debe de hacer) visto en maquina Tartarsauce
 
 Me ha pasado que wpscan no te da los plugins que existen en la maquina. Se tiene que hacer manualmente.
 ```
