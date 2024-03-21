@@ -38,6 +38,7 @@ export HYDRA_PROXY_HTTP=http://127.0.0.1:8080
 Para redirigir el stderr al stdout usa:
 
 ```
+# Siempre que ejecutes comando en una barra de anvegacio usa %26 para url encodear el &
 comando ( que no genera output) 2>&1
 ```
 
