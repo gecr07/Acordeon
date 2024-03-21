@@ -1057,6 +1057,13 @@ Aqui tienes los comandos basicos para enumerar un WP
 wpscan -v --disable-tls-checks --enumerate u,p --url  https://brainfuck.htb/
 
 ```
+Si no tienes la API luego no detecta vulnerabilidades para usar la API usa ( tienes que definirla en el .zshrc
+
+
+```
+wpscan --url http://10.10.1.1/blog --enumerate u,vp --plugins.detection aggressive --api-token=$WPSCAN
+```
+
 
 ## Enumerar plugins sin WPSCAN ( es un check que se debe de hacer) visto en maquina Tartarsauce
 
