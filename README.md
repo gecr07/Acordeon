@@ -992,6 +992,12 @@ http://localhost:8000/
 
 ```
 
+Funciona mejor con un tunnel asi
+
+```
+ ssh -i id_ed25519 strapi@10.10.11.105 -L:8000:127.0.0.1:8000
+```
+
 ##  Revisar puetos en uso (lsof)
 
 Para revisar un puerto si esta en uso:
