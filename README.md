@@ -257,6 +257,10 @@ Si pones solamente moun te muestra todo lo que esta montado en el sistema.
 mount | grep augustus
 /dev/sda1 on /home/augustus type ext4 (rw,relatime,errors=remount-ro)
 
+####
+
+En resumen, esta línea te está diciendo que hay un sistema de archivos del tipo ext4 en el dispositivo /dev/sda1, montado en el directorio /home/augustus con permisos de lectura y escritura, y con ciertas opciones respecto a los tiempos de acceso y el manejo de errores.
+
 ```
 
 ## Node express etc
