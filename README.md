@@ -249,6 +249,16 @@ mkdir /mnt/smb
 mount -t cifs //10.0.1.1/ACCT /mnt/smb -o username=Finance,password=Acc0unting,rw #Puedes poner solo r o ambas read write.
 ```
 
+### Mount
+
+Si pones solamente moun te muestra todo lo que esta montado en el sistema.
+
+```
+mount | grep augustus
+/dev/sda1 on /home/augustus type ext4 (rw,relatime,errors=remount-ro)
+
+```
+
 ## Node express etc
 
 Muchas veces esto trabaja con mongo y las vulnerabilidades reciden el los modulos que usa la propia app. Algunos content types
