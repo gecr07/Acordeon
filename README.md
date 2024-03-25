@@ -411,6 +411,20 @@ os.system("chmod u+s /bin/bash")
 
 ```
 
+## Redireccionar stdout stderror
+
+Aqui tenemos como redireccionar tanto el stdout como el stderr
+
+```
+burpsuite &>/dev/null
+```
+
+Ahora para redireccionar el stderr 
+
+```
+2>&1
+```
+
 ## SQLI mysql
 
 Para no depender de SQLMAP voy a utilizar la tabla "information_schema" esta tabla tiene informacion de usuarios privilegios etc.
