@@ -146,7 +146,13 @@ steghide info omg.jpg
 ```
 Existen herramientas de fuenrza bruta que ayudan a esto busca "steghide brute force".
 
+## Host Discovery
 
+Usa este one liner para cuando tengas problemas con el output jala en donde sea:
+
+```
+for i in {1..254}; do ping -c 1 -W 1 172.19.0.$i | grep "64 bytes" & done
+```
 
 ## Fully TTYs
 
