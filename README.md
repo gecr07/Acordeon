@@ -934,7 +934,12 @@ john -w=/usr/share/wordlists/rockyou.txt hash
 ```
 
 ## Chown
+En la maquina Goodgames tenemos un ejemplo de esto para la escalada:
 
+```
+chown root:root bash
+# le pone que el propietario es root y luego : indica que el grupo tambien es root.
+``` 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/c369ca96-3758-4148-990e-dbd372b75df6)
 
 Ahora para que los grupos puedan leer y escribir
