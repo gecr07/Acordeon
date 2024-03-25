@@ -152,6 +152,11 @@ Usa este one liner para cuando tengas problemas con el output jala en donde sea:
 
 ```
 for i in {1..254}; do ping -c 1 -W 1 172.19.0.$i | grep "64 bytes" & done
+
+## Todavia mas sencillo
+
+for i in {1..254}; do (ping -c 1 172.19.0.${i} | grep "bytes from" | grep -v "Unreachable" &); done;
+
 ```
 
 
