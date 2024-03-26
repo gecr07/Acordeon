@@ -2401,6 +2401,13 @@ xp_cmdshell whoami
 enable_xp_cmdshell
 ```
 
+## Hash MD5
+
+Para sacar el hash md5 de un archivo cuando lo trasfieras usa:
+
+```
+CertUtil -hashfile CustomerManagerService.exe MD5
+```
 
 
 # Active Directory
