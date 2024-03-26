@@ -1075,6 +1075,21 @@ Para poder realizar un un tunel socks en otro puero osea ya cuanod saltaste aotr
 ./chisel client 10.10.1.2 R:8888:socks 
 ```
 
+## Redirigir trafico 
+
+Puedes usar socat para redirigir el trafico pero hay veces que este no funciona porque solo esta para 64, las librerias de c no son las que usar el binario estatico etc se puede usar nc
+
+```
+nc -l 445 -c "nc 172.16.40.5 445"
+```
+
+Si el socat se puede usar lo puedes usar tanto para esperar una shell (tipo nc) como para re dirigir todo el trafico.
+
+```
+./socat TCP-LISTEN:555,fork TCP:172.16.40.5:555 &
+
+```
+
 ##  Revisar puetos en uso (lsof)
 
 Para revisar un puerto si esta en uso:
