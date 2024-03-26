@@ -2409,6 +2409,25 @@ Para sacar el hash md5 de un archivo cuando lo trasfieras usa:
 CertUtil -hashfile CustomerManagerService.exe MD5
 ```
 
+## Matar procesos
+
+Se pueden matar procesos tanto por su nombre como por su PID
+
+```
+taskkill /IM notepad.exe /F
+#F de force
+#Por PID
+
+taskkill /PID 1234 /F
+```
+
+## Proceso en segundo plano cmd
+
+Para que puedas seguir trabajando usa
+
+```
+start /B comando
+```
 
 # Active Directory
 
@@ -2419,7 +2438,6 @@ CertUtil -hashfile CustomerManagerService.exe MD5
 389/tcp  LDAP
 636/tcp  LDAPS 
 5985/tcp WinRM
-
 
 ```
 
