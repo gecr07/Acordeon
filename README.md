@@ -82,6 +82,14 @@ Para hacer que jale un cron ponlo en la carpeta /etc/cron.d
 * * * * * root sh /tmp/reverse.sh
 ```
 
+## GLIBC
+
+Para verificar que version de glibc tiene el sistema que estas trabajando y en el caso de tener que compilar un programa es util
+
+```
+ldd --version
+```
+
 ## Nmap
 
 Para tirarle categorias de scripts para probar vulnerabilidades
@@ -1257,7 +1265,11 @@ Para comprimir un archivo o carpeta usa
 ```
 zip -r socat.zip socat/
 ```
+Recuerda para comprimir un archivo pues quita la r
 
+```
+unzip mi_carpeta.zip
+```
 
 ## Tar
 
