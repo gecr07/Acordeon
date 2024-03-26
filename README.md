@@ -2429,6 +2429,14 @@ Para que puedas seguir trabajando usa
 start /B comando
 ```
 
+## Enviar un paquete con NC
+
+Para pruebas sobre todo esto es muy util
+
+```
+echo. | nc.exe IP port
+```
+
 # Active Directory
 
 ## Puertos Comunnes y Servicios
