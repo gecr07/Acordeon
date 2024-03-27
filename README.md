@@ -2436,6 +2436,11 @@ Para pruebas sobre todo esto es muy util
 ```
 echo. | nc.exe IP port
 ```
+Pero tambien sirve en linux
+
+```
+echo| nc 127.0.0.1 3333
+```
 
 # Active Directory
 
