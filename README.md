@@ -537,6 +537,13 @@ wfuzz -c -t 200 --hh=7074  -w /usr/share/seclists/Usernames/top-usernames-shortl
 
 > https://www.pinguytaz.net/index.php/2019/10/18/wfuzz-navaja-suiza-del-pentesting-web-1-3/
 
+Basic auth with session fuzz with proxy
+
+```
+wfuzz -c --hc=404  -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -p localhost:8080  -H "Authorization: Basic YWRtaW46YWRtaW4="  http://driver.htb/FUZZ
+
+```
+
 ## GOBuster
 
 Para enumerar subdominios
