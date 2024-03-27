@@ -36,7 +36,7 @@ Ejemplos hay que practicar
 
 basic
 
-###Proxy
+### Proxy
 
 Para poder pasar por un proxy usa:
 
