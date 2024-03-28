@@ -1925,6 +1925,13 @@ Para esto usa icacls
 icacls C:\Users\tony\appdata\local\job\job.bat
 ```
 
+## Copiar un archivo y remplazar
+
+Si existe lo remplazara
+
+```
+copy /Y mal.bat C:\Users\tony\appdata\local\job\job.bat
+```
 
 ## Smb
 
