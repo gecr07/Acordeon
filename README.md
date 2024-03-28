@@ -1608,6 +1608,16 @@ admin' and substring(username,1,1)='a'-- # va a dar true o el mensaje
 admin' and substring(username,2,1)='d'-- # va a dar true o el mensaje
 ```
 
+## Scrips de bat
+
+Este es el script mas basico de bat
+
+```
+@echo off
+echo Hola Mundo
+pause
+```
+
 
 # Windows
 
