@@ -1626,7 +1626,7 @@ pause
 Saber version de windows desde el registro en caso de que no se pueda usar systeminfo
 
 ```
-reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion"
+reg query "hklm\software\microsoft\windows nt\currentversion" /v ProductName
 ```
 
 ## Program files
