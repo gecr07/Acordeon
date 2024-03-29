@@ -1621,6 +1621,14 @@ pause
 
 # Windows
 
+## Version
+
+Saber version de windows desde el registro en caso de que no se pueda usar systeminfo
+
+```
+reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion"
+```
+
 ## Program files
 
 Program Files: Esta carpeta está destinada para los programas de 64 bits. Cuando instalas una aplicación de 64 bits en un sistema de 64 bits, por defecto se ubicará en esta carpeta.
