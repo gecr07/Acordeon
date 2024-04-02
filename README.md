@@ -75,6 +75,15 @@ Para ejecutar un jar usa:
 sudo java -jar TLauncher-*.jar
 ```
 
+Para descompilar he utilizado esta herramienta ya sabes sirve para ver el codigo en java es bastante util:
+
+```
+sudo apt install jd-gui
+
+jd-gui 
+
+```
+
 ## SSH
 
 Para poder usar la llave privada que tu mismo creaste has lo siguiente:
