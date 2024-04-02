@@ -67,6 +67,14 @@ Para redirigir el stderr al stdout usa:
 comando ( que no genera output) 2>&1
 ```
 
+## Java
+
+Para ejecutar un jar usa:
+
+```
+sudo java -jar TLauncher-*.jar
+```
+
 ## SSH
 
 Para poder usar la llave privada que tu mismo creaste has lo siguiente:
