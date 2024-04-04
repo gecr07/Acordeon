@@ -41,6 +41,31 @@ hydra -l admin -P /usr/share/wordlists/rockyou.txt -f 10.10.11.106 http-get /
 
 ```
 
+## Openssl encrypted files
+
+Existe manera de encriptar informacion tiene muchos posibles algoritmos de cifrados. Por ejemplo vamos a encriptarun archivo:
+
+```
+openssl aes-256-cbc -in file.txt -out file.crypted
+```
+![image](https://github.com/gecr07/Acordeon/assets/63270579/19dd4041-ce88-4168-842c-95f230a85692)
+
+Y pues para desencriptar seria
+
+```
+openssl aes-256-cbc -d -in file.txt -out file.crypted
+```
+Para utilizar esta herramienta( que tarda mucho) porque con la lista que le des pues prueba cada una de los algoritmos de cifrado.  Existe una herramienta que prueba todos y cada uno de los tipos de cifrado.
+
+```
+python3 brute.py /usr/share/wordlists/rockyou.txt ciphers.txt .drupal.txt.enc
+
+```
+
+> https://github.com/HrushikeshK/openssl-bruteforce
+
+Ahora si ya sabes que tipo de algoritmo de c
+
 ### Proxy
 
 Para poder pasar por un proxy usa:
