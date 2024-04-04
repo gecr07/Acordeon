@@ -518,6 +518,16 @@ os.system("chmod u+s /bin/bash")
 
 ```
 
+Si en algun momento caes en una shell que sea python como la maquina Hawk usa
+
+```
+import os
+
+os.system("whoami")
+os.system("bash")
+
+```
+
 ## Redireccionar stdout stderror
 
 Aqui tenemos como redireccionar tanto el stdout como el stderr
@@ -764,6 +774,12 @@ Para buscar una palabra ( y que grep muestre la linea) y que inicie y acabe.
 ```
 ## -n imprime la linea
 grep -n "^api$"
+```
+
+Para ver los passwords en todos los archivos
+
+```
+grep -r "password" | less -S
 ```
 
 ## Enlace simbolico
