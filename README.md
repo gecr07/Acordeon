@@ -64,7 +64,24 @@ python3 brute.py /usr/share/wordlists/rockyou.txt ciphers.txt .drupal.txt.enc
 
 > https://github.com/HrushikeshK/openssl-bruteforce
 
-Ahora si ya sabes que tipo de algoritmo de cifrado es y 
+Ahora si ya sabes que tipo de algoritmo de cifrado este es un script de s4vitar
+```
+
+#!/bin/bash
+
+echo -e "Probando  passwords\n"
+
+for password in $(cat rockyou.txt); do
+
+
+openssl aes-256-cbc -d -in .drupal -out drupal.decrypt -pass pass:$password &>/dev/null &
+
+if [ "$(echo $?)" == "0" ]; then
+        echo -e "\n[+] La password es: $password"
+        exit 0
+fi
+done;wait
+```
 
 ### Proxy
 
