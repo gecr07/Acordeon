@@ -64,7 +64,7 @@ python3 brute.py /usr/share/wordlists/rockyou.txt ciphers.txt .drupal.txt.enc
 
 > https://github.com/HrushikeshK/openssl-bruteforce
 
-Ahora si ya sabes que tipo de algoritmo de c
+Ahora si ya sabes que tipo de algoritmo de cifrado es y 
 
 ### Proxy
 
