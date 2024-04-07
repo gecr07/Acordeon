@@ -250,7 +250,11 @@ Datos escondidos
 ```
 steghide info omg.jpg
 ```
-Existen herramientas de fuenrza bruta que ayudan a esto busca "steghide brute force".
+Existen herramientas de fuenrza bruta que ayudan a esto busca "steghide brute force". Para poder extraer un archivo que esta escondido de una imagen si tienes un password.
+
+```
+steghide extract -sf Untitled.jpeg -p UPupDOWNdownLRlrBAbaSSss
+```
 
 ## Host Discovery
 
