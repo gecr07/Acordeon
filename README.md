@@ -41,6 +41,14 @@ hydra -l admin -P /usr/share/wordlists/rockyou.txt -f 10.10.11.106 http-get /
 
 ```
 
+## Revisar mails
+
+Para revisar los mails locales usa
+
+```
+cat /var/mail/tu_usuario
+```
+
 ## Openssl encrypted files
 
 Existe manera de encriptar informacion tiene muchos posibles algoritmos de cifrados. Por ejemplo vamos a encriptarun archivo:
