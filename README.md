@@ -1326,7 +1326,14 @@ Para sacar los hashes del ntds.dit recuerda que se necesita el registro system.b
 ```
 impacket-secretsdump -ntds ntds.dit -system system.bin LOCAL
 ```
+## Joomla
 
+Para escanear este CMS usa joomscan
+
+```
+joomscan -u http://dev.devvortex.htb
+
+```
 
 ## WORDPRESS
 
