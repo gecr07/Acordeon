@@ -2637,6 +2637,11 @@ taskkill /IM notepad.exe /F
 #Por PID
 
 taskkill /PID 1234 /F
+
+
+## por nombre y con la t matas todos los subproceso
+
+taskkill /f /t /im adb.exe
 ```
 
 ## Proceso en segundo plano cmd
