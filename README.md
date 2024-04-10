@@ -2038,6 +2038,15 @@ Hash MD5 de cualquier archivo
 ```
 CertUtil -hashfile CustomerManagerService.exe MD5
 ```
+
+## HASH SHA512
+
+Para sacar el hash de un archivo
+
+```
+Get-FileHash -Path "C:\ruta\al\archivo.txt" -Algorithm SHA512 | Select-Object Hash
+```
+
 ## Permisos de archivos
 
 Para esto usa icacls
