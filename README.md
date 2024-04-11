@@ -1130,6 +1130,12 @@ Esta herrameinta sirve si tienes un usuario en el grupo Administrators y regresa
 psexec.py active.htb/administrator@10.10.10.10
 ```
 
+Otros casos donde me encontre esto:
+
+```
+psexec.py WORKGROUP/s4vitar@10.129.228.122 cmd.exe
+```
+
 ## Dirty Cow
 
  Esta vulnerablidad esta en kernels viejos. Esta entre el rango 2.6.22 < 3.9
