@@ -512,8 +512,20 @@ ETC
 ```
 ss -lnpt
 ```
+## FTP
 
-## FTP mount
+Para conectarte
+
+```
+ftp IP
+```
+Para subir un archivo
+
+```
+put shell.asp
+```
+
+### FTP mount
 
 Cuando tiene credenciales y no quieres estar buscando uno por uno(carpeta)
 
