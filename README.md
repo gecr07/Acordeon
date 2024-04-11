@@ -41,6 +41,30 @@ hydra -l admin -P /usr/share/wordlists/rockyou.txt -f 10.10.11.106 http-get /
 
 ```
 
+## SNMP - UDP 161
+
+Cuando tengas este puerto abierto intenta ver si puedes sacar informacion con snmpwalk. Puedes igual intentar adivinar el nombre de las comunidades mediante fuerza bruta 
+
+
+```
+snmpwalk -v 2c -c public 10.10.10.116
+
+```
+
+## IKE - UDP 500
+
+UDP 500 is used for Internet Key Exchange (IKE), which is used to establish an IPSEC VPN. There is some recon I can do on the IKE using ike-scan.
+
+```
+ike-scan -M 10.10.10.116
+```
+
+Existen 2 versiones de este servicio
+
+```
+ike-scan -M --ikev2 10.10.10.116
+```
+
 ## Revisar mails
 
 Para revisar los mails locales usa
