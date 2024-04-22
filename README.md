@@ -1801,6 +1801,12 @@ Program Files: Esta carpeta está destinada para los programas de 64 bits. Cuand
 
 Program Files (x86): Esta carpeta es para los programas de 32 bits. En un sistema operativo de 64 bits, las aplicaciones de 32 bits se instalan en esta carpeta para mantenerlas separadas de las aplicaciones de 64 bits.
 
+## ProgramData
+
+La carpeta C:\ProgramData en Windows es una carpeta del sistema que se utiliza para almacenar datos globales de aplicaciones, es decir, datos que no son específicos de un solo usuario y que pueden ser utilizados por todas las cuentas en el sistema.
+
+
+
 ## Arquitecura x86 o x64
 
 Saber la arquitectura de un sistema ojo es diferente la arquitectura del sistema que del proceso si la maquina es de 32 bit no hay tema pero de 64 puede correr ambos. Ojo ahi
