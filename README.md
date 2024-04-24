@@ -132,7 +132,7 @@ Las rutas de apache que generalmente se utilizan son:
 /etc/apache2/sites-enabled/
 ```
 
-Existen versiones de apache no solo la normal ademas esas versiones una de ellas es la Apache OFBiz y existe 
+Existen versiones de apache no solo la normal ademas esas versiones una de ellas es la Apache OFBiz otras son Apache Tomcat y Apache Hadoop entre muchas otras. 
 
 ```
 $SHA$d$uP0_QaVBpDWFeo8-dRzDqRwXQ2I
@@ -142,6 +142,8 @@ $SHA$d$uP0_QaVBpDWFeo8-dRzDqRwXQ2I
 > Exacto, el formato del hash que has mencionado, $SHA$d$uP0_QaVBpDWFeo8-dRzDqRwXQ2I, no corresponde a un estándar reconocido como MD5, SHA-256, o similares que suelen tener estructuras más definidas y reconocibles.
 
 > Este hash parece ser específico de alguna aplicación o sistema, como Apache OFBiz en tu caso, donde puede que se haya implementado un esquema propio para el manejo de hashes, posiblemente incluyendo algún tipo de "sal" (un dato adicional para aumentar la seguridad del hash) o algún método específico de iteración o modificación.
+
+> https://github.com/duck-sec/Apache-OFBiz-SHA1-Cracker
 
 ## Ver errores stdout
 
