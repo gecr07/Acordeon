@@ -847,11 +847,23 @@ Para buscar una palabra ( y que grep muestre la linea) y que inicie y acabe.
 grep -n "^api$"
 ```
 
+Para imprimir abajo y arriba que hay usa***(GREP no permite mirar dentro de archivos binarios asi por asi usa cat y luego grep)***:
+
+```
+cat runtime/data/derby/ofbiztenant/seg0/c180.dat | strings | grep -B 4 -A 4 "password"
+
+```
+
+
 Para ver los passwords en todos los archivos
 
 ```
 grep -r "password" | less -S
 ```
+
+
+
+
 
 ## Enlace simbolico
 
