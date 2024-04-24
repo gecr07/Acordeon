@@ -642,7 +642,22 @@ username=masa&country=Albania' union select "probando" into outfile "/var/www/ht
 
 Siempre prueba si tiene permisos de ejecucion de comandos asi como de escribir archivos.
 
+## Dirsearch
 
+Me parece una alternativa que tienes que utilizar ya que el dirbuster esta bien pero el problema es que aveces por ser tan potente no logra detectar cosas porque tira las paginas. Utiliza esta herramienta quiza antes de WFUZZ.
+
+```
+dirsearch -u https://bizness.htb
+```
+
+## Dirbuster
+
+Esta herramienta es muy potente pero el problema es que por eso mismo puede tirar paginas.
+
+```
+dirbuster -u http://10.129.95.235/ -t 200 -l /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -r dirout.ext -e asp,aspx
+
+```
 
 ## WFUZZ
 
