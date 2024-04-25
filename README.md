@@ -138,7 +138,7 @@ export HYDRA_PROXY_HTTP=http://127.0.0.1:8080
 
 ## HASHES
 
-Algunos de los algoritmos de hashing más comunes en términos de la cantidad de caracteres en su representación hexadecimal.
+Algunos de los algoritmos de hashing más comunes en términos de la cantidad de caracteres en su representación hexadecimal. En la mayoría de los casos, especialmente cuando trabajas con texto en codificaciones como ASCII o UTF-8 (para caracteres del inglés básico y muchos otros caracteres comunes), 1 byte equivale a 1 carácter. Por lo tanto, 255 bytes equivalen a 255 caracteres.
 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/4d084a43-481c-4315-8437-a8abba956c7b)
 
