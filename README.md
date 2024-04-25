@@ -65,6 +65,17 @@ Existen 2 versiones de este servicio
 ike-scan -M --ikev2 10.10.10.116
 ```
 
+## Palabras clave
+
+Algunas palabras clave al momento de buscar exploits
+
+```
+github
+github exploit
+Authentication-Bypass
+Command injection
+```
+
 ## Revisar mails
 
 Para revisar los mails locales usa
