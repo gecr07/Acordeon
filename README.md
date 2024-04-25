@@ -41,6 +41,26 @@ hydra -l admin -P /usr/share/wordlists/rockyou.txt -f 10.10.11.106 http-get /
 
 ```
 
+## Probar limites
+
+Para probar limites y saber donde esta el limite como para los BoF usa los patrones.
+
+```
+/usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l 255 
+```
+
+Para saber el limite metemos los ultimos 4 bytes donde se sobre escribio el EIP o donde se corto el string. Ojo puede funcionar de dos maneras
+
+
+```
+/usr/share/metasploit-framework/tools/exploit/pattern_offset.rb -q h7Ah
+
+
+/usr/share/metasploit-framework/tools/exploit/pattern_offset.rb -l 255 -q h7Ah 
+
+```
+
+
 ## SNMP - UDP 161
 
 Cuando tengas este puerto abierto intenta ver si puedes sacar informacion con snmpwalk. Puedes igual intentar adivinar el nombre de las comunidades mediante fuerza bruta 
