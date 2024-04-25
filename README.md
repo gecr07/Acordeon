@@ -145,6 +145,12 @@ $SHA$d$uP0_QaVBpDWFeo8-dRzDqRwXQ2I
 
 > [https://github.com/duck-sec/Apache-OFBiz-SHA1-Cracker](https://github.com/duck-sec/Apache-OFBiz-SHA1-Cracker.git)
 
+Para usar es:
+
+```
+python3 OFBiz-crack.py --hash-string '$SHA$d$uP0_QaVBpDWFeo8-dRzDqRwXQ2I' --wordlist /usr/share/wordlists/rockyou.txt
+```
+
 ## Ver errores stdout
 
 Para redirigir el stderr al stdout usa:
