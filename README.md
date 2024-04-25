@@ -76,6 +76,11 @@ Authentication-Bypass
 Command injection
 ```
 
+## Linux File Name Length
+
+
+En sistemas de archivos comunes en Linux como ext3, ext4, y otros, el límite de longitud para nombres de archivo suele ser de *** 255 caracteres. *** Esto incluye solo el nombre del archivo en sí, no la ruta completa. La restricción de 255 caracteres es muy común en muchos sistemas de archivos y está diseñada para asegurar compatibilidad y eficiencia en el manejo de archivos.
+
 ## Revisar mails
 
 Para revisar los mails locales usa
