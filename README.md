@@ -135,6 +135,27 @@ export HYDRA_PROXY_HTTP=http://127.0.0.1:8080
 ```
 > https://github.com/gnebbia/hydra_notes
 
+
+## HASHES
+
+Algunos de los algoritmos de hashing más comunes en términos de la cantidad de caracteres en su representación hexadecimal.
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/4d084a43-481c-4315-8437-a8abba956c7b)
+
+Para comprobar el tamaño de hashes saca primero el hash y despues saca la cuenta
+
+```bash
+
+# MD5
+
+echo -n "60b725f10c9c85c70d97880dfe8191b3" | wc -c
+
+# SHA256
+
+echo -n "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb" | wc -c
+
+```
+
 ## APACHE
 
 Las rutas de apache que generalmente se utilizan son:
