@@ -147,12 +147,19 @@ Para comprobar el tamaño de hashes saca primero el hash y despues saca la cuent
 ```bash
 
 # MD5
+md5sum
 
 echo -n "60b725f10c9c85c70d97880dfe8191b3" | wc -c
 
+# 32
+
 # SHA256
 
+sha256sum
+
 echo -n "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb" | wc -c
+
+# 64
 
 ```
 
