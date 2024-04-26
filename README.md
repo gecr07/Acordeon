@@ -650,7 +650,7 @@ find /var/tmp -maxdepth 1 -type f -name ".*"
 Archivos que pertenecen a un grupo
 
 ```
-find / -groups video 2>/dev/null
+find / -group video 2>/dev/null
 ```
 
 ## SUID
