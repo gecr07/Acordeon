@@ -647,6 +647,12 @@ Buscar arhivos solo en el la carpeta ( primer nivel) que empiecen por un punto
 find /var/tmp -maxdepth 1 -type f -name ".*"
 ```
 
+Archivos que pertenecen a un grupo
+
+```
+find / -groups video 2>/dev/null
+```
+
 ## SUID
 
 ```python
