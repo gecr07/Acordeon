@@ -41,6 +41,26 @@ hydra -l admin -P /usr/share/wordlists/rockyou.txt -f 10.10.11.106 http-get /
 
 ```
 
+## Ver particiones de Linux (como Mi Pc en Windows)
+
+Es mas o menos un equivalente pero para la linea de comandos.
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/38ec2e62-1fc1-428e-b6d2-f41167dcdea8)
+
+
+```
+fdisk -l
+```
+
+### debugfs
+
+debugfs es un sistema de archivos especial disponible en el núcleo Linux desde la versión 2.6.10-rc3.​ Si te encuentras en el grupo disk practicamente tienes acceso a cualquier directorio del sistema
+
+```
+debugfs /dev/sda1
+```
+
+
 ## Probar limites
 
 Para probar limites y saber donde esta el limite como para los BoF usa los patrones.
