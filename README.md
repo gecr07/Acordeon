@@ -41,6 +41,7 @@ hydra -l admin -P /usr/share/wordlists/rockyou.txt -f 10.10.11.106 http-get /
 
 ```
 
+
 ## Ver particiones de Linux (como Mi Pc en Windows)
 
 Es mas o menos un equivalente pero para la linea de comandos.
@@ -60,6 +61,21 @@ debugfs es un sistema de archivos especial disponible en el núcleo Linux desde 
 debugfs /dev/sda1
 ```
 
+### Tamaño de un archivo (Diks usage)
+
+Para ver el tamaño de un archivo usa
+
+```
+du -h root.txt
+```
+
+## Ver espacio sobrante (Disk Free supongo)
+
+ muestra la cantidad de espacio en disco usado y disponible en los sistemas de archivos montados. Es útil para obtener una vista rápida de la disponibilidad de espacio en diferentes particiones o dispositivos de almacenamiento.
+
+```
+df -h
+```
 
 ## Probar limites
 
