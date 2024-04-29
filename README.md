@@ -2915,6 +2915,10 @@ smbclient //10.129.2.148/Replication -U ""%""
 enum4linux -a 10.129.2.148 # Permite saber si puedes leer o escribir en un share lee bien todo el output
 
 crackmapexec smb 10.129.2.148 --shares -u '' -p ''
+
+# Para poder listar SMB samba en linux
+
+enum4linux -a -u "" -p ""
 ```
 
 ## Listar SMB Shares con credenciales
