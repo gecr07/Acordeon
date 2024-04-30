@@ -187,6 +187,14 @@ fi
 done;wait
 ```
 
+## Zone Transfer 
+
+Es importante resaltar que tienes que intentar este ataque a TODOS los sub dominios que encuentres porque en uno si puede jalar y darte mas subdominios.
+
+```
+dig axfr friendzone.red @10.129.24.12
+```
+
 ### Proxy
 
 Para poder pasar por un proxy usa:
