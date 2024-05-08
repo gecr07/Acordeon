@@ -1234,6 +1234,8 @@ xxd -ps -r;echo
 
 ```
 
+
+
 ## CEWL
 
 Listas de palabras para brute force de lo mismo que esta en la pagina sirve por ejemplo para encontrar el usuario Valentine (machine).
@@ -2873,6 +2875,17 @@ taskkill /PID 1234 /F
 ## por nombre y con la t matas todos los subproceso
 
 taskkill /f /t /im adb.exe
+```
+
+Matar procesos con Powershell
+
+```
+Stop-Process -Name "nombre_del_proceso" -Force
+
+##
+
+
+Stop-Process -ID numero_del_ID -Force
 ```
 
 ## Proceso en segundo plano cmd
