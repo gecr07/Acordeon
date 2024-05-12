@@ -1969,7 +1969,23 @@ Program Files (x86): Esta carpeta es para los programas de 32 bits. En un sistem
 
 La carpeta C:\ProgramData en Windows es una carpeta del sistema que se utiliza para almacenar datos globales de aplicaciones, es decir, datos que no son específicos de un solo usuario y que pueden ser utilizados por todas las cuentas en el sistema.
 
+## Tree
 
+Este comando es super util permite ver los  directorios como el comanod de linux ideal para buscar cosas
+
+```
+tree /F /A
+```
+
+## Tareas programadas o Task Scheduler(cron jobs de Windows)
+
+Para mirar estas tareas
+
+```
+schtasks /query /fo LIST /v
+#
+Get-ScheduledTask | Format-Table
+```
 
 ## Arquitecura x86 o x64
 
