@@ -3006,7 +3006,31 @@ evil-winrm -u 'svc-printer' -p '1edFg43012!!' -i 10.129.95.241
 
 ```
 
+## Criptografia
 
+Finalmente entendi como funciona la criptografia asimetrica
+
+> ¡Buena observación! Las claves públicas y privadas en criptografía asimétrica pueden ser utilizadas tanto para cifrado como para descifrado, pero de manera complementaria. Aquí te explico cómo funcionan generalmente:
+
+### Uso de Claves Públicas y Privadas
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/e89d22f8-91ff-49d1-a86f-3779ed7862e7)
+
+
+Pero la cosa cambia cuando se trata de certificados y firmas digitales
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/7baa34ac-96b5-4ca4-9cc8-7bee461c8b9d)
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/928665f7-3af5-4230-aecc-91df03f47398)
+
+
+Y aqui el chat gpt te da un ejemplo de como se hace por ejemplo en el caso de un certificado ssl.
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/95e28adb-b1af-4fbd-bb11-a3218e05afb5)
+
+En este caso muestra un CA
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/cdac5ff1-b7e5-43f5-9146-68f31ca74581)
 
 
 
