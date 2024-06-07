@@ -363,6 +363,13 @@ Para tirarle categorias de scripts para probar vulnerabilidades
 ```
 nmap --script "vuln and safe" -p443 10.10.10.17.1 -oN Scan
 ```
+
+Escanear solo un rango de puertos.
+
+```
+nmap -p 1-10000 $target
+```
+
 ## Linpeas
 
 Usa esto en caso de que no sepas como escalar privilegios.
