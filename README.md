@@ -24,6 +24,10 @@ function extractPorts(){
 
 ```
 
+## echo -n
+
+Siempre
+
 ## Hydra 
 
 Ejemplos hay que practicar
@@ -1436,6 +1440,9 @@ Para usar nmap se tiene que usar la -sT afuerzas TCP connect pero recuerda poner
 ```
 proxychains nmap -sT -p21,22,80 127.0.0.1
 ```
+
+![image](https://github.com/gecr07/Acordeon/assets/63270579/77786cdc-0e96-413e-b67f-f033cb50dc1e)
+
 
 Para usar con Firefox.
 
