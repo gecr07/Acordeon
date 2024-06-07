@@ -344,6 +344,16 @@ cd .ssh
 
 ssh -i id_rsa strapi@10.10.14.57 
 ```
+
+Probar usuarios de ssh ya cuando tienes una id_rsa
+
+```
+
+for i in $(cat u.txt); do ssh -oBatchMode=yes -i id_rsa $i@10.129.242.42; done
+
+```
+
+
 ## CronJob
 
 Para hacer que jale un cron ponlo en la carpeta /etc/cron.d
