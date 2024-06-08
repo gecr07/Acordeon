@@ -3089,3 +3089,6 @@ En este caso muestra un CA
 
 
 
+# Referencias
+
+> https://medium.com/@verylazytech/from-novice-to-ninja-how-the-oscp-cheatsheet-can-catapult-your-cyber-career-0eb446ab041d
