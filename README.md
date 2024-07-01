@@ -81,6 +81,17 @@ du -h root.txt
 df -h
 ```
 
+## Web Inyeccion de comandos
+
+Siempre que pruebes con Burp Suite o sin el un command injection procura probar estas convinaciones:
+
+```
+;id
+| id
+|| id
+# ire añadiendo mas
+```
+
 ### Psy Shell v0.9.9
 
  PsySH is a runtime developer console, interactive debugger and REPL for PHP. Algunas veces o mas bien siempre se tienen bloqueadas funciones de php que permiten ejecutar comandos y esto se puede ver con el phpinfo().
@@ -119,6 +130,9 @@ Para robar cookies usa:
 ```
 
 Cabe destacar que la funcion btoa es para pasar a base64 ideal si no sabemos que caracters podriamos perder...
+
+
+> https://github.com/payloadbox/xss-payload-list
 
 ## Probar limites
 
