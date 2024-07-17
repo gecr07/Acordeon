@@ -81,6 +81,15 @@ du -h root.txt
 df -h
 ```
 
+## SSH file trasfer
+
+Para poder trasferir datos cuando uno tiene un usuario y password de ssh usa:
+
+```
+scp root@192.168.10.10 /tmp/app.ipa ./
+```
+
+
 ## Web Inyeccion de comandos
 
 Siempre que pruebes con Burp Suite o sin el un command injection procura probar estas convinaciones:
