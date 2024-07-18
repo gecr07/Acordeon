@@ -2073,6 +2073,16 @@ schtasks /query /fo LIST /v
 Get-ScheduledTask | Format-Table
 ```
 
+## Sacar passwords Wifi netsh
+
+Para sacar las claves del wifi usa:
+
+```
+netsh wlan show profile
+
+netsh wlan show profile name=nombredelperfil key=clear
+```
+
 ## Arquitecura x86 o x64
 
 Saber la arquitectura de un sistema ojo es diferente la arquitectura del sistema que del proceso si la maquina es de 32 bit no hay tema pero de 64 puede correr ambos. Ojo ahi
