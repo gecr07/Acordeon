@@ -3128,6 +3128,39 @@ En este caso muestra un CA
 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/cdac5ff1-b7e5-43f5-9146-68f31ca74581)
 
+## Powershell historial
+
+Para sacar el historial de powershell utiliza los siguientes comandos.
+
+```
+Get-History # Sirve para ver los comandos durante la sesion actual.
+
+```
+
+Ahora si tu lo que quieres es ver el historial persistente que powershell guarda en el perfil del usuario:
+
+```
+notepad $env:APPDATA\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
+
+
+```
+
+No me funciono el anterior pero segun es valido ahora para Verificar la configuración de PSReadline y ver donde podria estar el historial:
+
+
+```
+Get-PSReadlineOption
+
+## Si quieres aumetar el numero de comandos que guardas util para un trabajo por ejemplo
+
+Set-PSReadlineOption -HistorySaveStyle SaveIncrementally -MaximumHistoryCount 1000
+
+```
+
+![image](https://github.com/user-attachments/assets/b01c165e-ca6a-49e7-a082-cfa41d10645b)
+
+Ahora pues ya solo has un cat a la ruta del HistorySavePath
+
 
 
 # Referencias
