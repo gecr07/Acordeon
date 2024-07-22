@@ -130,6 +130,16 @@ file_put_contents('/home/dali/.ssh/authorized_keys', $publickey)
 
 
 ```
+## SQLite
+
+Kali ya trae un paquete para poder abrir este tipo de archivo es sqlite3 
+
+```
+sqlite3 db.sqlite
+
+```
+Una vez dentro de la herramienta, puedes usar comandos SQL para ver las tablas (.tables), esquemas (.schema) y realizar consultas (SELECT * FROM tabla;).
+
 ## XSS
 
 Para robar cookies usa:
