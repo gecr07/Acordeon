@@ -86,7 +86,7 @@ df -h
 Para poder trasferir datos cuando uno tiene un usuario y password de ssh usa:
 
 ```
-scp root@192.168.10.10 /tmp/app.ipa ./
+scp root@192.168.0.27:/tmp/rmq2.sqlite ./
 ```
 
 
