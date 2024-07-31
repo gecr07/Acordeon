@@ -335,6 +335,22 @@ Para usar es:
 python3 OFBiz-crack.py --hash-string '$SHA$d$uP0_QaVBpDWFeo8-dRzDqRwXQ2I' --wordlist /usr/share/wordlists/rockyou.txt
 ```
 
+### Enumeracion de usuarios apache /apos;UserDir/apos;
+
+La directiva UserDir permite a los usuarios alojar páginas web en sus directorios personales dentro del servidor. Por ejemplo, si un usuario tiene el nombre "john", y UserDir está habilitado, se podría acceder a los contenidos del directorio personal del usuario a través de un URL como:
+
+```
+
+http://example.com/~john.
+
+```
+
+Aunque los directorios esten protegidos y manden una peticion 403 de no exitir el usuario mandaria el error 404 lo cual permitiria enumerar usuarios.
+
+### Archivos de configuracion
+
+El archivo de configuración de Apache (usualmente **httpd.conf** o **apache2.conf**).
+
 ## Ver errores stdout
 
 Para redirigir el stderr al stdout usa:
