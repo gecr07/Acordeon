@@ -28,6 +28,14 @@ function extractPorts(){
 
 Siempre
 
+## APIS
+
+Siempre checa si se pueden acceder a los documentos de la api encontre una api con documentos accessibles 
+
+```
+api/ejemplo/v2/api-docs
+```
+
 ## Hydra 
 
 Ejemplos hay que practicar
