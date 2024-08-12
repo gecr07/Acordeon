@@ -418,6 +418,13 @@ for i in $(cat u.txt); do ssh -oBatchMode=yes -i id_rsa $i@10.129.242.42; done
 
 ```
 
+### SSH config
+
+Para checar la configuracion del ssh el archivo esta en la siguiente ruta
+
+```
+cat /etc/ssh/sshd_config
+```
 
 ## CronJob
 
