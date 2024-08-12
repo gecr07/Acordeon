@@ -756,6 +756,13 @@ ETC
 ```
 ss -lnpt
 ```
+
+o tambien
+
+```
+ss -ant
+```
+
 ## FTP
 
 Para conectarte
