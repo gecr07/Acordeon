@@ -1358,7 +1358,7 @@ xxd -ps -r;echo
 
 ```
 
-
+##
 
 ## CEWL
 
@@ -3013,6 +3013,15 @@ Para sacar el hash md5 de un archivo cuando lo trasfieras usa:
 CertUtil -hashfile CustomerManagerService.exe MD5
 ```
 
+## Procesos
+
+Para ver procesos se usa ps pero existen varias opciones pruebalas
+
+```
+ps -eafww
+ps -aux
+```
+
 ## Matar procesos
 
 Se pueden matar procesos tanto por su nombre como por su PID
@@ -3034,8 +3043,6 @@ Matar procesos con Powershell
 
 ```
 Stop-Process -Name "nombre_del_proceso" -Force
-
-##
 
 
 Stop-Process -ID numero_del_ID -Force
