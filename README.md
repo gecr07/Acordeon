@@ -138,6 +138,26 @@ file_put_contents('/home/dali/.ssh/authorized_keys', $publickey)
 
 
 ```
+
+## Abuse /etc/passwd
+
+Si tienes manera de sobre escribir el archivo /etc/passwd basicamente te podrias ahcer del usuario root poniendo la contraseña que tu elijas para lo cual usa el siguiente comando (-1 para MD5, -5 SHA256, -6 SHA512 etc)
+
+```
+openssl passwd -5 -salt tuSal tuContraseña # Puede ser lo mismo el salt como la contraseña
+
+nombre_de_usuario: el nombre de la cuenta del usuario.
+x: indica que la contraseña del usuario se almacena en /etc/shadow.
+UID: el número de identificación del usuario.
+GID: el número de identificación del grupo principal del usuario.
+información_completa: generalmente el nombre completo del usuario o una descripción.
+directorio_home: el directorio inicial del usuario.
+shell_predeterminada: la shell que se inicia al ingresar el usuario.
+
+```
+
+<img width="347" alt="image" src="https://github.com/user-attachments/assets/8973d64f-c12d-421b-98b9-67e3a87774a9">
+
 ## SQLite
 
 Kali ya trae un paquete para poder abrir este tipo de archivo es sqlite3 
