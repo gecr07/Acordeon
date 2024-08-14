@@ -143,6 +143,9 @@ file_put_contents('/home/dali/.ssh/authorized_keys', $publickey)
 
 Si tienes manera de sobre escribir el archivo /etc/passwd basicamente te podrias ahcer del usuario root poniendo la contraseña que tu elijas para lo cual usa el siguiente comando (-1 para MD5, -5 SHA256, -6 SHA512 etc)
 
+<img width="337" alt="image" src="https://github.com/user-attachments/assets/c52927cc-00a0-4200-9ea5-d46923176132">
+
+
 ```
 openssl passwd -5 -salt tuSal tuContraseña # Puede ser lo mismo el salt como la contraseña
 
@@ -156,7 +159,7 @@ shell_predeterminada: la shell que se inicia al ingresar el usuario.
 
 ```
 
-<img width="347" alt="image" src="https://github.com/user-attachments/assets/8973d64f-c12d-421b-98b9-67e3a87774a9">
+
 
 ## SQLite
 
