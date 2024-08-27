@@ -94,11 +94,21 @@ df -h
 
 ## SSH file trasfer
 
-Para poder trasferir datos cuando uno tiene un usuario y password de ssh usa:
+Para poder trasferir datos del iphone a windows cuando uno tiene un usuario y password de ssh usa:
 
 ```
 scp root@192.168.0.27:/tmp/rmq2.sqlite ./
 ```
+
+Pero que pasa cuando es alrrevez de windows al iphone es asi:
+
+```
+scp .\bbvanetc.ipa root@192.168.123.87:/tmp/
+```
+
+
+
+
 
 
 ## Web Inyeccion de comandos
