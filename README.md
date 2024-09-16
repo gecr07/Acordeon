@@ -1066,6 +1066,15 @@ wfuzz -c --hc=404  -w /usr/share/wordlists/seclists/Discovery/Web-Content/direct
 
 ```
 
+Enviar parametros de json como para fuzzear y saber que enviar
+
+
+```
+wfuzz -c --hc=404 -t 200 -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -X POST -H "Content-Type: application/json" -d '{"FUZZ":"test"}' -u http://10.0.12.5:2024/
+
+```
+
+
 ## GOBuster
 
 Para enumerar subdominios
