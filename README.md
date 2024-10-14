@@ -27,10 +27,20 @@ function extractPorts(){
 
 ## Compilador Online
 
-Usa esto para compular cosas rapidamente como en ruby etc.
+Usa esto para compular cosas rapidamente como en ruby,java, kotlin, c++ etc.
 
 > https://www.onlinegdb.com/online_ruby_compiler
 
+
+## Correo esconder destinatarios
+
+Para esconder destinatarios en copia cuando se manda un correo busca la opcion
+
+```
+undisclosed-recipiernts;
+```
+
+Si ves esto en algun correo es señal que lo mas probable es que sea de un phishing.
 
 ## APIS
 
