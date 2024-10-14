@@ -36,6 +36,51 @@ Siempre checa si se pueden acceder a los documentos de la api encontre una api c
 api/ejemplo/v2/api-docs
 ```
 
+## Subir proyecto a Git
+
+1. Ve a la carpeta donde esta el proyecto e inicia con
+
+```
+git init
+```
+
+2. Se habrá creado la carpeta .git con la información del proyecto. Añade los ficheros para subir el mismo con este comando:
+
+```
+git add .
+
+```
+Cuando haces git add, Git solo agrega archivos por defecto, no directorios vacíos. Si las carpetas que creaste para las vulnerabilidades están vacías, Git no las incluirá en el commit. Git no rastrea carpetas vacías a menos que contengan archivos. Crear un archivo .gitkeep en cada carpeta vacía
+
+3. Revisa el status que carpetas y archivos se van a subir
+
+```
+git status
+```
+4. Prepara los ficheros que quieres subir con una pequeña explicación acerca de los cambios:
+
+```
+git commit -m “Creado el proyecto inicial” 
+```
+5. Debes subir los cambios a GitHub. Para ello tienes que saber la ruta del repositorio (acabada en .git) que está en Clone or Download, el botón verde de la página del proyecto. Luego añade el repositorio desde la terminal con este comando:
+
+```
+git remote add origin URLrepositorio.git 
+
+```
+6. Sube los cambios con el siguiente comando:
+
+```
+git push origin master 
+
+
+```   
+
+Esto funcionaba hasta el 2021 ahora la autenticacion por passwd esta desactivada...
+
+
+
+
 ## Hydra 
 
 Ejemplos hay que practicar
