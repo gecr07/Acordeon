@@ -76,7 +76,9 @@ git push origin master
 
 ```   
 
-Esto funcionaba hasta el 2021 ahora la autenticacion por passwd esta desactivada...
+Esto funcionaba hasta el 2021 ahora la autenticacion por passwd esta desactivada...Usa esta pagina para crear un token con cuidado...
+
+> https://dev.to/shafia/support-for-password-authentication-was-removed-please-use-a-personal-access-token-instead-4nbk
 
 
 
