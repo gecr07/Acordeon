@@ -24,9 +24,13 @@ function extractPorts(){
 
 ```
 
-## echo -n
 
-Siempre
+## Compilador Online
+
+Usa esto para compular cosas rapidamente como en ruby etc.
+
+> https://www.onlinegdb.com/online_ruby_compiler
+
 
 ## APIS
 
