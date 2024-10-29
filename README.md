@@ -3426,6 +3426,9 @@ Set-PSReadlineOption -HistorySaveStyle SaveIncrementally -MaximumHistoryCount 10
 
 Ahora pues ya solo has un cat a la ruta del HistorySavePath
 
+## Windows versiones
+
+> https://learn.microsoft.com/es-es/windows/release-health/release-information
 
 
 # Referencias
