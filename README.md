@@ -94,7 +94,9 @@ Esto funcionaba hasta el 2021 ahora la autenticacion por passwd esta desactivada
 
 > https://dev.to/shafia/support-for-password-authentication-was-removed-please-use-a-personal-access-token-instead-4nbk
 
+## Alternativa a CCleaner en Kali
 
+bleachbit es un paquete que se parece a Ccleaner pero para Linux
 
 
 ## Hydra 
