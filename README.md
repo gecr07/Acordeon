@@ -3436,3 +3436,17 @@ Ahora pues ya solo has un cat a la ruta del HistorySavePath
 # Referencias
 
 > https://medium.com/@verylazytech/from-novice-to-ninja-how-the-oscp-cheatsheet-can-catapult-your-cyber-career-0eb446ab041d
+
+
+## Azure GOAT
+
+> https://github.com/ine-labs/AzureGoat
+
+## AWS GOAT
+
+> https://github.com/ine-labs/AWSGoat
+
+
+
+
+
