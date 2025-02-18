@@ -3256,6 +3256,11 @@ taskkill /PID 1234 /F
 ## por nombre y con la t matas todos los subproceso
 
 taskkill /f /t /im adb.exe
+
+## Buscar y matar procesos
+
+tasklist | findstr /I "BurpSuite"
+
 ```
 
 Matar procesos con Powershell
