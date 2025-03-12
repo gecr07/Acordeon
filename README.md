@@ -3459,3 +3459,7 @@ Ahora pues ya solo has un cat a la ruta del HistorySavePath
 ## FUZZING nombres wind 16 revisar
 
 > https://dcollao.pages.dev/CPTS/C/11/8/3/
+
+## red team scripts revisar igual
+
+> https://github.com/infosecn1nja/red-team-scripts/tree/main
