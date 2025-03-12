@@ -3456,4 +3456,6 @@ Ahora pues ya solo has un cat a la ruta del HistorySavePath
 > https://0xdf.gitlab.io/cheatsheets/offsec
 
 
+## FUZZING nombres wind 16 revisar
 
+> https://dcollao.pages.dev/CPTS/C/11/8/3/
