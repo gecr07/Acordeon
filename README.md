@@ -3451,7 +3451,9 @@ Ahora pues ya solo has un cat a la ruta del HistorySavePath
 
 > https://github.com/ine-labs/AWSGoat
 
+## OSCP 
 
+> https://0xdf.gitlab.io/cheatsheets/offsec
 
 
 
