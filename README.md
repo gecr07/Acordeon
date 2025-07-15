@@ -1,5 +1,31 @@
 # Acordeon
 
+## Kali Linux con WLS
+
+```
+wsl --install
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+wsl --install -d kali-linux
+wsl -d kali-linux
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y kali-win-kex
+kex --win
+```
+
+Para iniciar el kali con permisos de admin desde powershell
+
+```
+wsl -d kali-linux
+
+```
+
+Para iniciar el escritorio visual. Para salir solo dale log out
+
+```
+kex --win
+```
+
 ## S4vitar extractports
 
 
