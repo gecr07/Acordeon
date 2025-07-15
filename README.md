@@ -25,6 +25,51 @@ Para iniciar el escritorio visual. Para salir solo dale log out
 ```
 kex --win
 ```
+## Java alternarives ( versiones diferentes en el mismo sistema)
+
+Primero instala el programas
+
+```
+sudo apt install -y java-common
+```
+Una vez instalado verifica que si este 
+
+```
+whereis update-java-alternatives
+----- Tiene que salir algo parecido a esto.
+update-java-alternatives: /usr/sbin/update-java-alternatives /usr/share/man/man8/update-java-alternatives.8.gz
+```
+
+Listar versiones que tenemos en el sistema
+
+```
+update-java-alternatives --list
+```
+
+Ahora no dice que version usamos en el sistema para ello teclea
+
+```
+java --version
+```
+Para cambiar entre versiones de java
+
+```
+update-java-alternatives --list
+-----Te sale algo como esto
+java-1.17.0-openjdk-amd64      1711       /usr/lib/jvm/java-1.17.0-openjdk-amd64
+java-1.21.0-openjdk-amd64      2111       /usr/lib/jvm/java-1.21.0-openjdk-amd64
+java-1.8.0-openjdk-amd64       1081       /usr/lib/jvm/java-1.8.0-openjdk-amd64
+------
+
+sudo update-java-alternatives --set java-1.17.0-openjdk-amd64
+
+----Verifica que si ha cambiado
+
+java --version
+openjdk 17.0.9 2023-10-17
+OpenJDK Runtime Environment (build 17.0.9+9-Ubuntu-123.04)
+
+```
 
 ## S4vitar extractports
 
