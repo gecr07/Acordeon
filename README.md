@@ -25,6 +25,31 @@ Para iniciar el escritorio visual. Para salir solo dale log out
 ```
 kex --win
 ```
+Para desinstalar usa
+
+```
+wsl --unregister Ubuntu-18.04
+
+```
+Para ver versiones disponibles
+
+```
+wsl -l -v
+```
+
+Para instalar diferentes versiones de java lo mejor es usar SDK
+
+> https://sdkman.io/install/
+
+Para instalar versiones especificas usa
+
+```
+sdk install java 17.0.10-tem
+```
+
+
+
+
 ## Java alternarives ( versiones diferentes en el mismo sistema)
 
 Primero instala el programas
