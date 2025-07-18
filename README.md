@@ -19,6 +19,13 @@ Para iniciar el kali con permisos de admin desde powershell
 wsl -d kali-linux
 
 ```
+Para compartir archivos entre el kali y windows
+
+```
+Esta montado el windows en
+
+/mnt/
+```
 
 Para iniciar el escritorio visual. Para salir solo dale log out
 
