@@ -3542,6 +3542,14 @@ Set-PSReadlineOption -HistorySaveStyle SaveIncrementally -MaximumHistoryCount 10
 
 Ahora pues ya solo has un cat a la ruta del HistorySavePath
 
+# Wifi
+
+Para instalar los drivers de cualquier tarjeta vea 
+
+> https://store.rokland.com/products/alfa-awus036ach-802-11ac-high-power-ac1200-dual-band-wifi-usb-adapter?_pos=1&_psq=AWU&_ss=e&_v=1.0
+
+Solo busca el modelo de tu tarjeta y compila el codigo e instala
+
 ## Windows versiones
 
 > https://learn.microsoft.com/es-es/windows/release-health/release-information
