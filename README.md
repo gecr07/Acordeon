@@ -3542,6 +3542,11 @@ Set-PSReadlineOption -HistorySaveStyle SaveIncrementally -MaximumHistoryCount 10
 
 Ahora pues ya solo has un cat a la ruta del HistorySavePath
 
+
+## Windows versiones
+
+> https://learn.microsoft.com/es-es/windows/release-health/release-information
+
 # Wifi
 
 Para instalar los drivers de cualquier tarjeta vea 
@@ -3550,10 +3555,14 @@ Para instalar los drivers de cualquier tarjeta vea
 
 Solo busca el modelo de tu tarjeta y compila el codigo e instala
 
-## Windows versiones
+## Modo monitor
 
-> https://learn.microsoft.com/es-es/windows/release-health/release-information
+Para poder hacer lo que sea primero se pone en modo monitor.
 
+```
+airmon-ng start wlan1
+
+```
 
 # Referencias
 
