@@ -3563,6 +3563,39 @@ Para poder hacer lo que sea primero se pone en modo monitor.
 sudo airmon-ng start wlan1
 
 ```
+## Matar procesos que podrian interferir con la auditoria
+
+Algunos procesos paran el modo monitor mantalos asi
+
+```
+sudo systemctl stop NetworkManager
+sudo systemctl start NetworkManager
+sudo killall wpa_supplicant
+# Si persisten
+sudo pkill NetworkManager
+sudo pkill wpa_supplicant
+```
+
+## Ver redes cercanas
+
+```
+sudo airodump-ng wlan1 -w out2
+
+```
+
+## Encontrar SSIDs ocultos
+
+Escuchar para descubrir los nombres.
+
+```
+#Terminal 1
+sudo airodump-ng wlan1 -c 11 --bssid 78:B4:6A:E7:59:D8 -w masa
+# Terminal 2 Des Autenticar
+sudo aireplay-ng --deauth 7 -a 78:B4:6A:E7:59:D8 wlan1
+
+```
+
+
 
 # Referencias
 
