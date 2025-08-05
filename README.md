@@ -3560,7 +3560,7 @@ Solo busca el modelo de tu tarjeta y compila el codigo e instala
 Para poder hacer lo que sea primero se pone en modo monitor.
 
 ```
-airmon-ng start wlan1
+sudo airmon-ng start wlan1
 
 ```
 
