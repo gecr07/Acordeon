@@ -19,6 +19,12 @@ Para iniciar el kali con permisos de admin desde powershell
 wsl -d kali-linux
 
 ```
+Para quitar el modo pantalla completa y que te deje trabajar solo con uno 
+
+```
+presiona F8 despues opciones -> Screen -> Desactiva "Enable full screen"
+```
+
 Para compartir archivos entre el kali y windows
 
 ```
