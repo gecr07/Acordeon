@@ -66,7 +66,7 @@ Para instalar versiones especificas usa
 sdk install java 17.0.10-tem
 ```
 
-## Lenguaje español para Kali
+## Lenguaje español para Kali Teclado
 
 ```
 setxkbmap latam
