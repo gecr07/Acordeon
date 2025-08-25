@@ -120,6 +120,37 @@ OpenJDK Runtime Environment (build 17.0.9+9-Ubuntu-123.04)
 
 ```
 
+## Docker
+
+Para utilizar exploits con versiones especificas de cualquier cosa basicamente vamos a crear el Dockerfile
+
+```
+FROM php:5.6-fpm-alpine
+```
+
+Despues arma la imagen. La imagen se va a llamar my-php-app
+
+```
+sudo docker build -t my-php-app .
+```
+
+Vamos levantar la imagen.
+
+```
+sudo docker images
+
+sudo docker run -d -p 8080:80 --name contenerdor-php my-php-app
+```
+
+La opcion de -d (deploy) la opcion de -p (expone el puerto) --name nombre de nuestra imagen la imagen que le hicimos build. Para entrar dentro
+
+```
+sudo docker ps
+
+sudo docker exec -it contenerdor-php bash
+```
+
+
 ## S4vitar extractports
 
 
