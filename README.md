@@ -76,6 +76,12 @@ setxkbmap latam
 
 ## Java alternarives ( versiones diferentes en el mismo sistema)
 
+```
+which java
+
+readlink -f $(which java)
+```
+
 Primero instala el programas
 
 ```
