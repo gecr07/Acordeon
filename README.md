@@ -71,7 +71,18 @@ sdk install java 17.0.10-tem
 ```
 setxkbmap latam
 ```
+## Crear entorno virtual Python
 
+```
+sudo apt install python3 python3-venv python3-pip -y
+python3 --version
+python3 -m venv venv
+ls -la
+source venv/bin/activate
+(venv) kali@kali:~/hf_local$
+pip install --upgrade pip
+pip install torch transformers datasets evaluate accelerate ## Instala todo lo de Hugging Face
+```
 
 
 ## Java alternarives ( versiones diferentes en el mismo sistema)
