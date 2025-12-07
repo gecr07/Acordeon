@@ -73,6 +73,7 @@ setxkbmap latam
 ```
 ## Crear entorno virtual Python
 
+
 ```
 sudo apt install python3 python3-venv python3-pip -y
 python3 --version
