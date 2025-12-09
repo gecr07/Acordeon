@@ -335,7 +335,7 @@ scp root@192.168.0.27:/tmp/rmq2.sqlite ./
 Pero que pasa cuando es alrrevez de windows al iphone es asi:
 
 ```
-scp .\bbvanetc.ipa root@192.168.123.87:/tmp/
+scp .\netc.ipa root@192.168.123.87:/tmp/
 ```
 
 
