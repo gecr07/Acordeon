@@ -16,6 +16,7 @@ kex --win
 Para iniciar el kali con permisos de admin desde powershell
 
 ```
+wsl --list
 wsl -d kali-linux
 
 ```
