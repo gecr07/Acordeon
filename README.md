@@ -194,6 +194,45 @@ function extractPorts(){
 
 ```
 
+## S4vitar mkt
+
+Para crear carpetas y que todo este ordenado.
+
+```
+function mkt(){
+    mkdir {nmap,content,exploits,scripts}
+}
+
+```
+
+## AutoLogin Kali
+
+Para esto verifica que tipo de escritorio tienes en base a esto ya buscas info por el que tengo es asi:
+
+```
+cat /etc/X11/default-display-manager
+## /usr/sbin/lightdm
+
+```
+Editar la configuración de LightDM
+
+```
+sudo nano /etc/lightdm/lightdm.conf
+
+```
+
+Busca la siguiente parte y dejala como esta esto:
+
+```
+
+[Seat:*]
+autologin-user=kali
+autologin-user-timeout=0
+```
+
+Guarda y reinicia.
+
+
 
 ## Compilador Online
 
