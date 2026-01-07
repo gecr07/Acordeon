@@ -25,9 +25,12 @@ extractPorts ports
 
 nmap  -sSCV -p ports IP -oN results 
 
-6 Revisar codigo fuente en paginas web
+6 Revisar codigo fuente en paginas web/paginas frecuentes
 
-Wappalyzer
+- Wappalyzer
+- index.html
+- robots.txt
+- sitemap.xml
 
 7 Revisar versiones de servicio vulnerables.
 
