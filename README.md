@@ -1,5 +1,33 @@
 # Acordeon
 
+## Metodologia para resolver maquinas
+
+De menos a mas....
+
+```bash
+1 Crear una carpeta con el nombre de la maquina
+
+mkdir ejemplo
+
+2 Crear las sub carpetas
+
+mkt
+
+3 Escaneo con nmap puertos abiertos
+cd nmap
+nmap -sS --open --min-rate 5000 -vvv IP -oG ports
+
+4 Extraer los puertos
+
+extractPorts ports
+
+5 Reconocimineto de versiones y servicios
+
+nmap  -sSCV -p ports IP -oN results 
+
+```
+
+
 ## Kali Linux con WLS
 
 ```
@@ -66,31 +94,6 @@ Para instalar versiones especificas usa
 ```
 sdk install java 17.0.10-tem
 ```
-# Metodologia para resolver maquinas
-
-```bash
-1 Crear una carpeta con el nombre de la maquina
-
-mkdir ejemplo
-
-2 Crear las sub carpetas
-
-mkt
-
-3 Escaneo con nmap puertos abiertos
-cd nmap
-nmap -sS --open --min-rate 5000 -vvv IP -oG ports
-
-4 Extraer los puertos
-
-extractPorts ports
-
-5 Reconocimineto de versiones y servicios
-
-nmap  -sSCV -p ports IP -oN results 
-
-```
-
 
 
 ## Lenguaje español para Kali Teclado
