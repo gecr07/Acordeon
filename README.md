@@ -38,8 +38,11 @@ Wappalyzer
 ffuf -u http://10.10.11.80 -H "Host: FUZZ.editor.htb" -w /opt/SecLists/Discovery/DNS/subdomains-top1million-20000.txt -ac
 
 
-
 ```
+
+Para la herramienta ffuf y el uso del parametro -ac
+
+> ffuf detecta el “ruido” del sitio y lo oculta automáticamente.
 
 
 ## Kali Linux con WLS
