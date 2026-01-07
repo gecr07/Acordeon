@@ -25,7 +25,7 @@ extractPorts ports
 
 nmap  -sSCV -p ports IP -oN results 
 
-6 Revisar codigo fuente en paginas web/paginas frecuentes
+6 Revisar codigo fuente en paginas web/paginas frecuentes/enumerar versiones de frameworks usados en esas paginas
 
 - Wappalyzer
 - index.html
