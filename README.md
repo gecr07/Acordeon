@@ -68,7 +68,7 @@ sdk install java 17.0.10-tem
 ```
 # Metodologia para resolver maquinas
 
-```
+```bash
 1 Crear una carpeta con el nombre de la maquina
 
 mkdir ejemplo
