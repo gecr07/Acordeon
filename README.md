@@ -168,6 +168,17 @@ sudo docker ps
 
 sudo docker exec -it contenerdor-php bash
 ```
+## SSH SO enumeration
+
+Por medio del paquete del OpenSSH se puede enumerar el sistema operativo asi como lo mas improtante su version:
+
+```
+OpenSSH 8.9p1 Ubuntu 3ubuntu0.13
+```
+
+Busca en internet y te sale asi se hace.
+
+> Package "openssh" (jammy 22.04)
 
 
 ## S4vitar extractports
