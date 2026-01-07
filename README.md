@@ -30,7 +30,7 @@ nmap  -sSCV -p ports IP -oN results
 
 ## Kali Linux con WLS
 
-```
+```powershell
 wsl --install
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
