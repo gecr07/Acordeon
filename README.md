@@ -31,6 +31,14 @@ Wappalyzer
 
 7 Revisar versiones de servicio vulnerables.
 
+8 Revisar usuarios/contraseñas por defecto
+
+9 Revisar Virtual hosting/Revisar subdomain brute force
+
+ffuf -u http://10.10.11.80 -H "Host: FUZZ.editor.htb" -w /opt/SecLists/Discovery/DNS/subdomains-top1million-20000.txt -ac
+
+
+
 ```
 
 
