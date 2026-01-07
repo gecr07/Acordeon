@@ -4,7 +4,7 @@
 
 De menos a mas....
 
-```bash
+```java
 1 Crear una carpeta con el nombre de la maquina
 
 mkdir ejemplo
