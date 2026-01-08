@@ -40,6 +40,8 @@ nmap  -sSCV -p ports IP -oN results
 
 ffuf -u http://10.10.11.80 -H "Host: FUZZ.editor.htb" -w /opt/SecLists/Discovery/DNS/subdomains-top1million-20000.txt -ac
 
+feroxbuster -u http://editor.htb -x html # Fuzzing  -x le dice que busque archivos con extencion aparte de los directorios osea haria admin y admin.html
+
 10 Si hay servidores web ver pagina de errores e intetar enumerar el servidor 
 
 ```
