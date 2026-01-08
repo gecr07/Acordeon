@@ -132,7 +132,14 @@ XWiki 15.10.10 # SI no encuentra nada intenta con
 
 XWiki 15.10.
 ```
+Para revisar el exploit y despues copiarlo usa
 
+```
+searchsploit -x multiple/webapps/52136.txt
+
+searchsploit -m multiple/webapps/52136.txt
+
+```
 
 ## Lenguaje español para Kali Teclado
 
