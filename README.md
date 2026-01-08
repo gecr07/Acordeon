@@ -56,6 +56,14 @@ Para la herramienta ffuf y el uso del parametro -ac
 
 > ffuf detecta el “ruido” del sitio y lo oculta automáticamente.
 
+## netexec
+
+Es una herramienta que sirve para probar credenciales de distintos protcolos es un wrapper pero muy util
+
+```
+netexec ssh editor.htb -u oliver -p theEd1t0rTeam99
+```
+
 ## Recordar Java y Groovy
 
 No les gustan las shells dentro del mismo string no lo manejan bien como:
