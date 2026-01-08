@@ -4,47 +4,49 @@
 
 De menos a mas....
 
-```java
-1 Crear una carpeta con el nombre de la maquina
 
+1. Crear una carpeta con el nombre de la maquina
+```
 mkdir ejemplo
-
-2 Crear las sub carpetas
-
+```
+2. Crear las sub carpetas
+```
 mkt
-
-3 Escaneo con nmap puertos abiertos
+`` 
+3. Escaneo con nmap puertos abiertos
+```
 cd nmap
 nmap -sS --open --min-rate 5000 -vvv IP -oG ports
-
-4 Extraer los puertos
-
+```
+4. Extraer los puertos
+```
 extractPorts ports
+```
 
-5 Reconocimineto de versiones y servicios
-
+5. Reconocimineto de versiones y servicios
+```
 nmap  -sSCV -p ports IP -oN results 
-
-6 Revisar codigo fuente en paginas web/paginas frecuentes/enumerar versiones de frameworks usados en esas paginas
+```
+6. Revisar codigo fuente en paginas web/paginas frecuentes/enumerar versiones de frameworks usados en esas paginas
 
 - Wappalyzer
 - index.html
 - robots.txt
 - sitemap.xml
 
-7 Revisar versiones de servicio vulnerables / CMS y plugins.
+7. Revisar versiones de servicio vulnerables / CMS y plugins.
 
-8 Revisar usuarios/contraseñas por defecto/ escribir posibles nombres de usuarios que sten en la pagina
+8. Revisar usuarios/contraseñas por defecto/ escribir posibles nombres de usuarios que sten en la pagina
 
-9 Revisar Virtual hosting/Revisar subdomain brute force / Fuzzing a directorios
-
+9. Revisar Virtual hosting/Revisar subdomain brute force / Fuzzing a directorios
+```
 ffuf -u http://10.10.11.80 -H "Host: FUZZ.editor.htb" -w /opt/SecLists/Discovery/DNS/subdomains-top1million-20000.txt -ac
 
 feroxbuster -u http://editor.htb -x html # Fuzzing  -x le dice que busque archivos con extencion aparte de los directorios osea haria admin y admin.html
-
-10 Si hay servidores web ver pagina de errores e intetar enumerar el servidor 
-
 ```
+10. Si hay servidores web ver pagina de errores e intetar enumerar el servidor 
+
+
 
 Para la herramienta ffuf y el uso del parametro -ac
 
