@@ -32,7 +32,7 @@ nmap  -sSCV -p ports IP -oN results
 - robots.txt
 - sitemap.xml
 
-7 Revisar versiones de servicio vulnerables.
+7 Revisar versiones de servicio vulnerables / CMS y plugins.
 
 8 Revisar usuarios/contraseñas por defecto
 
