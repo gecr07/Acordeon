@@ -117,6 +117,21 @@ Para instalar versiones especificas usa
 ```
 sdk install java 17.0.10-tem
 ```
+## Searchsploit y Busqueda de exploits
+
+En google usa palabras como 
+
+```
+github exploit
+```
+
+Para buscar dentro del searchsploit
+
+```
+XWiki 15.10.10 # SI no encuentra nada intenta con
+
+XWiki 15.10.
+```
 
 
 ## Lenguaje español para Kali Teclado
