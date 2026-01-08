@@ -34,7 +34,7 @@ nmap  -sSCV -p ports IP -oN results
 
 7 Revisar versiones de servicio vulnerables / CMS y plugins.
 
-8 Revisar usuarios/contraseñas por defecto
+8 Revisar usuarios/contraseñas por defecto/ escribir posibles nombres de usuarios que sten en la pagina
 
 9 Revisar Virtual hosting/Revisar subdomain brute force / Fuzzing a directorios
 
