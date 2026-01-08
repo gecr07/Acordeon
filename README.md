@@ -937,6 +937,11 @@ nmap -p 1-10000 $target
 ```
 
 ## Linpeas
+Bajar siempre la ultima version 
+
+```
+wget "https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh"
+```
 
 Usa esto en caso de que no sepas como escalar privilegios.
 
