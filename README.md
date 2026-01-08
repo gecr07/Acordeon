@@ -6,13 +6,17 @@ De menos a mas....
 
 
 1. Crear una carpeta con el nombre de la maquina
+   
 ```
 mkdir ejemplo
 ```
+
 2. Crear las sub carpetas
+   
 ```
 mkt
-`` 
+```
+
 3. Escaneo con nmap puertos abiertos
 ```
 cd nmap
