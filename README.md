@@ -50,6 +50,14 @@ feroxbuster -u http://editor.htb -x html # Fuzzing  -x le dice que busque archiv
 ```
 10. Si hay servidores web ver pagina de errores e intetar enumerar el servidor 
 
+11. Al encontrar un exploit/ Revisa asi 10.10.x o 10.10. para encontrarlos
+
+- Revisar la ruta
+- Que tipo de vulnerabilidad es
+-  Como ese framework/paquete
+-  Esa tecnologia le gustan los pipes |
+-  url encode
+-  Ve las rutas de los exploits de nuevo
 
 
 Para la herramienta ffuf y el uso del parametro -ac
