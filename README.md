@@ -2153,6 +2153,15 @@ Si el socat se puede usar lo puedes usar tanto para esperar una shell (tipo nc) 
 
 ```
 
+## Portfowarding
+
+En vez de usar chisel si tienes acceso via ssh traete los puertos
+
+```
+ssh oliver@editor.htb -L 19999:localhost:19999 -L 8125:localhost:8125 -L 43143:localhost:43143
+```
+
+
 ##  Revisar puetos en uso (lsof)
 
 Para revisar un puerto si esta en uso:
