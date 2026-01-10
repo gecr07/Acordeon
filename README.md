@@ -64,8 +64,11 @@ feroxbuster -u http://editor.htb -x html # Fuzzing  -x le dice que busque archiv
    - buscar archivos de configuracion del CMS
    - buscar carpetas mas del cms
    - buscar dentro de esos archivos (username, user, pass, passwod)
+
+13. Re utiliza contraseñas si es que encuentras/ Pruebalas contra otros usuarios por SSH / Pruebalas contra bases de datos.
+
      
-13. Si encuentras un nuevo puerto vete hasta el paso 1 sobre ese mismo puerto.
+14. Si encuentras un nuevo puerto vete hasta el paso 1 sobre ese mismo puerto.
 
 
 
