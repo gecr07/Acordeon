@@ -67,8 +67,12 @@ feroxbuster -u http://editor.htb -x html # Fuzzing  -x le dice que busque archiv
 
 13. Re utiliza contraseñas si es que encuentras/ Pruebalas contra otros usuarios por SSH / Pruebalas contra bases de datos.
 
+14.  Cual es el nombre del binario
+
+15.  Puertos expuestos internamente
+    
      
-14. Si encuentras un nuevo puerto vete hasta el paso 1 sobre ese mismo puerto.
+17. Si encuentras un nuevo puerto vete hasta el paso 1 sobre ese mismo puerto.
 
 
 
