@@ -65,6 +65,8 @@ feroxbuster -u http://editor.htb -x html # Fuzzing  -x le dice que busque archiv
    - buscar carpetas mas del cms
    - buscar dentro de esos archivos (username, user, pass, passwod)
      
+13. Si encuentras un nuevo puerto vete hasta el paso 1 sobre ese mismo puerto.
+
 
 
 Para la herramienta ffuf y el uso del parametro -ac
