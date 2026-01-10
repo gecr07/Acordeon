@@ -59,6 +59,13 @@ feroxbuster -u http://editor.htb -x html # Fuzzing  -x le dice que busque archiv
 -  url encode
 -  Ve las rutas de los exploits de nuevo
 
+12. Ya dentro
+
+   - buscar archivos de configuracion del CMS
+   - buscar carpetas mas del cms
+   - buscar dentro de esos archivos (username, user, pass, passwod)
+     
+
 
 Para la herramienta ffuf y el uso del parametro -ac
 
