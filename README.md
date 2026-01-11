@@ -49,6 +49,11 @@ ffuf -u http://10.10.11.80 -H "Host: FUZZ.editor.htb" -w /opt/SecLists/Discovery
 
 feroxbuster -u http://editor.htb -x html # Fuzzing  -x le dice que busque archivos con extencion aparte de los directorios osea haria admin y admin.html
 ```
+
+Para la herramienta ffuf y el uso del parametro -ac
+
+> ffuf detecta el “ruido” del sitio y lo oculta automáticamente.
+
 10. Si hay servidores web ver pagina de errores e intetar enumerar el servidor 
 
 11. Al encontrar un exploit/ Revisa asi 10.10.x o 10.10. para encontrarlos
@@ -80,11 +85,6 @@ feroxbuster -u http://editor.htb -x html # Fuzzing  -x le dice que busque archiv
      
 17. Si encuentras un nuevo puerto vete hasta el paso 1 sobre ese mismo puerto.
 
-
-
-Para la herramienta ffuf y el uso del parametro -ac
-
-> ffuf detecta el “ruido” del sitio y lo oculta automáticamente.
 
 ## netexec
 
