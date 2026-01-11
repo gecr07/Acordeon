@@ -4,6 +4,7 @@
 
 De menos a mas....
 
+### Primera fase (Acceso inicial)
 
 1. Crear una carpeta con el nombre de la maquina
    
@@ -59,6 +60,8 @@ feroxbuster -u http://editor.htb -x html # Fuzzing  -x le dice que busque archiv
 -  url encode
 -  Ve las rutas de los exploits de nuevo
 
+### Segunda fase (Reconocimiento)
+
 12. Ya dentro. SHELL as CMS user
 
    - buscar archivos de configuracion del CMS
@@ -66,6 +69,9 @@ feroxbuster -u http://editor.htb -x html # Fuzzing  -x le dice que busque archiv
    - buscar dentro de esos archivos (username, user, pass, passwod)
 
 13. Re utiliza contraseñas si es que encuentras/ Pruebalas contra otros usuarios por SSH / Pruebalas contra bases de datos.
+
+
+### Tercera fase Escalacion de privilegios
 
 14.  Cual es el nombre del binario
 
