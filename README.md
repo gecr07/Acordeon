@@ -2121,6 +2121,15 @@ cat file | tr -d '\n'
 grep -v "00 00 00 00"
 ```
 
+## SSH Port Forwarding
+
+Para traerte puertos y evitar usar chisel
+
+```
+ssh oliver@editor.htb -L 19999:localhost:19999 -L 8125:localhost:8125 -L 43143:localhost:43143
+```
+
+
 ## Dynamic Port Fowarding SSH
 
 Primero vamos a editar el archivo de configuracion de proxychains
