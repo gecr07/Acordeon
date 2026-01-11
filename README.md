@@ -94,6 +94,37 @@ Es una herramienta que sirve para probar credenciales de distintos protcolos es 
 netexec ssh editor.htb -u oliver -p theEd1t0rTeam99
 ```
 
+## Envenenar el PATH
+
+Existen dos maneras que hasta el momento conozco.
+
+El metodo 1 es el que siempre se usa el normal por asi decirlo
+
+```
+export PATH=/tmp:$PATH
+./suidbinary
+
+```
+Linux protege los SUID limpiando:
+
+- PATH
+
+- LD_*
+
+- variables peligrosas
+
+Muchas veces no funciona.Y el segundo metodo que al parecer es mas potente:
+
+```
+PATH=/tmp:$PATH ./suidbinary
+
+PATH=/dev/shm:$PATH /opt/netdata/usr/libexec/netdata/plugins.d/ndsudo nvme-list
+
+```
+inyecta el PATH antes de que el binario cambie de UID. sto es una categoría real de vulnerabilidades:
+
+> SUID PATH Injection
+
 ## Recordar Java y Groovy
 
 No les gustan las shells dentro del mismo string no lo manejan bien como:
