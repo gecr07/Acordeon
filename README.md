@@ -223,6 +223,15 @@ Para instalar versiones especificas usa
 ```
 sdk install java 17.0.10-tem
 ```
+
+## SMB Shares 
+
+> The SMB shares are the default ones for a Windows DC:
+
+<img width="941" height="213" alt="image" src="https://github.com/user-attachments/assets/6ab0ab32-3340-4919-84c9-abdfec2fa1ee" />
+
+
+
 ## Searchsploit y Busqueda de exploits
 
 En google usa palabras como 
