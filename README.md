@@ -38,8 +38,18 @@ nmap  -sSCV -p ports IP -oN results
 - index.html
 - robots.txt
 - sitemap.xml
+- Cabeceras
 
 7. Revisar versiones de servicio vulnerables / CMS y plugins.
+
+7.1 Si es windows y tienes credenciales
+
+- Blood Hound
+- SMB
+- WinRM
+- shares
+- users
+
 
 8. Revisar usuarios/contraseñas por defecto/ escribir posibles nombres de usuarios que sten en la pagina
 
