@@ -96,13 +96,40 @@ Para la herramienta ffuf y el uso del parametro -ac
 17. Si encuentras un nuevo puerto vete hasta el paso 1 sobre ese mismo puerto.
 
 
-## netexec
+## Bloodhound
 
-Es una herramienta que sirve para probar credenciales de distintos protcolos es un wrapper pero muy util
+Es la herramienta por excelencia para enumerar el AD.
+
+### rusthound-ce
+
+Es una version que genera los json
+
+```
+rusthound-ce -d DOMAIN.LOCAL -u USERNAME@DOMAIN.LOCAL -z
+```
+> https://github.com/g0h4n/RustHound-CE
+
+
+## Netexec cheat sheeat
+
+Es la continuacion del Crack Map Exec. Es una herramienta que sirve para probar credenciales de distintos protcolos es un wrapper pero muy util
 
 ```
 netexec ssh editor.htb -u oliver -p theEd1t0rTeam99
 ```
+
+Para las shares
+
+```
+netexec smb DC01.tombwatcher.htb -u henry -p 'H3nry_987TGV!' --shares
+```
+
+Para los usuarios
+
+```
+netexec smb DC01.tombwatcher.htb -u henry -p 'H3nry_987TGV!' --users
+```
+
 
 ## Envenenar el PATH
 
