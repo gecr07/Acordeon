@@ -143,7 +143,7 @@ Para los usuarios
 ```
 netexec smb DC01.tombwatcher.htb -u henry -p 'H3nry_987TGV!' --users
 ```
-
+> https://github.com/BlWasp/NetExec-Cheatsheet
 
 ## Envenenar el PATH
 
