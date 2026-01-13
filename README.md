@@ -110,7 +110,41 @@ Existen tres herramientas
 
 > BloodHound Enterprise: Paid version of BloodHound for attack path management. The major difference is that this version is used for risk management and validation.
 
+La pagina de github es
 
+> https://github.com/SpecterOps/BloodHound
+
+Para instalar la gui si fueron varios pasos
+
+```
+sudo apt install docker -y
+sudo apt install docker-compose
+
+```
+Se baja el binario del 
+
+```
+cd ~
+wget -O bloodhound-cli-linux-amd64.tar.gz https://github.com/SpecterOps/bloodhound-cli/releases/latest/download/bloodhound-cli-linux-amd64.tar.gz
+tar -xvzf bloodhound-cli-linux-amd64.tar.gz
+cd bloodhound-cli*
+```
+Cuando se termine de instalar vas a ver algo como esto
+
+```
+[+] You can log in as `admin` with this password: JjCpQdVBy2tYI6ADjq9nDB5vcOR0UT6x
+[+] You can get your admin password by running: bloodhound-cli config get default_password
+[+] You can access the BloodHound UI at: http://127.0.0.1:8080/ui/login
+
+```
+
+Instalalo 
+
+```
+./bloodhound-cli install
+Para restablecer el password
+./bloodhound-cli resetpwd
+```
 
 ### rusthound-ce
 
