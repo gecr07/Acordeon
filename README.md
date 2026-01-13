@@ -100,6 +100,18 @@ Para la herramienta ffuf y el uso del parametro -ac
 
 Es la herramienta por excelencia para enumerar el AD.
 
+Existen tres herramientas 
+
+> There are currently three versions of BloodHound you need to know about:
+
+> BloodHound Legacy: The original BloodHound, no longer supported. Built on an Electron-based application, somewhat complicated to set up.
+
+> BloodHound Community Edition: Released in August 2023, actively supported. Leverages docker compose to manage a set of containers, exceptionally easy to deploy. Smooth web application interface.
+
+> BloodHound Enterprise: Paid version of BloodHound for attack path management. The major difference is that this version is used for risk management and validation.
+
+
+
 ### rusthound-ce
 
 Es una version que genera los json escrita en rust bastante interesante.
