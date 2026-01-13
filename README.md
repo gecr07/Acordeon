@@ -120,6 +120,10 @@ Es el mismo que arriba pero al parece este no hacia consultas ADCS ( al momento 
 ```
 > https://github.com/dirkjanm/BloodHound.py
 
+NOTA importante
+
+> By collecting both, duplicate data is ignored, and I’ll get the fullest picture.
+
 ## Netexec cheat sheeat
 
 Es la continuacion del Crack Map Exec. Es una herramienta que sirve para probar credenciales de distintos protcolos es un wrapper pero muy util
