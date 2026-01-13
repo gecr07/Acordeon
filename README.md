@@ -102,13 +102,23 @@ Es la herramienta por excelencia para enumerar el AD.
 
 ### rusthound-ce
 
-Es una version que genera los json
+Es una version que genera los json escrita en rust bastante interesante.
 
 ```
 rusthound-ce -d DOMAIN.LOCAL -u USERNAME@DOMAIN.LOCAL -z
+
+ rusthound-ce -d tombwatcher.htb -u henry -p 'H3nry_987TGV!' --zip -c All
 ```
 > https://github.com/g0h4n/RustHound-CE
 
+### bloodhound-ce-python
+
+Es el mismo que arriba pero al parece este no hacia consultas ADCS ( al momento de escribir esto ). Instala siempre que puedas con pipx
+
+```
+ bloodhound-ce-python -c all -d tombwatcher.htb -u henry -p 'H3nry_987TGV!' --zip -ns 10.10.11.72
+```
+> https://github.com/dirkjanm/BloodHound.py
 
 ## Netexec cheat sheeat
 
