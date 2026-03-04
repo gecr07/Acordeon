@@ -95,6 +95,18 @@ Para la herramienta ffuf y el uso del parametro -ac
      
 17. Si encuentras un nuevo puerto vete hasta el paso 1 sobre ese mismo puerto.
 
+## Ver Markdown desde la consola glow
+
+Es un paquete que se llama glow
+
+```
+sudo apt install glow
+
+batcat revisar-mcp-burp.md
+
+glow archivo.md
+```
+
 
 ## Bloodhound
 
