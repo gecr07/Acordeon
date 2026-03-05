@@ -107,6 +107,14 @@ batcat revisar-mcp-burp.md
 glow archivo.md
 ```
 
+## Buscara cosas simples ( Cuando no encuentras nada con ffuf o feroxbuster)
+
+Usa otras listas como las de common y usa nmap asi:
+
+```
+nmap -p 80,8080 -sCV wiki.editor.htb
+```
+A veces encuentra mas que ffuf o feroxbuster poque son cosas basicas como el /.git ya lo agregue a las lista de palabras pero no estaba.
 
 ## Bloodhound
 
