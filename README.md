@@ -270,7 +270,7 @@ Esto funciono en editor.htb
 PATH=/dev/shm:$PATH /opt/netdata/usr/libexec/netdata/plugins.d/ndsudo nvme-list
 ```
 
-Busco el binario nvme-list en /dev/shm primero.
+Busco el binario nvme en /dev/shm primero.
 
 
 ## Recordar Java y Groovy
