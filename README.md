@@ -79,11 +79,15 @@ Para la herramienta ffuf y el uso del parametro -ac
 
 12. Ya dentro. SHELL as CMS user
 
-   - buscar archivos de configuracion del CMS
+   - buscar archivos de configuracion del CMS y conexiones con bases de datos ( *.info, conf.php, app.ini, *.cfg, *.conf, mysql://)
    - buscar carpetas mas del cms
    - buscar dentro de esos archivos (username, user, pass, passwod)
+   - /.git
+   - Busca dentro del repositorio del CMS
+   - Si tienes un repositorio local o lo bajaste busca Dockerfiles
+   - Levanta Dockerfiles para saber rutas.
 
-13. Re utiliza contraseñas si es que encuentras/ Pruebalas contra otros usuarios por SSH / Pruebalas contra bases de datos.
+13. Re utiliza contraseñas si es que encuentras/ Pruebalas contra otros usuarios por SSH / Pruebalas contra bases de datos/servicios etc.
 
 
 ### Tercera fase Escalacion de privilegios
@@ -91,7 +95,12 @@ Para la herramienta ffuf y el uso del parametro -ac
 14.  Cual es el nombre del binario
 
 15.  Puertos expuestos internamente
-    
+
+Para traerte puertos a local algo facil es con ssh haces un tunnel y parece un espejo tienes los mismos puertos pero ya en local
+
+```
+sshpass -p theEd1t0rTeam99 ssh oliver@editor.htb -L 19999:localhost:19999 -L 8125:localhost:8125 -L 43143:localhost:4314
+``` 
      
 17. Si encuentras un nuevo puerto vete hasta el paso 1 sobre ese mismo puerto.
 
