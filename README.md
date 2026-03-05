@@ -116,6 +116,16 @@ nmap -p 80,8080 -sCV wiki.editor.htb
 ```
 A veces encuentra mas que ffuf o feroxbuster poque son cosas basicas como el /.git ya lo agregue a las lista de palabras pero no estaba.
 
+## Reconocimiento de usuarios en /etc/passwd
+
+Los usuarios que tienes shell es sobre los que tienes que ir porque es ahi donde estan las banderas.
+
+```
+cat /etc/passwd | grep 'sh$'
+```
+Evitas estar buscando a ver cual si es un usario al que puedas ingresar.
+
+
 ## Bloodhound
 
 Es la herramienta por excelencia para enumerar el AD.
