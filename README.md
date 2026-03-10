@@ -104,6 +104,8 @@ sshpass -p theEd1t0rTeam99 ssh oliver@editor.htb -L 19999:localhost:19999 -L 812
      
 17. Si encuentras un nuevo puerto vete hasta el paso 1 sobre ese mismo puerto.
 18. Si encuentras algo en algun puerto y ya tienes acceso revisa en el sistema operativo el binario/version/permisos eso seguro te permitira escalar privilegios.
+19. Cuando tengas un script en Python usa pip freeze para ver si no hay liberiras vulnerables
+20. Si algun script checar los symbolic links se puede engañar con doble symbolic link
 
 ## Ver Markdown desde la consola glow
 
