@@ -2889,6 +2889,31 @@ C:\inetpub\wwwroot
  ├── images
  └── scripts
 
+	# Configuración global de IIS
+
+C:\Windows\System32\inetsrv\config\ (applicationHost.config)
+
+	# Carpeta temporal de IIS
+
+C:\inetpub\temp\
+
+    # Carpeta de errores personalizados
+
+C:\inetpub\custerr\
+
+	# Archivos de configuracion que debes de ver siempore
+
+C:\inetpub\wwwroot\web.config
+
+C:\inetpub\wwwroot\appsettings.json
+
+C:\inetpub\wwwroot\app\web.config
+
+C:\Windows\System32\inetsrv\config\applicationHost.config
+
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config
+
+
 ```
 
 ## Proyecctos Opensource
