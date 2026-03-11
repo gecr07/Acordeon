@@ -80,6 +80,7 @@ Para la herramienta ffuf y el uso del parametro -ac
 12. Ya dentro. SHELL as CMS user
 
    - buscar archivos de configuracion del CMS y conexiones con bases de datos ( *.info, conf.php, app.ini, *.cfg, *.conf, mysql://)
+   - grep -Ri "3306" | more grep -Ri "mysql:" | more grep -ri "connection" | more grep -ro "$db" | more
    - buscar carpetas mas del cms
    - buscar dentro de esos archivos (username, user, pass, passwod)
    - /.git
