@@ -2846,6 +2846,51 @@ Combina esto con wfuzz y podrias probar LFIs aunque siempre intenta manual pero 
 ....\....\....\....\....\....\....\....\
 ```
 
+## LFI IIS y Windows
+
+Cuando encuentres esta vulnerabilidad intenta traerte primero los mismos archivos del CMS. Despues archivos de configuracion del servidor.
+
+```
+ # Archivos de configuracion de IIS
+
+web.config
+applicationHost.config
+global.asax
+connectionStrings.config
+
+```
+
+Rutas del servidor IIS:
+
+```
+	# Revisa estas rutas algunas veces estan en  C:
+
+C:\inetpub\
+
+	# Tienes estos directorios
+
+C:\inetpub
+ ├── custerr
+ ├── history
+ ├── logs
+ ├── temp
+ └── wwwroot
+
+	# Caperta principal
+
+C:\inetpub\wwwroot\
+
+	# Ejemplo de archivos
+
+C:\inetpub\wwwroot
+ ├── index.html
+ ├── index.aspx
+ ├── web.config
+ ├── images
+ └── scripts
+
+```
+
 ## Proyecctos Opensource
 
 Pues asi como revisas siempre si hay contraseñas por defecto tambien esta bien que intentes ver si el proyecto es open source y si puedes aprobechar eso.
