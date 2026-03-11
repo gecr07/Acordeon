@@ -2848,7 +2848,7 @@ Combina esto con wfuzz y podrias probar LFIs aunque siempre intenta manual pero 
 
 ## LFI IIS y Windows
 
-Cuando encuentres esta vulnerabilidad intenta traerte primero los mismos archivos del CMS. Despues archivos de configuracion del servidor.
+Cuando encuentres esta vulnerabilidad intenta traerte primero los mismos archivos del CMS. Despues archivos de configuracion del servidor. **Si esto falla intenta leer archivos de configuracion de programas instalados.**
 
 ```
  # Archivos de configuracion de IIS
