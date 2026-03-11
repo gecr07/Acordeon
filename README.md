@@ -2916,6 +2916,51 @@ C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config
 
 ```
 
+## SMTP
+
+Pues el correo existen maneras de probar que hay 
+
+```
+	# Coneccion basica
+
+telnet mailing.htb 25
+
+	# Python
+
+En el cmd teclea python
+import smtplib
+>>> server = smtplib.SMTP('mailing.htb:587')
+>>> server.login('administrator', 'homenetworkingadministrator')
+O
+>>> server.login('administrator@mailing.htb', 'homenetworkingadministrator')
+
+	# Conectarte con otra herramienta ( solo para probar passwd el primer comando)
+
+swaks --auth-user 'administrator@mailing.htb' --auth LOGIN --auth-password homenetworkingadministrator --quit-after AUTH --server mailing.htb
+
+
+```
+
+En **Windows existen opciones para mail** siendo las siguientes el primero viene por defecto el otro es mas complejo pero se instala.
+
+```
+Windows Mail o Mail
+
+Y
+
+Outlook
+
+	# Puertos
+| Puerto | Uso                        |
+| ------ | -------------------------- |
+| 25     | SMTP entre servidores      |
+| 587    | SMTP submission (clientes) |
+| 465    | SMTP SSL                   |
+| 2525   | alternativo (a veces)      |
+
+
+```
+
 ## Proyecctos Opensource
 
 Pues asi como revisas siempre si hay contraseñas por defecto tambien esta bien que intentes ver si el proyecto es open source y si puedes aprobechar eso.
