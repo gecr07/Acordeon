@@ -1632,6 +1632,15 @@ username=masa&country=Albania' union select "probando" into outfile "/var/www/ht
 
 Siempre prueba si tiene permisos de ejecucion de comandos asi como de escribir archivos.
 
+## Puedes idetificar el tipo
+
+| Técnica                 | Idea                                            |
+| ----------------------- | ----------------------------------------------- |
+| **Boolean-based blind** | la app cambia según verdadero/falso             |
+| **Time-based blind**    | la respuesta tarda si la condición es verdadera |
+| **Error-based**         | provocas errores que revelan datos              |
+
+
 ### Tabla con la que debes ayudarte
 
 | Fase | Qué quieres sacar            | Fuente                        | Ejemplo de expresión a evaluar                                                                                                                         | Qué estás obteniendo          |
