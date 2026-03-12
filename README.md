@@ -1590,6 +1590,17 @@ Ahora para redireccionar el stderr
 
 ## SQLI mysql
 
+### ASCII a probar
+
+Para esto usa pyhton 
+
+```
+python
+import string
+string.ascii_lowercase
+'abcdefghijklmnopqrstuvwxyz'
+```
+
 Para no depender de SQLMAP voy a utilizar la tabla "information_schema" esta tabla tiene informacion de usuarios privilegios etc.
 
 Para ***enumerar usuario*** de la base de datos ( en ese momento)
