@@ -1643,6 +1643,40 @@ username=masa&country=Albania' union select "probando" into outfile "/var/www/ht
 
 Siempre prueba si tiene permisos de ejecucion de comandos asi como de escribir archivos.
 
+## 📚 Tabla de enumeración SQLi usando information_schema
+
+| Objetivo                  | Tabla del schema              | Campo que buscas | Query normal                                          | Ejemplo con `WHERE`                                                                                               |
+| ------------------------- | ----------------------------- | ---------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Ver bases de datos        | `information_schema.schemata` | `schema_name`    | `SELECT schema_name FROM information_schema.schemata` | `SELECT schema_name FROM information_schema.schemata WHERE schema_name='usage_blog'`                              |
+| Ver tablas de una DB      | `information_schema.tables`   | `table_name`     | `SELECT table_name FROM information_schema.tables`    | `SELECT table_name FROM information_schema.tables WHERE table_schema='usage_blog'`                                |
+| Ver columnas de una tabla | `information_schema.columns`  | `column_name`    | `SELECT column_name FROM information_schema.columns`  | `SELECT column_name FROM information_schema.columns WHERE table_name='admin_users'`                               |
+| Filtrar columnas por DB   | `information_schema.columns`  | `column_name`    | —                                                     | `SELECT column_name FROM information_schema.columns WHERE table_schema='usage_blog' AND table_name='admin_users'` |
+| Ver tipo de dato          | `information_schema.columns`  | `data_type`      | —                                                     | `SELECT data_type FROM information_schema.columns WHERE table_name='admin_users'`                                 |
+
+
+## Tabla de funciones de texto y agregación
+
+| Función                    | Qué hace                                                 | Argumentos                         | Devuelve | Comentario clave                               |
+| -------------------------- | -------------------------------------------------------- | ---------------------------------- | -------- | ---------------------------------------------- |
+| `SUBSTRING(str, pos, len)` | Extrae parte de una cadena                               | cadena, posición inicial, longitud | texto    | En muchos motores la posición empieza en 1     |
+| `SUBSTR(str, pos, len)`    | Variante/alias de `SUBSTRING`                            | cadena, posición, longitud         | texto    | Muy común en MySQL, Oracle, PostgreSQL         |
+| `LENGTH(str)`              | Mide longitud                                            | cadena                             | entero   | A veces mide bytes                             |
+| `CHAR_LENGTH(str)`         | Mide longitud en caracteres                              | cadena                             | entero   | Mejor cuando hay UTF-8                         |
+| `LEN(str)`                 | Mide longitud                                            | cadena                             | entero   | Típico de SQL Server                           |
+| `CONCAT(a,b,...)`          | Une valores en una sola cadena                           | 2 o más argumentos                 | texto    | Une columnas o literales dentro de una fila    |
+| `CONCAT_WS(sep,a,b,...)`   | Une valores usando separador                             | separador + valores                | texto    | Muy útil para formatear                        |
+| `GROUP_CONCAT(expr)`       | Une múltiples valores de varias filas en una sola cadena | expresión                          | texto    | Es una función de agregación                   |
+| `STRING_AGG(expr, sep)`    | Agrega strings de varias filas con separador             | expresión, separador               | texto    | Equivalente moderno en PostgreSQL / SQL Server |
+| `LISTAGG(expr, sep)`       | Agrega strings de varias filas con separador             | expresión, separador               | texto    | Equivalente típico en Oracle                   |
+| `ASCII(str)`               | Obtiene el código ASCII del primer carácter              | cadena                             | entero   | Función de análisis de caracteres              |
+| `ORD(str)`                 | Devuelve valor numérico del primer carácter              | cadena                             | entero   | Común en MySQL                                 |
+| `LOWER(str)`               | Convierte a minúsculas                                   | cadena                             | texto    | Útil para normalizar                           |
+| `UPPER(str)`               | Convierte a mayúsculas                                   | cadena                             | texto    | Similar a `LOWER`                              |
+| `TRIM(str)`                | Quita espacios al inicio y final                         | cadena                             | texto    | Limpieza de datos                              |
+| `REPLACE(str,a,b)`         | Reemplaza texto dentro de una cadena                     | cadena, patrón, reemplazo          | texto    | Muy usada en transformación                    |
+| `COALESCE(a,b,...)`        | Toma el primer valor no nulo                             | varios argumentos                  | valor    | Muy usada en SQL general                       |
+
+
 ## Puedes idetificar el tipo
 
 | Técnica                 | Idea                                            |
