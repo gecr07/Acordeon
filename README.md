@@ -4276,6 +4276,14 @@ unzip cloudhosting-0.0.1.jar
 
 ```
 
+##  Busqueda de credenciales en archivos conf
+
+Busca los siguientes strings cuando te topes con bases de datos
+
+```
+postgresql://
+mysql://
+```
 
 
 # Referencias
