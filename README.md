@@ -138,6 +138,13 @@ cat /etc/passwd | grep 'sh$'
 ```
 Evitas estar buscando a ver cual si es un usario al que puedas ingresar.
 
+## Error pages PARA enumeracion 
+
+Las paginas de errores ayudan a ver sobre que esta montado la app ademas usa las listas de SecList especificas para cada tecnologia!
+
+<img width="1167" height="430" alt="image" src="https://github.com/user-attachments/assets/04c425fd-40dd-4b6d-8444-5957aeefeeb4" />
+
+> https://0xdf.gitlab.io/cheatsheets/404
 
 ## Bloodhound
 
