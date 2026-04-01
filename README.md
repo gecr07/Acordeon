@@ -4275,14 +4275,46 @@ jd-gui
 unzip cloudhosting-0.0.1.jar
 
 ```
+##  Conectarse a bases de datos
+
+Para conectarse voy a poner un mini cheetsheet
+
+```
+	# mysql
+
+	# postgresql
+
+psql -U postgres -h localhost
+		# Lista bases de datos
+
+	\list
+
+		# Usa x base de datos (como use de mysql)
+
+	\c cozyhosting
+
+		# Lista tablas
+
+	\dt
+
+	# Describe las columnas de la tabla
+
+	\d users	
+	# Traete todos los datos
+
+	SELECT * FROM users;
+
+```
 
 ##  Busqueda de credenciales en archivos conf
 
 Busca los siguientes strings cuando te topes con bases de datos
 
 ```
+# Usa grep
 postgresql://
 mysql://
+
 ```
 
 
