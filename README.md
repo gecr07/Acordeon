@@ -4257,6 +4257,10 @@ sudo aireplay-ng --deauth 7 -a 78:B4:6A:E7:59:D8 wlan1
 
 ```
 
+# TIps Y  Lecciones aprendidas ( cada vez que falle voy a poner porque aqui de algo tiene que funcionar)
+
+
+
 
 
 # Referencias
