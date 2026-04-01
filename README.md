@@ -4257,9 +4257,24 @@ sudo aireplay-ng --deauth 7 -a 78:B4:6A:E7:59:D8 wlan1
 
 ```
 
-# TIps Y  Lecciones aprendidas ( cada vez que falle voy a poner porque aqui de algo tiene que funcionar)
+# Tips y lecciones aprendidas ( cada vez que falle voy a poner porque aqui de algo tiene que funcionar)
 
+## JAR
 
+Es un zip basicamente descomprimelo o usa jd-gui
+
+```
+# Option 1 (recomendado ve todo visualmente
+
+sudo apt install jd-gui
+
+jd-gui
+
+# Option 2
+
+unzip cloudhosting-0.0.1.jar
+
+```
 
 
 
