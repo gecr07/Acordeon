@@ -4316,7 +4316,40 @@ postgresql://
 mysql://
 
 ```
+## Ejecutar comandos sin espacios
 
+Esto lo aprendi en la maquina CozyHosting.
+
+```
+0xdf;{ping,-c,1,10.10.14.6};#
+
+# Se expande sin espacios.
+
+```
+
+## Usa las paginas de error para enumerar en que esta montada la app
+
+En la pagina de 0xdf existen todas las pantallas de error eso te ayuda a enumerar.
+
+> https://0xdf.gitlab.io/cheatsheets/404
+
+## SSH puede ejecutar comandos
+
+Existe una manera en que SSH antes de conectarse puede ejecutar comandos. Si se puede ejecutar como root es game over
+
+```
+sudo ssh -o ProxyCommand='touch /tmp/0xdf' x
+```
+
+## Hashcat
+
+Puedes usar la opcion de --user para que el formato de los hashes sea:
+
+```
+user:hash
+
+hashcat hashes --user /opt/SecLists/Passwords/Leaked-Databases/rockyou.txt
+```
 
 # Referencias
 
