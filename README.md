@@ -4351,6 +4351,40 @@ user:hash
 hashcat hashes --user /opt/SecLists/Passwords/Leaked-Databases/rockyou.txt
 ```
 
+## Haz las preguntas correctas
+
+Siempre date un respiro y haz las preguntas correctas, por ejemplo
+
+```
+Donde guarda informacion jenkins de los usuarios
+Donde guarda jenkins informacion de un usuario en especifico
+Cuales son los principales archivos de configuracion.
+```
+
+## LFI una lista competente
+
+| Categoría                          | Rutas clave                                                                                           | ¿Qué obtienes?                                          | ¿Por qué es importante?                                               |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | --------------------------------------------------------------------- |
+| 🔧 **Procesos y ejecución**        | `/proc/self/cmdline`<br>`/proc/self/status`<br>`/proc/self/exe`                                       | Comando que ejecuta la app, binario, estado del proceso | Te dice **qué tecnología estás atacando** (ej: Jenkins, Node, Python) |
+| 🌍 **Variables de entorno**        | `/proc/self/environ`<br>`/etc/environment`                                                            | Variables como `HOME`, `PATH`, `JENKINS_HOME`, tokens   | Te revela rutas internas, credenciales y configuración sensible       |
+| 🧠 **Procesos del sistema**        | `/proc/[PID]/cmdline`<br>`/proc/[PID]/environ`                                                        | Información de otros procesos                           | Puedes descubrir servicios internos y credenciales en memoria         |
+| 🌐 **Red y puertos**               | `/proc/net/tcp`<br>`/proc/net/tcp6`                                                                   | Puertos abiertos y conexiones activas                   | Te ayuda a encontrar **servicios internos no expuestos**              |
+| 📡 **Interfaces de red**           | `/proc/net/dev`<br>`/proc/net/route`<br>`/proc/net/arp`                                               | Interfaces, rutas, IPs internas                         | Útil para pivoting o entender la red interna                          |
+| 🔌 **Sockets**                     | `/proc/net/unix`                                                                                      | Comunicación interna entre procesos                     | Puede revelar servicios locales interesantes                          |
+| 👤 **Usuarios del sistema**        | `/etc/passwd`<br>`/etc/shadow`<br>`/etc/group`                                                        | Usuarios, shells, hashes                                | Base para escalación de privilegios                                   |
+| 🔐 **Historial de comandos**       | `/home/*/.bash_history`<br>`/root/.bash_history`                                                      | Comandos ejecutados previamente                         | 🔥 Puede contener passwords, rutas y comandos sensibles               |
+| 🧾 **Logs de autenticación**       | `/var/log/auth.log`<br>`/var/log/secure`                                                              | Intentos de login y actividad                           | Te muestra credenciales usadas o accesos recientes                    |
+| ⚙️ **Configuración del sistema**   | `/etc/profile`<br>`/etc/environment`                                                                  | Variables globales y configuración                      | Ayuda a entender cómo está configurado el sistema                     |
+| ⏰ **Tareas programadas (cron)**    | `/etc/crontab`<br>`/etc/cron.d/`<br>`/var/spool/cron/`                                                | Scripts automáticos                                     | 🔥 Vector clásico de escalación                                       |
+| 🧩 **Servicios (systemd)**         | `/etc/systemd/system/`<br>`/lib/systemd/system/`                                                      | Servicios instalados                                    | Identificas procesos privilegiados explotables                        |
+| 🐳 **Detección de contenedor**     | `/proc/1/cgroup`<br>`/.dockerenv`                                                                     | Indica si estás en Docker/K8s                           | Define tu estrategia de escape                                        |
+| 🔑 **Claves SSH**                  | `/root/.ssh/id_rsa`<br>`/home/*/.ssh/id_rsa`                                                          | Claves privadas SSH                                     | 🔥 Acceso directo a otros sistemas                                    |
+| 🏗️ **Aplicaciones instaladas**    | `/var/www/`<br>`/opt/`<br>`/app/`                                                                     | Código fuente y configs                                 | Te permite encontrar vulnerabilidades específicas                     |
+| 🔐 **Secrets y credenciales**      | `/etc/mysql/`<br>`/etc/nginx/`<br>`/etc/apache2/`                                                     | Passwords, tokens, configs                              | 🔥 Acceso lateral o escalación                                        |
+| ⚙️ **Jenkins (caso específico)**   | `/var/jenkins_home/config.xml`<br>`/var/jenkins_home/users/users.xml`<br>`/var/jenkins_home/secrets/` | Usuarios, hashes, tokens                                | 🔥 Ruta directa a takeover de Jenkins                                 |
+| 📂 **File descriptors (avanzado)** | `/proc/self/fd/0`<br>`/proc/self/fd/1`<br>`/proc/self/fd/2`                                           | Input/output del proceso                                | Puede filtrar información sensible en runtime                         |
+
+
 # Referencias
 
 > https://medium.com/@verylazytech/from-novice-to-ninja-how-the-oscp-cheatsheet-can-catapult-your-cyber-career-0eb446ab041d
