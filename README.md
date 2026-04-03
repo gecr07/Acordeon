@@ -4359,6 +4359,7 @@ Siempre date un respiro y haz las preguntas correctas, por ejemplo
 Donde guarda informacion jenkins de los usuarios
 Donde guarda jenkins informacion de un usuario en especifico
 Cuales son los principales archivos de configuracion.
+En que archivo guarda jenkins informacion de todos los usuarios?
 ```
 
 ## LFI una lista competente
