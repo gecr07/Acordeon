@@ -4363,6 +4363,8 @@ Cuales son los principales archivos de configuracion.
 
 ## LFI una lista competente
 
+Usa estas rutas para enumerar el sistema empieza por variables de entorno etc. Nota el archivo en TCP esta en HEX.
+
 | Categoría                          | Rutas clave                                                                                           | ¿Qué obtienes?                                          | ¿Por qué es importante?                                               |
 | ---------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | --------------------------------------------------------------------- |
 | 🔧 **Procesos y ejecución**        | `/proc/self/cmdline`<br>`/proc/self/status`<br>`/proc/self/exe`                                       | Comando que ejecuta la app, binario, estado del proceso | Te dice **qué tecnología estás atacando** (ej: Jenkins, Node, Python) |
