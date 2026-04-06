@@ -4387,6 +4387,10 @@ Usa estas rutas para enumerar el sistema empieza por variables de entorno etc. N
 | ⚙️ **Jenkins (caso específico)**   | `/var/jenkins_home/config.xml`<br>`/var/jenkins_home/users/users.xml`<br>`/var/jenkins_home/secrets/` | Usuarios, hashes, tokens                                | 🔥 Ruta directa a takeover de Jenkins                                 |
 | 📂 **File descriptors (avanzado)** | `/proc/self/fd/0`<br>`/proc/self/fd/1`<br>`/proc/self/fd/2`                                           | Input/output del proceso                                | Puede filtrar información sensible en runtime                         |
 
+## Siempre lee las descripciones de los usuarios
+
+Si asi sea en AD o en algun CMS si eres un usuario que pueda leer la descripcion ahi vienen passwords siempre
+
 
 # Referencias
 
