@@ -4391,6 +4391,9 @@ Usa estas rutas para enumerar el sistema empieza por variables de entorno etc. N
 
 Si asi sea en AD o en algun CMS si eres un usuario que pueda leer la descripcion ahi vienen passwords siempre
 
+## Google auto completa cosas
+
+Si tienes un password que le faltan letras puedes adivinarlo poniendo los caracteres que faltan en google e intentar inferir las letras faltantes.
 
 # Referencias
 
