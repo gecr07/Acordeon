@@ -4395,6 +4395,20 @@ Si asi sea en AD o en algun CMS si eres un usuario que pueda leer la descripcion
 
 Si tienes un password que le faltan letras puedes adivinarlo poniendo los caracteres que faltan en google e intentar inferir las letras faltantes.
 
+## Existen  diferentes tipos de claves privadas
+
+Existen diferentes dependiendo del software  que la usa tu conoces mas la de OpeSSH pero puedes ver la cabecera por ejemplo. Busca como convertirla en OpenSSH format o usa ese programa.
+
+```
+PuTTY-User-Key-File-3: ssh-rsa
+
+
+puttygen root-putty.key -O private-openssh -o ~/keys/keeper-root
+
+```
+
+Y si quieres
+
 # Referencias
 
 > https://medium.com/@verylazytech/from-novice-to-ninja-how-the-oscp-cheatsheet-can-catapult-your-cyber-career-0eb446ab041d
