@@ -525,7 +525,12 @@ Revisar la imagenes.
 ```
 docker images
 
-``` 
+```
+Ver los contenedores
+
+```
+docker ps -a
+```
 
 Elimina el contenedor
 
