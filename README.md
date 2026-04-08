@@ -4467,6 +4467,10 @@ puttygen root-putty.key -O private-openssh -o ~/keys/keeper-root
 
 Y si quieres
 
+## Si no te funciona algo  prueba mas exploits disponibles
+
+Si estas explotando la vulnerabilidad pero no te sale prueba otros repors/exploits/ porque puede ser que el que estas usando no jale.
+
 # Referencias
 
 > https://medium.com/@verylazytech/from-novice-to-ninja-how-the-oscp-cheatsheet-can-catapult-your-cyber-career-0eb446ab041d
