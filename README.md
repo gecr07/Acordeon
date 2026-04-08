@@ -505,6 +505,59 @@ sudo docker ps
 
 sudo docker exec -it contenerdor-php bash
 ```
+
+Para listar las imagenes que estan corriendo
+
+```
+docker ps
+```
+
+Si esta corriendo para detenerla usa o el nombre o el ID
+
+```
+docker stop rbaskets
+
+docker stop 20e4e2822908
+
+```
+Revisar la imagenes.
+
+```
+docker images
+
+``` 
+
+Elimina el contenedor
+
+```
+docker rm rbaskets
+```
+
+Eliminar imagenes
+
+```
+docker rmi request-baskets
+```
+
+Ahora para hacer un contenedor de una versio en especifico.
+
+```
+docker build -t request-baskets:1.2.1 .
+```
+
+Levanta un contenedor y despues ya ejecutas el comando para la shell interactiva
+
+```
+docker run -d --name rbaskets121 -p 55555:55555 request-baskets:1.2.1
+```
+
+Ejecutas comandos
+
+```
+docker exec -it rbaskets121 /bin/sh
+```
+
+
 ## SSH SO enumeration
 
 Por medio del paquete del OpenSSH se puede enumerar el sistema operativo asi como lo mas improtante su version:
