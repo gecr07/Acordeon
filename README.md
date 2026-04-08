@@ -4471,6 +4471,10 @@ Y si quieres
 
 Si estas explotando la vulnerabilidad pero no te sale prueba otros repors/exploits/ porque puede ser que el que estas usando no jale.
 
+## En los exploits busca direcciones IP
+
+Antes de modificar los exploits intente buscar direcciones IPs a ver si es es lo que esta haciendo que falle....
+
 # Referencias
 
 > https://medium.com/@verylazytech/from-novice-to-ninja-how-the-oscp-cheatsheet-can-catapult-your-cyber-career-0eb446ab041d
