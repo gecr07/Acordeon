@@ -4475,6 +4475,20 @@ Si estas explotando la vulnerabilidad pero no te sale prueba otros repors/exploi
 
 Antes de modificar los exploits intente buscar direcciones IPs a ver si es es lo que esta haciendo que falle....
 
+## En la inyeccion sql pon la ' entre las comas
+
+Por ejemplo si se busca food, pets ponla despues de la coma luego asi funciona
+
+## SQLI aveces no acepta espacios usa los comentarios
+
+si usas comentarios te comes los espacios
+
+```
+food')/**/or/**/1=1#
+```
+
+
+
 # Referencias
 
 > https://medium.com/@verylazytech/from-novice-to-ninja-how-the-oscp-cheatsheet-can-catapult-your-cyber-career-0eb446ab041d
