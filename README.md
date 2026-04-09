@@ -4487,6 +4487,13 @@ si usas comentarios te comes los espacios
 food')/**/or/**/1=1#
 ```
 
+## Ejecutar comandos sin espacios en bash
+
+Para esto usa 
+
+```
+{cat,file.txt}
+``` 
 
 
 # Referencias
