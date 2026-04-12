@@ -4520,6 +4520,14 @@ uv pip install -r requirements.txt
 uv run python themebleed.py
 ```
 
+## Exfiltrar archivos de victima a kali descargar archivos
+
+Para exfiltrar informacion la forma mas facil es usar el protocolo smb en kali.
+
+```
+
+```
+
 
 # Referencias
 
