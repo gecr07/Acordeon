@@ -1437,6 +1437,12 @@ Para tener una consola medianamente interactiva en windows siempre usa...
 rlwrap nc -lvnp 443
 ```
 
+Esta opcion esta mejor.
+
+```
+rlwrap -cAr nc -lvnp 4444
+```
+
 ## Firefox Decrypt Saved passwd
 
 Para poder obtener todos los passwords que estan guardados en un perfil usa
