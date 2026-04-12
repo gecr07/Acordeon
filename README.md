@@ -3152,7 +3152,7 @@ Este comando es super util permite ver los  directorios como el comanod de linux
 tree /F /A
 ```
 
-## Tareas programadas o Task Scheduler(cron jobs de Windows)
+## Tareas programadas o Task Scheduler(cron jobs de Windows) mas bien Scheduled Tasks
 
 Para mirar estas tareas
 
@@ -3160,6 +3160,12 @@ Para mirar estas tareas
 schtasks /query /fo LIST /v
 #
 Get-ScheduledTask | Format-Table
+```
+
+El problema es que saca mucha informacion usa este comando para poder ver 5 lineas abajo y 5 arriba como el grep -A -B
+
+```
+schtasks /query /fo LIST /v | Select-String "watchdog" -Context 5,5
 ```
 
 ## Sacar passwords Wifi netsh
