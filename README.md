@@ -4553,6 +4553,8 @@ copy "C:\Users\sam.emerson\Documents\CVE-2023-28252_Summary.pdf" \\10.10.14.140\
 
 ```
 
+
+
 # Referencias
 
 > https://medium.com/@verylazytech/from-novice-to-ninja-how-the-oscp-cheatsheet-can-catapult-your-cyber-career-0eb446ab041d
