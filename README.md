@@ -4557,6 +4557,47 @@ copy "C:\Users\sam.emerson\Documents\CVE-2023-28252_Summary.pdf" \\10.10.14.140\
 
 Si tienes un script que se ejecuta con sudo y esta en sudo -l y dentro tiene ./script desde donde tu ejecutes ese comando va a tomar el script tenlo en mente para escalar privilegios.
 
+
+## discovery.sh
+
+Pequeño script a modo de discovery
+
+```
+#!/bin/bash
+
+# ===== CONFIG =====
+NETWORK=("172.17.0.1")  # <- aquí cambias la red
+
+# ===== SCAN =====
+for i in {1..254}; do
+    ip="${NETWORK[0]}.$i"
+
+    if ping -c 1 -W 1 "$ip" > /dev/null 2>&1; then
+        echo "$ip activa"
+    fi
+done
+
+```
+
+## Scan.sh 
+
+Pequeño script para ver puertos abiertos.
+
+```
+#!/bin/bash
+
+TARGET="192.168.1.1"
+
+for port in {1..1024}; do
+    (
+        timeout 1 bash -c "echo > /dev/tcp/$TARGET/$port" 2>/dev/null && \
+        echo "Puerto $port ABIERTO"
+    ) &
+done
+
+wait
+
+```
 # Referencias
 
 > https://medium.com/@verylazytech/from-novice-to-ninja-how-the-oscp-cheatsheet-can-catapult-your-cyber-career-0eb446ab041d
