@@ -4598,6 +4598,18 @@ done
 wait
 
 ```
+## UV en lugar de PIP install
+
+Usa esto para no romper las dependecias de Kali
+
+```
+uv tool install sqlmap-websocket-proxy
+
+# En lugar de
+
+python3 -m pip install sqlmap-websocket-proxy
+```
+
 # Referencias
 
 > https://medium.com/@verylazytech/from-novice-to-ninja-how-the-oscp-cheatsheet-can-catapult-your-cyber-career-0eb446ab041d
