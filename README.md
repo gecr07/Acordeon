@@ -4617,6 +4617,10 @@ uv tool install sqlmap-websocket-proxy
 python3 -m pip install sqlmap-websocket-proxy
 ```
 
+***Cuando tengas una lista de usuarios y puedas enumerar*** aunque de weba intenta usarlos ponerlos en una lista e intentar re usar los passwords para avanzar.
+
+
+
 ## Priv Escalation  ARENA
 
 ----------------------------------------------------------------------------
