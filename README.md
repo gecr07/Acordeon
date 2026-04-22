@@ -4619,9 +4619,16 @@ python3 -m pip install sqlmap-websocket-proxy
 
 ***Cuando tengas una lista de usuarios y puedas enumerar*** aunque de weba intenta usarlos ponerlos en una lista e intentar re usar los passwords para avanzar.
 
+## Docker API
+
+Siempre que te encuentres en un contenedor es obligado que revises esto la api se encuenta en la siguiente direccion:
+
+```
+
+```
 
 
-## Priv Escalation  ARENA
+# Priv Escalation  ARENA
 
 ----------------------------------------------------------------------------
 
@@ -5309,3 +5316,7 @@ Windows ejecuta → C:\Program.exe
 ## Cload PEASS
 
 > https://github.com/carlospolop/CloudPEASS
+
+## ASPEN CEH
+
+> https://aspen.eccouncil.org/Home
