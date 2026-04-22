@@ -5463,3 +5463,9 @@ Windows ejecuta → C:\Program.exe
 ## ffuf la mejor cheet sheet que he encontrado
 
 > https://hackviser.com/tactics/tools/ffuf
+
+## ceWl crea listas personalizadas para brute force 
+
+Si hubieras hecho esto yo creo hubieras resuelto mas maquinas.
+
+> https://medium.com/@alecktony/generating-custom-wordlists-for-usernames-password-brute-forcing-3c5910ffe42d
