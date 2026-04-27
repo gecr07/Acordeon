@@ -1937,6 +1937,15 @@ sudo tcpdump -i tun0 icmp -n
 
 # -n: Indica a tcpdump que no realice la resolución de nombres y direcciones IP, sino que muestre directamente las direcciones numéricas
 ```
+
+## Responder
+
+Cuando en windows intentas entrar a un share recuerda **TE DA EL HASH NTLM**. Usa siempre que uses el TCPDUMP intenta ver si no te puede dar un hash asi.
+
+```
+ sudo responder -I tun0 
+```
+
 ## TSHARK
 
 Este es un Wireshark pero de consola los comando basicos son:
