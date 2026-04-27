@@ -3512,6 +3512,12 @@ Para esto usa icacls
 icacls C:\Users\tony\appdata\local\job\job.bat
 ```
 
+Powershell version usa mejor esto:
+
+```
+Get-Acl C:\Temp\file.txt | Format-List
+```
+
 ## Copiar un archivo y remplazar
 
 Si existe lo remplazara
