@@ -4775,6 +4775,10 @@ curl -X POST http://192.168.65.7:2375/exec/<EXECID>/start \
 -d '{"Detach":false,"Tty":false}' --output -
 ```
 
+## Obtener hashes NTLM v2 o similares (IMPORTANTE)
+
+> https://osandamalith.com/2017/03/24/places-of-interest-in-stealing-netntlm-hashes/
+
 
 # Priv Escalation  ARENA
 
@@ -5434,6 +5438,8 @@ Cuando el servicio se inicia: o porque reiniciaste
 ```
 Windows ejecuta → C:\Program.exe
 ```
+
+
 
 # Referencias
 
