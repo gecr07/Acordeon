@@ -64,6 +64,20 @@ Para la herramienta ffuf y el uso del parametro -ac
 
 > ffuf detecta el “ruido” del sitio y lo oculta automáticamente.
 
+Level up de burp a ffuf con post
+
+```
+ffuf -u http://siteisup.htb/ \
+-w 65535_ports.txt \
+-X POST \
+-H "Host: siteisup.htb" \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-H "Origin: http://siteisup.htb" \
+-H "Referer: http://siteisup.htb/" \
+-d "site=http://127.0.0.1:FUZZ&debug=1" \
+-x http://127.0.0.1:8081 \
+-t 20
+`` 
 10. Si hay servidores web ver pagina de errores e intetar enumerar el servidor 
 
 11. Al encontrar un exploit/ Revisa asi 10.10.x o 10.10. para encontrarlos
