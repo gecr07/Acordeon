@@ -1,5 +1,6 @@
 # Acordeon
 
+
 ## Metodologia para resolver maquinas
 
 De menos a mas....
@@ -4810,6 +4811,17 @@ curl -X POST http://192.168.65.7:2375/exec/<EXECID>/start \
 
 > https://osandamalith.com/2017/03/24/places-of-interest-in-stealing-netntlm-hashes/
 
+## Agregar .git a seclist
+
+Se me hace una tonteria que no tenga esta ruta las listas en seclist por lo que usa:
+
+```
+sudo find . -type f -name "*.txt" -exec sh -c '
+for file do
+  grep -qxF ".git" "$file" || echo ".git" >> "$file"
+done
+' sh {} +
+```
 
 # Priv Escalation  ARENA
 
