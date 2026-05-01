@@ -4823,6 +4823,18 @@ done
 ' sh {} +
 ```
 
+## El binario /usr/local/bin/doas
+
+doas is an alternative to sudo typically found on OpenBSD operating systems, but that can be installed on Debian-base Linux OSes like Ubuntu. Entonces para hacer sudo -l 
+
+```
+find / -name doas.conf 2>/dev/null
+/usr/local/etc/doas.conf
+cat /usr/local/etc/doas.conf 
+permit nopass player as root cmd /usr/bin/dstat
+```
+Ya de ahi buscate la escalacion pertinente pero asi es.
+
 # Priv Escalation  ARENA
 
 ----------------------------------------------------------------------------
