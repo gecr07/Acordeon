@@ -3216,6 +3216,12 @@ netsh wlan show profile name=nombredelperfil key=clear
 
 ## Arquitecura x86 o x64
 
+No importa que no encuentres un nc64.exe limpio puedes spawnear un proceso de 64bits. Has lo de siempre con el nc.exe de 32 ahora el proceso de 64 se manda a llamar con el binario de powershell de 64.
+
+```
+C:\Windows\Sysnative\WindowsPowerShell\v1.0\powershell.exe
+```
+
 Saber la arquitectura de un sistema ojo es diferente la arquitectura del sistema que del proceso si la maquina es de 32 bit no hay tema pero de 64 puede correr ambos. Ojo ahi
 
 ```cmd
