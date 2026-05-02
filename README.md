@@ -3633,6 +3633,20 @@ Se puede detectar si es Windows o Linux lo que existe por detras ya que en la UR
 
 ## Powershell rutas
 
+En un Windows de 64 bits existen programas de 64 bits y programas de 32 bits.
+Cuando un proceso de 32 bits intenta acceder a ciertas rutas del sistema, Windows lo “redirige” automáticamente para que use versiones de 32 bits.
+
+En Windows de 64 bits tienes estas rutas:
+
+| Ruta                    | Qué contiene realmente                                                                      |
+| ----------------------- | ------------------------------------------------------------------------------------------- |
+| `C:\Windows\System32\`  | Binarios de **64 bits**                                                                     |
+| `C:\Windows\SysWOW64\`  | Binarios de **32 bits**                                                                     |
+| `C:\Windows\Sysnative\` | Alias especial para que procesos de **32 bits** puedan acceder a `System32` real de 64 bits |
+
+System32 = 64 bits
+SysWOW64 = 32 bits
+
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/1a37fd88-23c6-4976-97cd-8edc4fe90f23)
 
 Entonces para llamar a powershell desde un proceso de 32bit y que regrese un proc de 64:
