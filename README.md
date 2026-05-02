@@ -3770,7 +3770,7 @@ Ahora para escalar vamos a hacer reconocimiento basico..
 systeminfo
 net user # PS Get-LocalUser
 net localgroup # PS Get-LocalGroup
-netstat -ano
+netstat -ano # alernativa para filtrar netstat -ano -p tcp | findstr LISTENING
 whoami /priv
 whoami /all #miembro de que grupos
 ```
