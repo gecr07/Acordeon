@@ -167,6 +167,19 @@ Las paginas de errores ayudan a ver sobre que esta montado la app ademas usa las
 
 > https://0xdf.gitlab.io/cheatsheets/404
 
+## Python signos libreria strings
+
+Obten los diferentes simbolos si o si.
+
+```
+import string
+
+print(string.ascii_lowercase)   # abcdefghijklmnopqrstuvwxyz
+print(string.ascii_uppercase)   # ABCDEFGHIJKLMNOPQRSTUVWXYZ
+print(string.digits)            # 0123456789
+print(string.punctuation)       # !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+```
+
 ## Bloodhound
 
 Es la herramienta por excelencia para enumerar el AD.
@@ -216,6 +229,7 @@ Instalalo
 Para restablecer el password
 ./bloodhound-cli resetpwd
 ```
+
 
 ### rusthound-ce
 
