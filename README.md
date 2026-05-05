@@ -3018,6 +3018,10 @@ Como alternativa esta el keepassxc que tiene interfaz grafica yo creo esta mejor
 
 ## LFI payloads
 
+Buen documento.
+
+> https://medium.com/@zoningxtr/full-exploitation-guide-from-lfi-to-rce-via-var-log-apache2-error-log-0f364049b107
+
 Un archivo basico en Windows es este:
 
 ```
