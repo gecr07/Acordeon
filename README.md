@@ -3022,6 +3022,10 @@ Buen documento.
 
 > https://medium.com/@zoningxtr/full-exploitation-guide-from-lfi-to-rce-via-var-log-apache2-error-log-0f364049b107
 
+HTACCESS
+
+> https://medium.com/@citril/advanced-htaccess-file-attacks-part-i-d653567d1ded
+
 Un archivo basico en Windows es este:
 
 ```
