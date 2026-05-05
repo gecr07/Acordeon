@@ -144,6 +144,12 @@ nmap -p 80,8080 -sCV wiki.editor.htb
 ```
 A veces encuentra mas que ffuf o feroxbuster poque son cosas basicas como el /.git ya lo agregue a las lista de palabras pero no estaba.
 
+## PHP-FMB
+
+> mod_php es el método clásico donde Apache ejecuta PHP como módulo interno.
+
+> PHP-FPM es el método moderno donde PHP corre como servicio separado y el servidor web le envía las peticiones PHP mediante FastCGI.
+
 ## Reconocimiento de usuarios en /etc/passwd
 
 Los usuarios que tienes shell es sobre los que tienes que ir porque es ahi donde estan las banderas.
