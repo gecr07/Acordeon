@@ -3145,8 +3145,10 @@ C:/xampp/apache/logs/access.log
 
 	
 ```
-Apache en Debian / Ubuntu / Kali
+## Apache en Debian / Ubuntu / Kali
 
+Todo lo de apache.
+ 
 | Ruta                            | Para qué sirve                                                |
 | ------------------------------- | ------------------------------------------------------------- |
 | `/var/www/html/`                | Carpeta web por defecto. Aquí suele estar el sitio principal. |
@@ -3163,7 +3165,73 @@ Apache en Debian / Ubuntu / Kali
 | `/var/log/apache2/access.log`   | Log de peticiones HTTP.                                       |
 | `/var/log/apache2/error.log`    | Log de errores.                                               |
 
-Rutas principales de Nginx en Debian / Ubuntu / Kali
+Apache usa archivos .conf y a veces .htaccess.
+
+| Archivo / ruta                        | Servidor             | Qué es                                                        |
+| ------------------------------------- | -------------------- | ------------------------------------------------------------- |
+| `/etc/apache2/apache2.conf`           | Apache Debian/Ubuntu | Configuración principal de Apache.                            |
+| `/etc/apache2/sites-enabled/*.conf`   | Apache Debian/Ubuntu | Virtual hosts activos. Muy importante.                        |
+| `/etc/apache2/sites-available/*.conf` | Apache Debian/Ubuntu | Virtual hosts disponibles, no siempre activos.                |
+| `/etc/apache2/ports.conf`             | Apache Debian/Ubuntu | Puertos donde escucha Apache.                                 |
+| `/etc/httpd/conf/httpd.conf`          | Apache CentOS/RHEL   | Configuración principal de Apache.                            |
+| `/etc/httpd/conf.d/*.conf`            | Apache CentOS/RHEL   | Virtual hosts/configuraciones adicionales.                    |
+| `/var/www/html/.htaccess`             | Apache               | Reglas por carpeta. Puede modificar comportamiento del sitio. |
+| `/var/www/*/.htaccess`                | Apache               | Reglas específicas en otros sitios.                           |
+| `/var/www/html/.htpasswd`             | Apache               | Archivo de usuarios para Basic Auth.                          |
+
+Qué buscar dentro
+
+| Directiva / texto | Qué te dice                                     |
+| ----------------- | ----------------------------------------------- |
+| `DocumentRoot`    | Carpeta real del sitio web.                     |
+| `ServerName`      | Hostname principal del sitio.                   |
+| `ServerAlias`     | Subdominios alternativos.                       |
+| `VirtualHost`     | Sitios virtuales configurados.                  |
+| `Alias`           | Rutas web que apuntan a carpetas distintas.     |
+| `ScriptAlias`     | Rutas donde pueden ejecutarse scripts CGI.      |
+| `Directory`       | Permisos por carpeta.                           |
+| `AllowOverride`   | Si Apache permite `.htaccess`.                  |
+| `Options`         | Puede indicar `Indexes`, `FollowSymLinks`, etc. |
+| `AuthUserFile`    | Ruta del `.htpasswd`.                           |
+| `ErrorLog`        | Ruta del log de errores.                        |
+| `CustomLog`       | Ruta del log de accesos.                        |
+| `ProxyPass`       | Reverse proxy hacia otro servicio interno.      |
+| `SetEnv`          | Variables de entorno; a veces secretos.         |
+
+.htaccess Este archivo es de Apache.
+
+No es la configuración global del servidor, sino una configuración local por directorio.
+
+Rutas comunes
+
+| Archivo                         | Servidor | Qué es                               |
+| ------------------------------- | -------- | ------------------------------------ |
+| `/var/www/html/.htaccess`       | Apache   | Reglas locales del sitio.            |
+| `/var/www/dev/.htaccess`        | Apache   | Reglas locales de otro virtual host. |
+| `/home/*/public_html/.htaccess` | Apache   | Reglas en sitios de usuarios.        |
+
+Que buscar dentro
+
+| Directiva             | Qué te dice                                               |
+| --------------------- | --------------------------------------------------------- |
+| `RewriteEngine`       | Hay reglas de reescritura activas.                        |
+| `RewriteRule`         | Rutas reales u ocultas.                                   |
+| `RewriteCond`         | Condiciones de acceso o redirección.                      |
+| `Require all denied`  | Bloqueo de acceso.                                        |
+| `Require all granted` | Acceso permitido.                                         |
+| `AuthType Basic`      | Protección con usuario/contraseña.                        |
+| `AuthUserFile`        | Ruta del archivo `.htpasswd`.                             |
+| `Options Indexes`     | Directory listing activado.                               |
+| `Options -Indexes`    | Directory listing desactivado.                            |
+| `AddType`             | Puede asociar extensiones a intérpretes.                  |
+| `AddHandler`          | Puede hacer que cierta extensión se ejecute como PHP/CGI. |
+| `php_value`           | Configuración PHP específica.                             |
+| `php_flag`            | Flags PHP por directorio.                                 |
+
+
+## Rutas principales de Nginx en Debian / Ubuntu / Kali
+
+Todo lo de Ngix
 
 | Ruta                          | Para qué sirve                                             |
 | ----------------------------- | ---------------------------------------------------------- |
@@ -3178,7 +3246,56 @@ Rutas principales de Nginx en Debian / Ubuntu / Kali
 | `/var/log/nginx/access.log`   | Log de peticiones HTTP.                                    |
 | `/var/log/nginx/error.log`    | Log de errores.                                            |
 
-Rutas principales de IIS
+Nginx usa archivos .conf. No usa .htaccess.
+
+| Archivo / ruta                 | Servidor            | Qué es                                     |
+| ------------------------------ | ------------------- | ------------------------------------------ |
+| `/etc/nginx/nginx.conf`        | Nginx               | Configuración principal.                   |
+| `/etc/nginx/sites-enabled/*`   | Nginx Debian/Ubuntu | Virtual hosts activos. Muy importante.     |
+| `/etc/nginx/sites-available/*` | Nginx Debian/Ubuntu | Virtual hosts disponibles.                 |
+| `/etc/nginx/conf.d/*.conf`     | Nginx               | Configuraciones adicionales.               |
+| `/etc/nginx/snippets/*.conf`   | Nginx               | Fragmentos reutilizables de configuración. |
+| `/etc/nginx/fastcgi_params`    | Nginx + PHP-FPM     | Parámetros FastCGI.                        |
+| `/etc/nginx/fastcgi.conf`      | Nginx + PHP-FPM     | Configuración FastCGI alternativa.         |
+
+Archivos principales de Nginx
+
+| Archivo / ruta                 | Servidor            | Qué es                                     |
+| ------------------------------ | ------------------- | ------------------------------------------ |
+| `/etc/nginx/nginx.conf`        | Nginx               | Configuración principal.                   |
+| `/etc/nginx/sites-enabled/*`   | Nginx Debian/Ubuntu | Virtual hosts activos. Muy importante.     |
+| `/etc/nginx/sites-available/*` | Nginx Debian/Ubuntu | Virtual hosts disponibles.                 |
+| `/etc/nginx/conf.d/*.conf`     | Nginx               | Configuraciones adicionales.               |
+| `/etc/nginx/snippets/*.conf`   | Nginx               | Fragmentos reutilizables de configuración. |
+| `/etc/nginx/fastcgi_params`    | Nginx + PHP-FPM     | Parámetros FastCGI.                        |
+| `/etc/nginx/fastcgi.conf`      | Nginx + PHP-FPM     | Configuración FastCGI alternativa.         |
+
+Qué buscar dentro
+
+| Directiva              | Qué te dice                                          |
+| ---------------------- | ---------------------------------------------------- |
+| `server_name`          | Hostnames/subdominios.                               |
+| `listen`               | Puerto donde escucha.                                |
+| `root`                 | Carpeta real del sitio.                              |
+| `alias`                | Ruta web que apunta a otra carpeta. Muy interesante. |
+| `location`             | Reglas por ruta.                                     |
+| `try_files`            | Cómo resuelve rutas.                                 |
+| `proxy_pass`           | Backend interno, por ejemplo Node, Flask, Tomcat.    |
+| `fastcgi_pass`         | PHP-FPM socket o puerto.                             |
+| `uwsgi_pass`           | Backend Python/uWSGI.                                |
+| `auth_basic`           | Basic Auth activado.                                 |
+| `auth_basic_user_file` | Ruta del archivo de usuarios.                        |
+| `access_log`           | Ruta del log de accesos.                             |
+| `error_log`            | Ruta del log de errores.                             |
+| `client_max_body_size` | Tamaño máximo de subida.                             |
+| `allow` / `deny`       | Restricciones por IP.                                |
+| `include`              | Otros archivos de configuración cargados.            |
+
+
+
+## Rutas principales de IIS
+
+Todo lo de IIS
 
 | Ruta                                                        | Para qué sirve                                                                 |
 | ----------------------------------------------------------- | ------------------------------------------------------------------------------ |
@@ -3191,7 +3308,116 @@ Rutas principales de IIS
 | `C:\Windows\Temp\`                                          | Ruta temporal común donde cuentas de servicio pueden escribir.                 |
 | `C:\ProgramData\`                                           | Ruta útil para subir herramientas en HTB si tienes permisos.                   |
 
-Aache Tomcat
+IIS usa principalmente applicationHost.config y web.config
+
+Archivos principales de IIS
+
+| Archivo / ruta                                              | Servidor      | Qué es                                       |
+| ----------------------------------------------------------- | ------------- | -------------------------------------------- |
+| `C:\Windows\System32\inetsrv\config\applicationHost.config` | IIS           | Configuración global de IIS. Muy importante. |
+| `C:\inetpub\wwwroot\web.config`                             | IIS / ASP.NET | Configuración local de una app.              |
+| `C:\inetpub\development\web.config`                         | IIS / ASP.NET | Configuración local de otro sitio.           |
+| `C:\inetpub\wwwroot\appsettings.json`                       | ASP.NET Core  | Configuración de app moderna.                |
+| `C:\inetpub\wwwroot\appsettings.Development.json`           | ASP.NET Core  | Configuración por ambiente.                  |
+| `C:\inetpub\logs\LogFiles\W3SVC*\*.log`                     | IIS           | Logs de IIS.                                 |
+
+Qué buscar en applicationHost.config
+
+| Texto / directiva         | Qué te dice                          |
+| ------------------------- | ------------------------------------ |
+| `<site`                   | Sitios configurados.                 |
+| `bindings`                | Puertos, hostnames e IPs.            |
+| `physicalPath`            | Carpeta real del sitio.              |
+| `applicationPool`         | App pool usado por el sitio.         |
+| `<applicationPools>`      | Pools configurados.                  |
+| `identityType`            | Identidad del AppPool.               |
+| `userName`                | Usuario configurado para el AppPool. |
+| `password`                | A veces credenciales del AppPool.    |
+| `anonymousAuthentication` | Autenticación anónima.               |
+| `windowsAuthentication`   | Autenticación Windows.               |
+| `basicAuthentication`     | Basic Auth.                          |
+
+Qué buscar en web.config
+
+| Texto / directiva       | Qué te dice                                    |
+| ----------------------- | ---------------------------------------------- |
+| `<connectionStrings>`   | Credenciales de base de datos. Muy importante. |
+| `userName` / `password` | Credenciales en texto claro.                   |
+| `authentication`        | Método de autenticación.                       |
+| `authorization`         | Reglas de acceso.                              |
+| `handlers`              | Qué extensiones se ejecutan.                   |
+| `modules`               | Módulos activos.                               |
+| `httpErrors`            | Rutas de páginas de error.                     |
+| `rewrite`               | Reglas de URL Rewrite.                         |
+| `aspNetCore`            | Configuración de ASP.NET Core.                 |
+| `processPath`           | Binario que ejecuta la app.                    |
+| `arguments`             | Argumentos de arranque de la app.              |
+| `environmentVariables`  | Variables de entorno, posibles secretos.       |
+
+## 5. PHP / PHP-FPM
+
+| Archivo / ruta                     | Servidor / tecnología | Qué es                             |
+| ---------------------------------- | --------------------- | ---------------------------------- |
+| `/etc/php/7.4/fpm/php.ini`         | PHP-FPM               | Configuración PHP-FPM versión 7.4. |
+| `/etc/php/8.0/fpm/php.ini`         | PHP-FPM               | Configuración PHP-FPM versión 8.0. |
+| `/etc/php/8.1/fpm/php.ini`         | PHP-FPM               | Configuración PHP-FPM versión 8.1. |
+| `/etc/php/8.2/fpm/php.ini`         | PHP-FPM               | Configuración PHP-FPM versión 8.2. |
+| `/etc/php/8.3/fpm/php.ini`         | PHP-FPM               | Configuración PHP-FPM versión 8.3. |
+| `/etc/php/7.4/fpm/pool.d/www.conf` | PHP-FPM               | Pool principal.                    |
+| `/etc/php/8.1/fpm/pool.d/www.conf` | PHP-FPM               | Pool principal.                    |
+| `/etc/php/*/apache2/php.ini`       | Apache + mod_php      | PHP usado por Apache.              |
+| `/etc/php/*/cli/php.ini`           | PHP CLI               | PHP usado en terminal.             |
+| `/run/php/php*-fpm.sock`           | PHP-FPM               | Socket local de PHP-FPM.           |
+
+Qué buscar dentro de php.ini
+
+| Configuración         | Qué te dice                                                         |
+| --------------------- | ------------------------------------------------------------------- |
+| `allow_url_fopen`     | Permite leer URLs con funciones como `file_get_contents`.           |
+| `allow_url_include`   | Permite incluir URLs con `include`. Si está On, es muy interesante. |
+| `open_basedir`        | Limita qué rutas puede leer PHP.                                    |
+| `disable_functions`   | Funciones bloqueadas como `system`, `exec`, `shell_exec`.           |
+| `display_errors`      | Si muestra errores al usuario.                                      |
+| `error_log`           | Ruta del log de errores PHP.                                        |
+| `upload_tmp_dir`      | Carpeta temporal de uploads.                                        |
+| `file_uploads`        | Si permite subida de archivos.                                      |
+| `upload_max_filesize` | Tamaño máximo de upload.                                            |
+| `post_max_size`       | Tamaño máximo de POST.                                              |
+| `include_path`        | Rutas donde PHP busca includes.                                     |
+| `session.save_path`   | Ruta de sesiones PHP.                                               |
+
+Qué buscar dentro de www.conf
+
+| Configuración     | Qué te dice                             |
+| ----------------- | --------------------------------------- |
+| `user`            | Usuario con el que corre PHP-FPM.       |
+| `group`           | Grupo de PHP-FPM.                       |
+| `listen`          | Socket o puerto donde escucha.          |
+| `listen.owner`    | Dueño del socket.                       |
+| `listen.group`    | Grupo del socket.                       |
+| `listen.mode`     | Permisos del socket.                    |
+| `env[...]`        | Variables de entorno. A veces secretos. |
+| `php_admin_value` | Valores PHP forzados.                   |
+| `php_value`       | Valores PHP del pool.                   |
+
+Qué buscar dentro de www.conf
+
+| Configuración     | Qué te dice                             |
+| ----------------- | --------------------------------------- |
+| `user`            | Usuario con el que corre PHP-FPM.       |
+| `group`           | Grupo de PHP-FPM.                       |
+| `listen`          | Socket o puerto donde escucha.          |
+| `listen.owner`    | Dueño del socket.                       |
+| `listen.group`    | Grupo del socket.                       |
+| `listen.mode`     | Permisos del socket.                    |
+| `env[...]`        | Variables de entorno. A veces secretos. |
+| `php_admin_value` | Valores PHP forzados.                   |
+| `php_value`       | Valores PHP del pool.                   |
+
+
+## Apache Tomcat
+
+Todo o de Tomcat
 
 | Ruta absoluta                       | Para qué sirve                                                     |
 | ----------------------------------- | ------------------------------------------------------------------ |
@@ -3226,7 +3452,42 @@ Aache Tomcat
 | `/tmp/`                             | Temporal; a veces Tomcat o apps escriben archivos aquí.            |
 | `/var/tmp/`                         | Temporal persistente entre reinicios.                              |
 
-Express
+Tomcat usa XML para su configuración.
+
+| Archivo / ruta                               | Servidor             | Qué es                                |
+| -------------------------------------------- | -------------------- | ------------------------------------- |
+| `/opt/tomcat/conf/server.xml`                | Tomcat               | Configuración principal del servidor. |
+| `/opt/tomcat/conf/tomcat-users.xml`          | Tomcat               | Usuarios y roles del manager.         |
+| `/opt/tomcat/conf/web.xml`                   | Tomcat               | Configuración global de aplicaciones. |
+| `/opt/tomcat/webapps/ROOT/WEB-INF/web.xml`   | Tomcat app           | Configuración de la app ROOT.         |
+| `/opt/tomcat/webapps/*/WEB-INF/web.xml`      | Tomcat app           | Configuración de apps desplegadas.    |
+| `/etc/tomcat9/server.xml`                    | Tomcat Debian/Ubuntu | Configuración principal.              |
+| `/etc/tomcat9/tomcat-users.xml`              | Tomcat Debian/Ubuntu | Usuarios y roles.                     |
+| `/etc/tomcat9/web.xml`                       | Tomcat Debian/Ubuntu | Configuración global.                 |
+| `/var/lib/tomcat9/webapps/*/WEB-INF/web.xml` | Tomcat app           | Configuración de apps.                |
+
+Qué buscar dentro
+
+| Texto / directiva     | Qué te dice                                    |
+| --------------------- | ---------------------------------------------- |
+| `<Connector`          | Puertos, HTTP, AJP, SSL.                       |
+| `port=`               | Puertos activos.                               |
+| `protocol=`           | HTTP, AJP, etc.                                |
+| `<user username=`     | Usuarios del manager.                          |
+| `password=`           | Passwords en Tomcat users.                     |
+| `roles=`              | Permisos como `manager-gui`, `manager-script`. |
+| `<Context`            | Contextos/rutas de apps.                       |
+| `docBase`             | Ruta física de una app.                        |
+| `path`                | Ruta web de la app.                            |
+| `Manager`             | Configuración de sesiones.                     |
+| `Realm`               | Autenticación.                                 |
+| `JNDI` / `DataSource` | Conexiones a bases de datos.                   |
+
+
+
+## Express
+
+Todo lo de express
 
 | Ruta absoluta                   | Para qué sirve                                          |
 | ------------------------------- | ------------------------------------------------------- |
@@ -3289,6 +3550,116 @@ Express
 | `/etc/systemd/system/`          | Servicios systemd personalizados.                       |
 | `/etc/systemd/system/*.service` | Archivos de servicio que pueden revelar ruta de la app. |
 
+Express no tiene un archivo único estándar. Depende de la app. Archivos principales de Express
+
+| Archivo / ruta                  | Tecnología   | Qué es                             |
+| ------------------------------- | ------------ | ---------------------------------- |
+| `/opt/app/package.json`         | Node/Express | Dependencias y scripts.            |
+| `/opt/app/.env`                 | Node/Express | Variables de entorno y secretos.   |
+| `/opt/app/app.js`               | Express      | Entrada común de la app.           |
+| `/opt/app/server.js`            | Express      | Entrada común de la app.           |
+| `/opt/app/index.js`             | Node/Express | Entrada común.                     |
+| `/opt/app/config.js`            | Node/Express | Configuración.                     |
+| `/opt/app/config.json`          | Node/Express | Configuración.                     |
+| `/opt/app/routes/*.js`          | Express      | Rutas/endpoints.                   |
+| `/opt/app/controllers/*.js`     | Express      | Lógica de endpoints.               |
+| `/opt/app/middleware/*.js`      | Express      | Auth, sesiones, JWT, validaciones. |
+| `/opt/app/ecosystem.config.js`  | PM2/Node     | Configuración de procesos PM2.     |
+| `/opt/app/docker-compose.yml`   | Docker       | Servicios, variables, puertos.     |
+| `/etc/systemd/system/*.service` | systemd      | Servicio que arranca Node.         |
+
+Que buscar dentro:
+
+| Texto / clave                                      | Qué te dice                  |
+| -------------------------------------------------- | ---------------------------- |
+| `DB_HOST`, `DB_USER`, `DB_PASSWORD`                | Credenciales de DB.          |
+| `DATABASE_URL`                                     | Cadena completa de conexión. |
+| `JWT_SECRET`                                       | Clave JWT.                   |
+| `SESSION_SECRET`                                   | Clave de sesión.             |
+| `SECRET_KEY`                                       | Secretos genéricos.          |
+| `PORT`                                             | Puerto interno de la app.    |
+| `MONGO_URI`                                        | Conexión MongoDB.            |
+| `REDIS_URL`                                        | Conexión Redis.              |
+| `require(...)`                                     | Dependencias usadas.         |
+| `app.get`, `app.post`, `router.get`, `router.post` | Endpoints.                   |
+| `isAdmin`, `role`, `auth`                          | Lógica de autorización.      |
+| `exec`, `spawn`, `eval`                            | Posibles puntos peligrosos.  |
+| `res.render`                                       | Templates usados.            |
+| `process.env`                                      | Variables de entorno usadas. |
+
+## 11. Docker / Docker Compose
+
+No es servidor web como tal, pero en HTB es muy importante.
+
+| Archivo / ruta                    | Tecnología     | Qué es                          |
+| --------------------------------- | -------------- | ------------------------------- |
+| `/opt/app/docker-compose.yml`     | Docker Compose | Servicios, puertos, variables.  |
+| `/var/www/app/docker-compose.yml` | Docker Compose | Compose dentro de app web.      |
+| `/srv/app/docker-compose.yml`     | Docker Compose | Compose en servicio.            |
+| `/opt/app/Dockerfile`             | Docker         | Imagen de la app.               |
+| `/opt/app/.dockerignore`          | Docker         | Archivos ignorados.             |
+| `/var/lib/docker/`                | Docker         | Datos internos de Docker.       |
+| `/var/run/docker.sock`            | Docker         | Socket de Docker. Muy sensible. |
+
+Que buscar dentro: 
+
+| Texto / clave                | Qué te dice                             |
+| ---------------------------- | --------------------------------------- |
+| `environment`                | Variables de entorno.                   |
+| `env_file`                   | Archivo `.env` usado.                   |
+| `ports`                      | Puertos expuestos.                      |
+| `volumes`                    | Montajes entre host y contenedor.       |
+| `image`                      | Tecnología usada.                       |
+| `build`                      | Ruta del Dockerfile.                    |
+| `command`                    | Comando de arranque.                    |
+| `MYSQL_ROOT_PASSWORD`        | Credencial DB.                          |
+| `POSTGRES_PASSWORD`          | Credencial DB.                          |
+| `MONGO_INITDB_ROOT_PASSWORD` | Credencial DB.                          |
+| `/var/run/docker.sock`       | Posible acceso privilegiado si montado. |
+
+
+## Resumen 
+
+| Archivo                  | Servidor / tecnología         | Qué buscar                                                           |
+| ------------------------ | ----------------------------- | -------------------------------------------------------------------- |
+| `.htaccess`              | Apache                        | Rewrite rules, AuthUserFile, AddHandler, Options, access control.    |
+| `.htpasswd`              | Apache/Nginx/Caddy Basic Auth | Usuarios y hashes/passwords de Basic Auth.                           |
+| `web.config`             | IIS / ASP.NET                 | Connection strings, handlers, rewrite, auth, env vars.               |
+| `applicationHost.config` | IIS                           | Sitios, bindings, AppPools, physicalPath, identidades.               |
+| `nginx.conf`             | Nginx                         | Includes, logs, worker config, server blocks.                        |
+| `sites-enabled/*`        | Nginx/Apache                  | Virtual hosts activos, root, server_name, proxy_pass.                |
+| `httpd.conf`             | Apache CentOS/RHEL            | Virtual hosts, DocumentRoot, modules, logs.                          |
+| `apache2.conf`           | Apache Debian/Ubuntu          | Config global, includes, permisos.                                   |
+| `php.ini`                | PHP                           | allow_url_fopen, allow_url_include, disable_functions, open_basedir. |
+| `www.conf`               | PHP-FPM                       | user, group, listen, env vars.                                       |
+| `tomcat-users.xml`       | Tomcat                        | Usuarios, passwords, roles.                                          |
+| `server.xml`             | Tomcat                        | Puertos, connectors, docBase, JNDI.                                  |
+| `package.json`           | Node/Express                  | Scripts, dependencias, entrypoint.                                   |
+| `.env`                   | Apps modernas                 | DB creds, tokens, secrets.                                           |
+| `settings.py`            | Django                        | SECRET_KEY, DEBUG, DATABASES.                                        |
+| `config.py`              | Flask/Python                  | Secrets, DB URI, debug.                                              |
+| `docker-compose.yml`     | Docker                        | Env vars, volumes, ports, networks.                                  |
+| `Caddyfile`              | Caddy                         | root, reverse_proxy, basicauth.                                      |
+| `haproxy.cfg`            | HAProxy                       | backends internos, stats auth, routing.                              |
+| `*.service`              | systemd                       | Usuario del servicio, ruta de ejecución, variables.                  |
+
+Buscar cosas
+
+```
+find / -name ".htaccess" 2>/dev/null
+find / -name ".htpasswd" 2>/dev/null
+find / -name "web.config" 2>/dev/null
+find / -name "php.ini" 2>/dev/null
+find / -name "www.conf" 2>/dev/null
+find / -name "tomcat-users.xml" 2>/dev/null
+find / -name "server.xml" 2>/dev/null | grep -i tomcat
+find / -name "package.json" 2>/dev/null
+find / -name ".env" 2>/dev/null
+find / -name "docker-compose.yml" 2>/dev/null
+
+
+grep -Rni "password\|passwd\|pwd\|secret\|token\|key\|database\|connection\|user" /var/www /opt /srv /home 2>/dev/null
+```
 
 ## LFI IIS y Windows
 
