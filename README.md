@@ -1140,6 +1140,57 @@ Aunque los directorios esten protegidos y manden una peticion 403 de no exitir e
 
 El archivo de configuración de Apache (usualmente **httpd.conf** o **apache2.conf**).
 
+## La diferencia entre file_get_contents() e include() es clave.
+
+Si la app usa file_get_contents()
+
+El servidor solo lee el contenido del archivo y lo imprime.
+
+```
+echo file_get_contents($_GET['view']);
+```
+
+Si cargas un archivo PHP remoto o local, verás el texto del archivo, pero no se ejecuta como PHP. Por ejemplo, si intentas cargar:
+
+```
+<?php echo "hola"; ?>
+```
+
+verías algo como:
+
+```
+<?php echo "hola"; ?>
+```
+
+Si la app usa include() o require(). El servidor incluye el archivo dentro del flujo PHP. Si el archivo contiene código PHP, puede ejecutarse. Ejemplo conceptual:
+
+```
+include($_GET['view']);
+```
+
+Si incluyes un archivo con:
+
+```
+<?php system($_GET['cmd']); ?>
+```
+
+Esto podría ejecutarse. En HTB, esto cambia mucho el camino: un include() puede convertirse en RCE si logras controlar un archivo que luego sea incluido. Eso solo lo sabes leyendo el código fuente o probándolo. No en phpinfo(). Pero hay configuraciones importantes como las siguientes:
+
+| Configuración                             | Por qué importa                                                                       |
+| ----------------------------------------- | ------------------------------------------------------------------------------------- |
+| `allow_url_fopen`                         | Permite funciones como `file_get_contents()` con URLs remotas.                        |
+| `allow_url_include`                       | Permite `include()` con URLs remotas. Muy importante, pero normalmente está en `Off`. |
+| `open_basedir`                            | Limita qué rutas puede leer PHP.                                                      |
+| `disable_functions`                       | Funciones bloqueadas como `system`, `exec`, `shell_exec`.                             |
+| `document_root`                           | Ruta física del sitio web.                                                            |
+| `SCRIPT_FILENAME`                         | Archivo PHP que se está ejecutando.                                                   |
+| `include_path`                            | Rutas donde PHP busca archivos para incluir.                                          |
+| `Loaded Configuration File`               | Ruta del `php.ini` cargado.                                                           |
+| `Scan this dir for additional .ini files` | Directorio con configs adicionales.                                                   |
+
+
+
+
 ## Ver errores stdout
 
 Para redirigir el stderr al stdout usa:
@@ -2944,7 +2995,15 @@ Como alternativa esta el keepassxc que tiene interfaz grafica yo creo esta mejor
 
 ## LFI payloads
 
-Combina esto con wfuzz y podrias probar LFIs aunque siempre intenta manual pero de algo puede servir
+Un archivo basico en Windows es este:
+
+```
+C:/Windows/System32/drivers/etc/hosts
+```
+
+Combina esto con wfuzz y podrias probar LFIs aunque siempre intenta manual pero de algo puede servir. Algo importante el log poisoning 
+
+> log poisoning si la app usa include() y el log contiene PHP inyectado.
 
 ```
 ../
@@ -3029,7 +3088,25 @@ Combina esto con wfuzz y podrias probar LFIs aunque siempre intenta manual pero 
 ....\....\....\....\....\....\
 ....\....\....\....\....\....\....\
 ....\....\....\....\....\....\....\....\
+
 ```
+
+## Archivos de la aplicación
+
+Estos suelen ser los más valiosos:
+
+```
+/var/www/html/.env
+/var/www/html/config.php
+/var/www/html/wp-config.php
+/var/www/html/config/database.php
+/var/www/html/app/config.php
+/var/www/html/appsettings.json
+/var/www/html/package.json
+/var/www/html/composer.json
+/var/www/html/.htpasswd
+```
+
 ## LFI Windows y XAMPP
 
 Estas son las rutas que use en la maquina flight
