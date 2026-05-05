@@ -2930,6 +2930,11 @@ Como alternativa esta el keepassxc que tiene interfaz grafica yo creo esta mejor
 
 ![image](https://github.com/gecr07/Acordeon/assets/63270579/b6c243ea-15cc-4793-907d-7a184cad8c1c)
 
+## Comentarios en HTML
+
+```
+<!--
+```
 
 ## LFI payloads
 
@@ -3019,6 +3024,188 @@ Combina esto con wfuzz y podrias probar LFIs aunque siempre intenta manual pero 
 ....\....\....\....\....\....\....\
 ....\....\....\....\....\....\....\....\
 ```
+## LFI Windows y XAMPP
+
+Estas son las rutas que use en la maquina flight
+
+```
+	# Windows
+xampp/apache/conf/httpd.conf
+xampp/php/php.ini
+htdocs/.htaccess
+
+	# Aveces el waf detecta las barras inviertelas como si fuera linux
+
+Esta detectando los / \ el waf
+
+C:/xampp/phpMyAdmin/config.inc.php
+
+C:/inetpub/wwwroot/phpmyadmin/config.inc.php
+
+C:/program files/apache group/apache/logs/access.log
+
+
+C:/xampp/htdocs
+C:/xampp/htdocs/flight.htb/index.html
+
+	# ISS
+
+C:/inetpub/wwwroot/phpmyadmin/libraries/config.default.php
+
+	# Apache logs
+
+
+C:/xampp/apache/logs/error.log
+
+
+C:/xampp/apache/logs/access.log
+
+	
+```
+Apache en Debian / Ubuntu / Kali
+
+| Ruta                            | Para qué sirve                                                |
+| ------------------------------- | ------------------------------------------------------------- |
+| `/var/www/html/`                | Carpeta web por defecto. Aquí suele estar el sitio principal. |
+| `/var/www/`                     | Carpeta base donde pueden existir varios sitios.              |
+| `/etc/apache2/`                 | Configuración principal de Apache.                            |
+| `/etc/apache2/apache2.conf`     | Archivo principal de configuración.                           |
+| `/etc/apache2/sites-available/` | Virtual hosts disponibles.                                    |
+| `/etc/apache2/sites-enabled/`   | Virtual hosts activos.                                        |
+| `/etc/apache2/ports.conf`       | Puertos donde escucha Apache.                                 |
+| `/etc/apache2/conf-available/`  | Configuraciones adicionales disponibles.                      |
+| `/etc/apache2/conf-enabled/`    | Configuraciones adicionales activas.                          |
+| `/etc/apache2/mods-available/`  | Módulos disponibles.                                          |
+| `/etc/apache2/mods-enabled/`    | Módulos activos.                                              |
+| `/var/log/apache2/access.log`   | Log de peticiones HTTP.                                       |
+| `/var/log/apache2/error.log`    | Log de errores.                                               |
+
+Rutas principales de Nginx en Debian / Ubuntu / Kali
+
+| Ruta                          | Para qué sirve                                             |
+| ----------------------------- | ---------------------------------------------------------- |
+| `/var/www/html/`              | Web root por defecto. Aquí puede estar el sitio principal. |
+| `/var/www/`                   | Carpeta base donde pueden existir varios sitios.           |
+| `/etc/nginx/`                 | Carpeta principal de configuración de Nginx.               |
+| `/etc/nginx/nginx.conf`       | Archivo principal de configuración.                        |
+| `/etc/nginx/sites-available/` | Virtual hosts disponibles.                                 |
+| `/etc/nginx/sites-enabled/`   | Virtual hosts activos.                                     |
+| `/etc/nginx/conf.d/`          | Configuraciones adicionales.                               |
+| `/etc/nginx/snippets/`        | Fragmentos reutilizables de configuración.                 |
+| `/var/log/nginx/access.log`   | Log de peticiones HTTP.                                    |
+| `/var/log/nginx/error.log`    | Log de errores.                                            |
+
+Rutas principales de IIS
+
+| Ruta                                                        | Para qué sirve                                                                 |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| `C:\inetpub\wwwroot\`                                       | Web root por defecto de IIS.                                                   |
+| `C:\inetpub\`                                               | Carpeta base de IIS. Puede tener otros sitios además de `wwwroot`.             |
+| `C:\inetpub\logs\LogFiles\`                                 | Logs de IIS.                                                                   |
+| `C:\Windows\System32\inetsrv\`                              | Binarios y herramientas de administración de IIS.                              |
+| `C:\Windows\System32\inetsrv\config\applicationHost.config` | Configuración principal de IIS. Muy importante.                                |
+| `C:\Windows\System32\inetsrv\appcmd.exe`                    | Herramienta de línea de comandos para listar sitios, app pools, bindings, etc. |
+| `C:\Windows\Temp\`                                          | Ruta temporal común donde cuentas de servicio pueden escribir.                 |
+| `C:\ProgramData\`                                           | Ruta útil para subir herramientas en HTB si tienes permisos.                   |
+
+Aache Tomcat
+
+| Ruta absoluta                       | Para qué sirve                                                     |
+| ----------------------------------- | ------------------------------------------------------------------ |
+| `/opt/tomcat/`                      | Instalación manual común en HTB.                                   |
+| `/opt/tomcat/conf/`                 | Configuración principal si Tomcat fue instalado manualmente.       |
+| `/opt/tomcat/conf/server.xml`       | Puertos, conectores y configuración del servidor.                  |
+| `/opt/tomcat/conf/tomcat-users.xml` | Usuarios y roles del manager. Muy importante.                      |
+| `/opt/tomcat/conf/web.xml`          | Configuración global de aplicaciones web.                          |
+| `/opt/tomcat/webapps/`              | Aplicaciones desplegadas.                                          |
+| `/opt/tomcat/webapps/ROOT/`         | Aplicación principal.                                              |
+| `/opt/tomcat/logs/`                 | Logs de Tomcat si fue instalado manualmente.                       |
+| `/opt/tomcat/logs/catalina.out`     | Log principal de Tomcat.                                           |
+| `/opt/tomcat/logs/localhost*.log`   | Logs de aplicaciones locales.                                      |
+| `/opt/tomcat/bin/`                  | Scripts de arranque y administración.                              |
+| `/opt/tomcat/bin/startup.sh`        | Script para iniciar Tomcat.                                        |
+| `/opt/tomcat/bin/shutdown.sh`       | Script para detener Tomcat.                                        |
+| `/opt/tomcat/lib/`                  | Librerías Java usadas por Tomcat.                                  |
+| `/usr/share/tomcat/`                | Archivos compartidos de Tomcat en algunas instalaciones.           |
+| `/usr/share/tomcat9/`               | Archivos de Tomcat 9 en Debian/Ubuntu.                             |
+| `/var/lib/tomcat9/`                 | Directorio de datos, apps y trabajo cuando se instala por paquete. |
+| `/var/lib/tomcat9/webapps/`         | Aplicaciones desplegadas en Tomcat instalado por paquete.          |
+| `/var/lib/tomcat9/webapps/ROOT/`    | Aplicación principal en Tomcat instalado por paquete.              |
+| `/etc/tomcat9/`                     | Configuración principal en Debian/Ubuntu.                          |
+| `/etc/tomcat9/server.xml`           | Configuración de servidor en instalación por paquete.              |
+| `/etc/tomcat9/tomcat-users.xml`     | Usuarios y roles del manager.                                      |
+| `/etc/tomcat9/web.xml`              | Configuración global.                                              |
+| `/var/log/tomcat9/`                 | Logs de Tomcat en Debian/Ubuntu.                                   |
+| `/var/log/tomcat9/catalina.out`     | Log principal si existe.                                           |
+| `/var/log/tomcat9/localhost*.log`   | Logs de apps locales.                                              |
+| `/var/cache/tomcat9/`               | Caché y archivos temporales.                                       |
+| `/run/tomcat9/`                     | Archivos runtime, PID o sockets.                                   |
+| `/tmp/`                             | Temporal; a veces Tomcat o apps escriben archivos aquí.            |
+| `/var/tmp/`                         | Temporal persistente entre reinicios.                              |
+
+Express
+
+| Ruta absoluta                   | Para qué sirve                                          |
+| ------------------------------- | ------------------------------------------------------- |
+| `/opt/app/`                     | Ruta común para apps desplegadas manualmente.           |
+| `/opt/app/package.json`         | Dependencias, scripts y nombre de la app.               |
+| `/opt/app/package-lock.json`    | Versiones exactas de dependencias.                      |
+| `/opt/app/.env`                 | Variables de entorno, tokens, credenciales o secretos.  |
+| `/opt/app/server.js`            | Entrada común de Express.                               |
+| `/opt/app/app.js`               | Entrada común de Express.                               |
+| `/opt/app/index.js`             | Entrada común de Node/Express.                          |
+| `/opt/app/config.js`            | Configuración de la aplicación.                         |
+| `/opt/app/config.json`          | Configuración o secretos.                               |
+| `/opt/app/routes/`              | Endpoints/rutas de la aplicación.                       |
+| `/opt/app/controllers/`         | Lógica de los endpoints.                                |
+| `/opt/app/middleware/`          | Validaciones, autenticación, JWT, sesiones, etc.        |
+| `/opt/app/views/`               | Templates EJS, Pug, Handlebars, etc.                    |
+| `/opt/app/public/`              | Archivos estáticos.                                     |
+| `/opt/app/node_modules/`        | Dependencias instaladas.                                |
+| `/opt/app/ecosystem.config.js`  | Configuración de PM2.                                   |
+| `/opt/app/pm2.config.js`        | Configuración alternativa de PM2.                       |
+| `/opt/app/Dockerfile`           | Cómo se construye la app si está dockerizada.           |
+| `/opt/app/docker-compose.yml`   | Servicios, puertos, variables y posibles credenciales.  |
+| `/var/www/app/`                 | App Node detrás de Nginx o Apache.                      |
+| `/var/www/app/package.json`     | Dependencias y scripts de la app.                       |
+| `/var/www/app/.env`             | Variables de entorno o secretos.                        |
+| `/var/www/app/server.js`        | Entrada posible.                                        |
+| `/var/www/app/app.js`           | Entrada posible.                                        |
+| `/var/www/app/index.js`         | Entrada posible.                                        |
+| `/var/www/app/routes/`          | Rutas/endpoints.                                        |
+| `/var/www/app/controllers/`     | Controladores.                                          |
+| `/var/www/app/views/`           | Templates.                                              |
+| `/var/www/app/public/`          | Archivos estáticos.                                     |
+| `/srv/app/`                     | Ruta común para servicios web.                          |
+| `/srv/app/package.json`         | Dependencias y scripts.                                 |
+| `/srv/app/.env`                 | Secretos o variables.                                   |
+| `/srv/app/server.js`            | Entrada posible.                                        |
+| `/srv/app/app.js`               | Entrada posible.                                        |
+| `/srv/app/index.js`             | Entrada posible.                                        |
+| `/app/`                         | Muy común en Docker.                                    |
+| `/app/package.json`             | Dependencias dentro de contenedor o despliegue.         |
+| `/app/.env`                     | Variables/secretos dentro de app dockerizada.           |
+| `/app/server.js`                | Entrada posible.                                        |
+| `/app/app.js`                   | Entrada posible.                                        |
+| `/app/index.js`                 | Entrada posible.                                        |
+| `/home/*/app/`                  | Apps dentro del home de usuarios.                       |
+| `/home/*/app/package.json`      | Dependencias y scripts.                                 |
+| `/home/*/app/.env`              | Variables o secretos.                                   |
+| `/home/*/app/server.js`         | Entrada posible.                                        |
+| `/home/*/app/app.js`            | Entrada posible.                                        |
+| `/home/*/app/index.js`          | Entrada posible.                                        |
+| `/home/*/*/package.json`        | Proyectos Node dentro de directorios de usuario.        |
+| `/usr/local/lib/node_modules/`  | Paquetes globales de Node.                              |
+| `/usr/lib/node_modules/`        | Paquetes globales en algunas distros.                   |
+| `/var/log/`                     | Logs generales del sistema.                             |
+| `/var/log/node/`                | Logs de Node si fueron configurados así.                |
+| `/var/log/app/`                 | Logs de aplicación si existen.                          |
+| `/var/log/pm2/`                 | Logs de PM2 si se configuraron ahí.                     |
+| `/root/.pm2/`                   | Configuración/logs de PM2 si corre como root.           |
+| `/home/*/.pm2/`                 | Configuración/logs de PM2 si corre como usuario.        |
+| `/etc/systemd/system/`          | Servicios systemd personalizados.                       |
+| `/etc/systemd/system/*.service` | Archivos de servicio que pueden revelar ruta de la app. |
+
 
 ## LFI IIS y Windows
 
