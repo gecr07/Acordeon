@@ -5664,6 +5664,9 @@ Son algunos de los que te vas a encontrar en AD sigue practicando!
 | MySQL323                    |        `200` | ✅ Muy fácil            | MySQL antiguo                                            | Legacy DB                   |
 | MySQL SHA1                  |        `300` | ✅                      | MySQL                                                    | DB creds                    |
 
+## PowerUp.ps1
+
+> https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1
 
 # Priv Escalation  ARENA
 
