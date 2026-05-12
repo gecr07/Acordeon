@@ -5626,6 +5626,45 @@ python2 dfunc-bypasser.py --url http://dev.siteisup.htb/?page=phar://uploads/5e3
 
 > https://gist.github.com/noobpk/33e4318c7533f32d6a7ce096bc0457b7#file-reverse-shell-php-L62
 
+## Tabla de hashes
+
+Son algunos de los que te vas a encontrar en AD sigue practicando!
+
+| Tipo de Hash / Ticket       | Hashcat Mode | ¿Se puede crackear?    | ¿Dónde lo encuentras normalmente?                        | Ejemplo / Contexto típico   |
+| --------------------------- | -----------: | ---------------------- | -------------------------------------------------------- | --------------------------- |
+| NTLM                        |       `1000` | ✅ Sí                   | `NTDS.dit`, `SAM`, LSASS, DCSync                         | Hash clásico de usuarios AD |
+| LM Hash                     |       `3000` | ✅ Sí (muy débil)       | Equipos viejos / legacy                                  | Windows antiguos            |
+| NetNTLMv1                   |       `5500` | ✅ Sí                   | SMB relay/captura                                        | Responder, Inveigh          |
+| NetNTLMv2                   |       `5600` | ⚠️ Depende de password | SMB auth capturada                                       | Responder, ntlmrelayx       |
+| Kerberos AS-REP Roast       |      `18200` | ✅ Sí                   | Usuarios con `Do not require Kerberos preauthentication` | `GetNPUsers.py`             |
+| Kerberoasting (TGS-REP RC4) |      `13100` | ✅ Sí                   | SPNs de servicios                                        | `GetUserSPNs.py`, Rubeus    |
+| Kerberoasting AES128        |      `19600` | ⚠️ Difícil             | Entornos modernos                                        | Kerberos AES                |
+| Kerberoasting AES256        |      `19700` | ⚠️ Más difícil         | Entornos modernos                                        | Kerberos AES256             |
+| DCC/MSCache v1              |       `1100` | ✅ Sí                   | Credenciales cacheadas                                   | Workstations                |
+| DCC2/MSCache v2             |       `2100` | ⚠️ Lento               | Credenciales cacheadas modernas                          | Domain Cached Credentials   |
+| bcrypt (local accounts)     |       `3200` | ⚠️ Muy lento           | Algunas apps Windows                                     | Apps/servicios              |
+| KeePass                     |      `13400` | ✅ Sí                   | Bases `.kdbx`                                            | Password managers           |
+| ZIP legacy                  |      `13600` | ✅ Sí                   | Archivos ZIP                                             | Backups                     |
+| ZIP AES                     |      `17200` | ⚠️ Depende             | ZIP modernos                                             | Exfiltración                |
+| Office 2013                 |       `9600` | ⚠️ Depende             | Docs Office                                              | Share drives                |
+| Office 2016/2019            |       `9700` | ⚠️ Difícil             | Office moderno                                           | Documentos corporativos     |
+| PDF 1.4–1.6                 |      `10500` | ✅ Sí                   | PDFs protegidos                                          | Documentación               |
+| PDF 1.7 Level 8             |      `10700` | ⚠️ Difícil             | PDFs modernos                                            | PDFs corporativos           |
+| VeraCrypt                   |      `137xx` | ⚠️ Muy difícil         | Volúmenes cifrados                                       | Pentest interno             |
+| BitLocker                   |      `22100` | ⚠️ Muy difícil         | Equipos Windows                                          | Recovery key/hash           |
+| WPA/WPA2                    |      `22000` | ✅ Sí                   | Capturas WiFi                                            | `hc22000`                   |
+| SSH Private Key             |      `22911` | ⚠️ Depende             | `.ssh/id_rsa`                                            | Linux pivoting              |
+| JWT (HMAC-SHA256)           |      `16500` | ⚠️ Depende             | Apps web/API                                             | Secret débil                |
+| SHA1                        |        `100` | ✅ Sí                   | Apps legacy                                              | Bases de datos              |
+| SHA256                      |       `1400` | ⚠️ Depende             | Apps modernas                                            | Web apps                    |
+| bcrypt web                  |       `3200` | ⚠️ Lento               | Apps web modernas                                        | PHP/Laravel/etc             |
+| MD5                         |          `0` | ✅ Muy fácil            | Legacy                                                   | Viejas apps                 |
+| salted MD5                  |         `10` | ✅                      | Bases filtradas                                          | Apps viejas                 |
+| salted SHA1                 |        `120` | ⚠️                     | Apps web                                                 | Legacy                      |
+| MySQL323                    |        `200` | ✅ Muy fácil            | MySQL antiguo                                            | Legacy DB                   |
+| MySQL SHA1                  |        `300` | ✅                      | MySQL                                                    | DB creds                    |
+
+
 # Priv Escalation  ARENA
 
 ----------------------------------------------------------------------------
