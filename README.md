@@ -6381,3 +6381,15 @@ Si hubieras hecho esto yo creo hubieras resuelto mas maquinas.
 ## Feroxbuster cheetsheet
 
 > https://www.hackingarticles.in/a-detailed-guide-on-feroxbuster/
+
+## Mysql cheet sheet
+
+> https://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
+
+## Postgre SQL cheetsheet
+
+> https://pentestmonkey.net/cheat-sheet/sql-injection/postgres-sql-injection-cheat-sheet
+
+## MSSQL Cheet Sheet
+
+> https://github.com/acole76/pentestmonkey-cheatsheets/blob/master/mssql.md
