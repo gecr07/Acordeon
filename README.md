@@ -6377,3 +6377,7 @@ Windows ejecuta → C:\Program.exe
 Si hubieras hecho esto yo creo hubieras resuelto mas maquinas.
 
 > https://medium.com/@alecktony/generating-custom-wordlists-for-usernames-password-brute-forcing-3c5910ffe42d
+
+## Feroxbuster cheetsheet
+
+> https://www.hackingarticles.in/a-detailed-guide-on-feroxbuster/
