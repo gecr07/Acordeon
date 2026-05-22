@@ -1318,6 +1318,11 @@ Escanear solo un rango de puertos.
 ```
 nmap -p 1-10000 $target
 ```
+Para el HTTP
+
+```
+nmap --script http-enum,http-title -p80,443 IP
+```
 
 ## Linpeas
 Bajar siempre la ultima version 
