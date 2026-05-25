@@ -5582,6 +5582,8 @@ Ya de ahi buscate la escalacion pertinente pero asi es.
 
 ## RunAS
 
+> https://github.com/antonioCoco/RunasCs
+
 Este es un programa como el runas del mismo windows pero abierto usalo para una vez que tengas credencuales te armes una shell.
 
 ```
