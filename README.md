@@ -5675,6 +5675,25 @@ Son algunos de los que te vas a encontrar en AD sigue practicando!
 
 > https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1
 
+
+## Alternativa (free) al burpsuite collaborator
+
+Se llama interactsh-client y se usa asi:
+
+
+```
+interactsh-client
+sudo apt update
+sudo apt install -y golang-go
+go install -v github.com/projectdiscovery/interactsh/cmd/interactsh-client@latest
+echo 'export PATH=$PATH:$HOME/go/bin' >> ~/.zshrc
+source ~/.zshrc
+interactsh-client
+
+```
+
+
+
 # Priv Escalation  ARENA
 
 ----------------------------------------------------------------------------
