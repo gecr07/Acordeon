@@ -5695,7 +5695,7 @@ interactsh-client
 ## OSCP cheeatsheet
 
 > https://www.emmanuelsolis.com/oscp.html
-
+> https://github.com/xsudoxx/OSCP
 
 # Priv Escalation  ARENA
 
