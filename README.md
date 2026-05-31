@@ -1,5 +1,1381 @@
 # Acordeon
 
+# Protocolos de correo para OSCP: SMTP, POP3 e IMAP
+
+## 1. Idea general
+
+Cuando en una máquina tipo OSCP/HTB encuentres servicios de correo, no debes pensar solamente en “correo”. Estos protocolos pueden ayudarte a encontrar usuarios válidos, leer buzones, descubrir credenciales, obtener pistas internas y reutilizar contraseñas contra otros servicios.
+
+La lógica práctica es:
+
+```text
+SMTP te puede dar usuarios.
+POP3 e IMAP te pueden dar correos.
+Los correos pueden darte credenciales.
+Las credenciales pueden darte acceso inicial por SSH, SMB, FTP, web u otro servicio.
+```
+
+## 2. Puertos comunes de correo
+
+```text
+25   = SMTP
+110  = POP3
+143  = IMAP
+465  = SMTPS
+587  = SMTP Submission
+993  = IMAPS
+995  = POP3S
+```
+
+## 3. Diferencia rápida entre SMTP, POP3 e IMAP
+
+```text
+SMTP = Se usa para enviar correo.
+POP3 = Se usa para leer o descargar correos de forma simple.
+IMAP = Se usa para leer, buscar y administrar correos en carpetas del buzón.
+```
+
+Para OSCP:
+
+```text
+SMTP = usuarios válidos, comandos habilitados, open relay.
+POP3 = lectura simple de correos si tienes credenciales.
+IMAP = lectura avanzada, carpetas, búsquedas y correos sensibles.
+```
+
+## 4. Flujo recomendado en OSCP
+
+```text
+1. Escanea puertos de correo.
+2. Identifica versiones y banners.
+3. Empieza con SMTP para buscar usuarios válidos.
+4. Usa esos usuarios contra POP3 e IMAP.
+5. Si entras a un buzón, revisa correos, enviados, borradores y papelera.
+6. Busca contraseñas, rutas internas, tokens, backups o pistas.
+7. Reutiliza credenciales contra SSH, SMB, FTP, web o bases de datos.
+8. Si funcionan, continúa con enumeración local y escalada de privilegios.
+```
+
+## 5. Escaneo general de servicios de correo
+
+```bash
+nmap -sV -sC -p25,110,143,465,587,993,995 <IP>
+```
+
+Escaneo más agresivo de versiones:
+
+```bash
+nmap -sV -sC --version-all -p25,110,143,465,587,993,995 <IP>
+```
+
+## 6. SMTP — Puerto 25
+
+SMTP significa Simple Mail Transfer Protocol. Se usa principalmente para enviar correos.
+
+En OSCP se revisa para:
+
+```text
+Enumerar usuarios válidos.
+Identificar comandos habilitados.
+Probar open relay.
+Revisar si existe autenticación SMTP.
+Obtener hostnames o dominios internos.
+Conseguir usuarios para probarlos en POP3, IMAP, SSH, SMB, FTP o web.
+```
+
+## 7. Escaneo básico SMTP
+
+```bash
+nmap -sV -sC -p25 <IP>
+```
+
+Scripts útiles:
+
+```bash
+nmap --script smtp-commands -p25 <IP>
+nmap --script smtp-open-relay -p25 <IP>
+nmap --script smtp-enum-users -p25 <IP>
+```
+
+Todo junto:
+
+```bash
+nmap -sV -sC --script smtp-commands,smtp-open-relay,smtp-enum-users -p25 <IP>
+```
+
+## 8. Banner grabbing SMTP
+
+```bash
+nc -nv <IP> 25
+```
+
+También puedes usar:
+
+```bash
+telnet <IP> 25
+```
+
+Ejemplo de respuesta:
+
+```text
+220 mail.example.com ESMTP Postfix
+```
+
+Esto puede revelar:
+
+```text
+Hostname
+Dominio interno
+Software del servidor
+Versión del servicio
+Nombre de la máquina
+```
+
+Ejemplos interesantes:
+
+```text
+mail.internal.local
+server01.domain.local
+DC01.example.local
+```
+
+## 9. Revisar comandos SMTP habilitados
+
+Con Nmap:
+
+```bash
+nmap --script smtp-commands -p25 <IP>
+```
+
+Manual:
+
+```bash
+nc -nv <IP> 25
+```
+
+Luego:
+
+```text
+EHLO test.com
+```
+
+Busca comandos como:
+
+```text
+VRFY
+EXPN
+AUTH
+STARTTLS
+PIPELINING
+```
+
+Interpretación rápida:
+
+```text
+VRFY      = puede permitir enumeración de usuarios.
+EXPN      = puede revelar listas o usuarios.
+AUTH      = puede permitir autenticación SMTP.
+STARTTLS  = puede permitir conexión cifrada.
+```
+
+## 10. Enumeración de usuarios SMTP con VRFY
+
+Algunos servidores permiten verificar si un usuario existe.
+
+```bash
+nc -nv <IP> 25
+```
+
+Después:
+
+```text
+VRFY root
+VRFY admin
+VRFY test
+VRFY usuario
+```
+
+Respuestas interesantes:
+
+```text
+250 root
+```
+
+```text
+252 Cannot VRFY user, but will accept message
+```
+
+Con `smtp-user-enum`:
+
+```bash
+smtp-user-enum -M VRFY -U users.txt -t <IP>
+```
+
+## 11. Enumeración SMTP con EXPN
+
+`EXPN` puede revelar miembros de una lista de correo.
+
+Manual:
+
+```text
+EXPN root
+EXPN admin
+EXPN staff
+```
+
+Con herramienta:
+
+```bash
+smtp-user-enum -M EXPN -U users.txt -t <IP>
+```
+
+No siempre está habilitado, pero en laboratorios o sistemas antiguos puede servir.
+
+## 12. Enumeración SMTP con RCPT TO
+
+Aunque `VRFY` esté deshabilitado, puedes intentar enumerar usuarios durante una simulación de envío.
+
+```bash
+nc -nv <IP> 25
+```
+
+Después:
+
+```text
+HELO test.com
+MAIL FROM:<test@test.com>
+RCPT TO:<root@target.local>
+RCPT TO:<admin@target.local>
+RCPT TO:<usuario@target.local>
+```
+
+Respuestas interesantes:
+
+```text
+250 OK
+```
+
+Puede indicar usuario válido.
+
+```text
+550 No such user
+```
+
+Puede indicar usuario inválido.
+
+Con herramienta:
+
+```bash
+smtp-user-enum -M RCPT -U users.txt -t <IP>
+```
+
+## 13. Probar Open Relay en SMTP
+
+Un open relay permite usar el servidor SMTP para enviar correos a terceros sin autenticación.
+
+Prueba manual:
+
+```bash
+nc -nv <IP> 25
+```
+
+Después:
+
+```text
+HELO attacker.com
+MAIL FROM:<attacker@attacker.com>
+RCPT TO:<external@gmail.com>
+DATA
+Subject: test
+
+test
+.
+QUIT
+```
+
+Si acepta mandar correos a dominios externos sin autenticación, puede existir open relay.
+
+Con Nmap:
+
+```bash
+nmap --script smtp-open-relay -p25 <IP>
+```
+
+## 14. Fuerza bruta si SMTP AUTH está habilitado
+
+Primero revisa si el servidor soporta autenticación:
+
+```bash
+nmap --script smtp-commands -p25 <IP>
+```
+
+O manual:
+
+```bash
+nc -nv <IP> 25
+```
+
+Luego:
+
+```text
+EHLO test.com
+```
+
+Si ves algo como:
+
+```text
+250-AUTH LOGIN PLAIN
+```
+
+puedes probar autenticación.
+
+Con Hydra sin TLS:
+
+```bash
+hydra -L users.txt -P passwords.txt -s 25 -vV <IP> smtp
+```
+
+Con TLS:
+
+```bash
+hydra -L users.txt -P passwords.txt -s 25 -S -vV <IP> smtp
+```
+
+## 15. Qué buscar en SMTP
+
+```text
+Usuarios válidos
+Hostnames internos
+Dominios internos
+Software y versión
+Comandos habilitados
+Open relay
+AUTH LOGIN
+AUTH PLAIN
+STARTTLS
+```
+
+## 16. Cadena típica con SMTP en OSCP
+
+```text
+1. Encuentras SMTP en puerto 25.
+2. Revisas banner y versión.
+3. Revisas comandos con EHLO o Nmap.
+4. Pruebas VRFY, EXPN o RCPT TO.
+5. Obtienes usuarios válidos.
+6. Usas esos usuarios contra POP3, IMAP, SSH, SMB, FTP o web.
+```
+
+## 17. POP3 — Puerto 110
+
+POP3 significa Post Office Protocol version 3. Se usa para leer o descargar correos de un buzón.
+
+En OSCP es útil porque si consigues credenciales puedes entrar al buzón y encontrar:
+
+```text
+Contraseñas
+Usuarios internos
+Correos de soporte
+Rutas internas
+Links de reset
+Archivos adjuntos
+Credenciales de SSH, FTP, SMB, base de datos o panel web
+```
+
+## 18. Escaneo básico POP3
+
+```bash
+nmap -sV -sC -p110 <IP>
+```
+
+Si también quieres revisar POP3S:
+
+```bash
+nmap -sV -sC -p110,995 <IP>
+```
+
+## 19. Banner grabbing POP3
+
+```bash
+nc -nv <IP> 110
+```
+
+También puedes usar:
+
+```bash
+telnet <IP> 110
+```
+
+Respuesta típica:
+
+```text
++OK POP3 server ready
+```
+
+Para POP3S:
+
+```bash
+openssl s_client -connect <IP>:995
+```
+
+## 20. Login manual POP3
+
+Si tienes credenciales:
+
+```bash
+nc -nv <IP> 110
+```
+
+Después:
+
+```text
+USER usuario
+PASS password
+```
+
+Si funciona:
+
+```text
++OK Logged in
+```
+
+## 21. Comandos útiles POP3
+
+Después de iniciar sesión:
+
+```text
+STAT
+LIST
+RETR 1
+RETR 2
+QUIT
+```
+
+Ejemplo completo:
+
+```text
+USER john
+PASS password123
+STAT
+LIST
+RETR 1
+```
+
+Significado:
+
+```text
+STAT    = muestra cantidad de correos y tamaño del buzón.
+LIST    = lista los correos disponibles.
+RETR 1  = muestra el correo número 1.
+RETR 2  = muestra el correo número 2.
+QUIT    = salir.
+```
+
+## 22. Leer correos con POP3
+
+Después de autenticarte:
+
+```text
+LIST
+```
+
+Ejemplo:
+
+```text
++OK 2 messages
+1 1200
+2 850
+```
+
+Leer el primer correo:
+
+```text
+RETR 1
+```
+
+Leer el segundo correo:
+
+```text
+RETR 2
+```
+
+## 23. Fuerza bruta POP3
+
+Con Hydra:
+
+```bash
+hydra -L users.txt -P passwords.txt -s 110 -vV <IP> pop3
+```
+
+Con usuario conocido:
+
+```bash
+hydra -l usuario -P passwords.txt -s 110 -vV <IP> pop3
+```
+
+Para POP3S en 995:
+
+```bash
+hydra -L users.txt -P passwords.txt -s 995 -S -vV <IP> pop3
+```
+
+Con usuario conocido y SSL:
+
+```bash
+hydra -l usuario -P passwords.txt -s 995 -S -vV <IP> pop3
+```
+
+## 24. Enumeración indirecta de usuarios en POP3
+
+POP3 puede revelar si un usuario existe si responde diferente.
+
+Ejemplo:
+
+```text
+USER admin
+PASS test
+```
+
+Posibles respuestas:
+
+```text
+-ERR Unknown user
+```
+
+versus:
+
+```text
+-ERR Invalid password
+```
+
+Si el servidor diferencia entre “usuario inválido” y “contraseña incorrecta”, puedes inferir usuarios válidos.
+
+## 25. Qué buscar dentro de POP3
+
+Dentro de los correos busca:
+
+```text
+password
+credentials
+ssh
+ftp
+smb
+vpn
+database
+db
+mysql
+postgres
+backup
+admin
+root
+intranet
+jenkins
+git
+github
+gitlab
+token
+key
+private key
+reset
+temporary password
+```
+
+En español:
+
+```text
+contraseña
+credenciales
+clave
+temporal
+acceso
+usuario
+servidor
+respaldo
+base de datos
+administrador
+```
+
+Ejemplos de correos interesantes:
+
+```text
+Your temporary password is...
+SSH credentials...
+Database backup attached...
+Please use this password for the admin panel...
+```
+
+## 26. Reutilización de credenciales encontradas en POP3
+
+Si encuentras credenciales, pruébalas contra otros servicios.
+
+SSH:
+
+```bash
+ssh usuario@<IP>
+```
+
+SMB:
+
+```bash
+smbclient -L //<IP> -U usuario
+```
+
+FTP:
+
+```bash
+ftp <IP>
+```
+
+NetExec:
+
+```bash
+nxc smb <IP> -u usuario -p 'password'
+```
+
+CrackMapExec:
+
+```bash
+crackmapexec smb <IP> -u usuario -p 'password'
+```
+
+Paneles web:
+
+```text
+/admin
+/login
+/dashboard
+/webmail
+```
+
+## 27. Cadena típica con POP3 en OSCP
+
+```text
+1. Encuentras POP3 en puerto 110.
+2. Consigues usuarios desde SMTP, SMB o web.
+3. Pruebas credenciales o haces fuerza bruta controlada.
+4. Entras al buzón.
+5. Usas LIST y RETR para leer correos.
+6. Encuentras credenciales o pistas.
+7. Reutilizas credenciales contra SSH, SMB, FTP o web.
+```
+
+## 28. IMAP — Puertos 143 y 993
+
+IMAP significa Internet Message Access Protocol. Se usa para leer, buscar y administrar correos directamente en el servidor.
+
+IMAP es más completo que POP3 porque permite:
+
+```text
+Navegar carpetas
+Leer correos específicos
+Buscar texto dentro del buzón
+Revisar enviados
+Revisar borradores
+Revisar papelera
+Leer headers
+Mantener el buzón sincronizado
+```
+
+## 29. Puertos comunes IMAP
+
+```text
+143 = IMAP sin cifrado o con STARTTLS
+993 = IMAPS con SSL/TLS
+```
+
+## 30. Escaneo básico IMAP
+
+```bash
+nmap -sV -sC -p143,993 <IP>
+```
+
+Scripts útiles:
+
+```bash
+nmap --script imap-capabilities -p143,993 <IP>
+nmap --script imap-ntlm-info -p143,993 <IP>
+nmap --script imap-brute -p143,993 <IP>
+```
+
+## 31. Banner grabbing IMAP
+
+Para IMAP en puerto 143:
+
+```bash
+nc -nv <IP> 143
+```
+
+También:
+
+```bash
+telnet <IP> 143
+```
+
+Respuesta típica:
+
+```text
+* OK IMAP4rev1 Service Ready
+```
+
+Para IMAPS en 993:
+
+```bash
+openssl s_client -connect <IP>:993
+```
+
+Respuesta típica:
+
+```text
+* OK IMAP4rev1 Service Ready
+```
+
+## 32. Revisar capacidades IMAP
+
+En IMAP los comandos llevan una etiqueta al inicio, por ejemplo:
+
+```text
+A001
+A002
+A003
+```
+
+Conexión manual:
+
+```bash
+nc -nv <IP> 143
+```
+
+Luego:
+
+```text
+A001 CAPABILITY
+```
+
+Respuesta posible:
+
+```text
+* CAPABILITY IMAP4rev1 STARTTLS AUTH=PLAIN AUTH=LOGIN IDLE
+A001 OK CAPABILITY completed
+```
+
+Cosas interesantes:
+
+```text
+STARTTLS
+AUTH=PLAIN
+AUTH=LOGIN
+AUTH=NTLM
+IMAP4rev1
+IDLE
+```
+
+Si ves `AUTH=PLAIN` o `AUTH=LOGIN`, puede permitir autenticación con usuario y contraseña.
+
+## 33. Login manual IMAP
+
+Si tienes credenciales:
+
+```bash
+nc -nv <IP> 143
+```
+
+Después:
+
+```text
+A001 LOGIN usuario password
+```
+
+Si la contraseña tiene caracteres especiales, usa comillas:
+
+```text
+A001 LOGIN "usuario" "P@ssw0rd!"
+```
+
+Respuesta exitosa:
+
+```text
+A001 OK LOGIN completed
+```
+
+Para IMAPS:
+
+```bash
+openssl s_client -connect <IP>:993
+```
+
+Después:
+
+```text
+A001 LOGIN "usuario" "password"
+```
+
+## 34. Listar carpetas del buzón con IMAP
+
+Después de iniciar sesión:
+
+```text
+A002 LIST "" "*"
+```
+
+Respuesta típica:
+
+```text
+* LIST (\HasNoChildren) "." "INBOX"
+* LIST (\HasNoChildren) "." "Sent"
+* LIST (\HasNoChildren) "." "Drafts"
+* LIST (\HasNoChildren) "." "Trash"
+A002 OK LIST completed
+```
+
+Carpetas interesantes:
+
+```text
+INBOX
+Sent
+Drafts
+Trash
+Archive
+Junk
+Important
+```
+
+En OSCP revisa especialmente:
+
+```text
+INBOX
+Sent
+Drafts
+Trash
+```
+
+## 35. Seleccionar una carpeta IMAP
+
+Para entrar a INBOX:
+
+```text
+A003 SELECT INBOX
+```
+
+Respuesta posible:
+
+```text
+* 5 EXISTS
+* 0 RECENT
+A003 OK [READ-WRITE] SELECT completed
+```
+
+El valor `5 EXISTS` indica que hay 5 correos en esa carpeta.
+
+Seleccionar otras carpetas:
+
+```text
+A003 SELECT Sent
+A003 SELECT Drafts
+A003 SELECT Trash
+```
+
+Si el nombre de la carpeta tiene espacios, usa comillas:
+
+```text
+A003 SELECT "Sent Items"
+```
+
+## 36. Listar correos con IMAP
+
+Para ver mensajes disponibles:
+
+```text
+A004 FETCH 1:* (FLAGS)
+```
+
+Para ver headers básicos de todos los correos:
+
+```text
+A005 FETCH 1:* (BODY[HEADER])
+```
+
+Para ver remitente, destinatario, asunto y fecha:
+
+```text
+A006 FETCH 1:* (BODY[HEADER.FIELDS (FROM TO SUBJECT DATE)])
+```
+
+## 37. Leer correos con IMAP
+
+Leer el correo número 1 completo:
+
+```text
+A007 FETCH 1 BODY[]
+```
+
+Leer solo el cuerpo del correo 1:
+
+```text
+A008 FETCH 1 BODY[TEXT]
+```
+
+Leer varios correos:
+
+```text
+A009 FETCH 1:5 BODY[]
+```
+
+Leer todos los correos:
+
+```text
+A010 FETCH 1:* BODY[]
+```
+
+## 38. Buscar correos interesantes con IMAP
+
+IMAP permite hacer búsquedas dentro del buzón.
+
+Buscar todos los correos:
+
+```text
+A011 SEARCH ALL
+```
+
+Buscar correos no leídos:
+
+```text
+A012 SEARCH UNSEEN
+```
+
+Buscar por asunto:
+
+```text
+A013 SEARCH SUBJECT "password"
+```
+
+Buscar por texto:
+
+```text
+A014 SEARCH TEXT "password"
+```
+
+Términos útiles en OSCP:
+
+```text
+A015 SEARCH TEXT "ssh"
+A016 SEARCH TEXT "ftp"
+A017 SEARCH TEXT "admin"
+A018 SEARCH TEXT "backup"
+A019 SEARCH TEXT "credentials"
+A020 SEARCH TEXT "password"
+A021 SEARCH TEXT "reset"
+A022 SEARCH TEXT "database"
+A023 SEARCH TEXT "vpn"
+A024 SEARCH TEXT "token"
+A025 SEARCH TEXT "key"
+```
+
+Si el entorno está en español:
+
+```text
+A026 SEARCH TEXT "contraseña"
+A027 SEARCH TEXT "credenciales"
+A028 SEARCH TEXT "clave"
+A029 SEARCH TEXT "temporal"
+A030 SEARCH TEXT "acceso"
+A031 SEARCH TEXT "usuario"
+A032 SEARCH TEXT "servidor"
+A033 SEARCH TEXT "respaldo"
+A034 SEARCH TEXT "base de datos"
+A035 SEARCH TEXT "administrador"
+```
+
+## 39. Fuerza bruta IMAP
+
+Para IMAP en puerto 143:
+
+```bash
+hydra -L users.txt -P passwords.txt -s 143 -vV <IP> imap
+```
+
+Con usuario conocido:
+
+```bash
+hydra -l usuario -P passwords.txt -s 143 -vV <IP> imap
+```
+
+Para IMAPS en puerto 993:
+
+```bash
+hydra -L users.txt -P passwords.txt -s 993 -S -vV <IP> imap
+```
+
+Con usuario conocido y SSL:
+
+```bash
+hydra -l usuario -P passwords.txt -s 993 -S -vV <IP> imap
+```
+
+## 40. Enumeración indirecta de usuarios en IMAP
+
+IMAP puede permitir enumerar usuarios si responde diferente cuando el usuario existe o no existe.
+
+Ejemplo:
+
+```text
+A001 LOGIN admin test
+```
+
+Posibles respuestas:
+
+```text
+A001 NO Authentication failed
+```
+
+versus:
+
+```text
+A001 NO Invalid user
+```
+
+Si el servidor diferencia entre usuario inválido y contraseña incorrecta, puedes inferir usuarios válidos.
+
+## 41. Qué buscar dentro de IMAP
+
+Cuando tengas acceso a IMAP, busca:
+
+```text
+password
+credentials
+ssh
+ftp
+smb
+vpn
+database
+db
+mysql
+postgres
+backup
+admin
+root
+intranet
+jenkins
+git
+github
+gitlab
+token
+key
+private key
+reset
+temporary password
+```
+
+En español:
+
+```text
+contraseña
+credenciales
+clave
+temporal
+acceso
+usuario
+servidor
+respaldo
+base de datos
+administrador
+```
+
+También revisa:
+
+```text
+INBOX
+Sent
+Drafts
+Trash
+Archive
+```
+
+Los lugares más interesantes suelen ser:
+
+```text
+1. INBOX
+2. Sent
+3. Drafts
+4. Trash
+```
+
+## 42. Reutilización de credenciales encontradas en IMAP
+
+SSH:
+
+```bash
+ssh usuario@<IP>
+```
+
+SMB:
+
+```bash
+smbclient -L //<IP> -U usuario
+```
+
+FTP:
+
+```bash
+ftp <IP>
+```
+
+NetExec:
+
+```bash
+nxc smb <IP> -u usuario -p 'password'
+```
+
+CrackMapExec:
+
+```bash
+crackmapexec smb <IP> -u usuario -p 'password'
+```
+
+Paneles web:
+
+```text
+/admin
+/login
+/dashboard
+/webmail
+```
+
+## 43. Cadena típica con IMAP en OSCP
+
+```text
+1. Encuentras IMAP en puerto 143 o 993.
+2. Enumeras capacidades con CAPABILITY o Nmap.
+3. Obtienes usuarios válidos por SMTP, SMB, web o nombres del sistema.
+4. Pruebas credenciales conocidas o haces password spraying.
+5. Logras entrar al buzón.
+6. Listas carpetas.
+7. Revisas INBOX, Sent, Drafts y Trash.
+8. Buscas password, ssh, backup, database, admin, reset.
+9. Encuentras credenciales o pistas.
+10. Reutilizas credenciales en SSH, SMB, FTP o panel web.
+11. Consigues acceso inicial.
+```
+
+## 44. Checklist SMTP para OSCP
+
+```bash
+nmap -sV -sC -p25 <IP>
+nmap --script smtp-commands -p25 <IP>
+nmap --script smtp-open-relay -p25 <IP>
+nmap --script smtp-enum-users -p25 <IP>
+nc -nv <IP> 25
+```
+
+Enumeración de usuarios:
+
+```bash
+smtp-user-enum -M VRFY -U users.txt -t <IP>
+smtp-user-enum -M EXPN -U users.txt -t <IP>
+smtp-user-enum -M RCPT -U users.txt -t <IP>
+```
+
+Comandos manuales SMTP:
+
+```text
+EHLO test.com
+VRFY root
+VRFY admin
+EXPN root
+MAIL FROM:<test@test.com>
+RCPT TO:<admin@target.local>
+DATA
+Subject: test
+
+test
+.
+QUIT
+```
+
+## 45. Checklist POP3 para OSCP
+
+```bash
+nmap -sV -sC -p110 <IP>
+nc -nv <IP> 110
+openssl s_client -connect <IP>:995
+```
+
+Fuerza bruta:
+
+```bash
+hydra -L users.txt -P passwords.txt -s 110 -vV <IP> pop3
+hydra -L users.txt -P passwords.txt -s 995 -S -vV <IP> pop3
+```
+
+Comandos manuales POP3:
+
+```text
+USER usuario
+PASS password
+STAT
+LIST
+RETR 1
+RETR 2
+QUIT
+```
+
+## 46. Checklist IMAP para OSCP
+
+```bash
+nmap -sV -sC -p143,993 <IP>
+nmap --script imap-capabilities -p143,993 <IP>
+nmap --script imap-ntlm-info -p143,993 <IP>
+nc -nv <IP> 143
+openssl s_client -connect <IP>:993
+```
+
+Fuerza bruta:
+
+```bash
+hydra -L users.txt -P passwords.txt -s 143 -vV <IP> imap
+hydra -L users.txt -P passwords.txt -s 993 -S -vV <IP> imap
+```
+
+Comandos manuales IMAP:
+
+```text
+A001 CAPABILITY
+A002 LOGIN "usuario" "password"
+A003 LIST "" "*"
+A004 SELECT INBOX
+A005 FETCH 1:* (BODY[HEADER.FIELDS (FROM TO SUBJECT DATE)])
+A006 FETCH 1 BODY[]
+A007 FETCH 1 BODY[TEXT]
+A008 SEARCH TEXT "password"
+A009 SEARCH TEXT "ssh"
+A010 SEARCH TEXT "backup"
+A011 SEARCH TEXT "admin"
+A012 LOGOUT
+```
+
+## 47. Palabras clave para buscar en correos
+
+Inglés:
+
+```text
+password
+credentials
+ssh
+ftp
+smb
+vpn
+database
+db
+mysql
+postgres
+backup
+admin
+root
+intranet
+jenkins
+git
+github
+gitlab
+token
+key
+private key
+reset
+temporary password
+```
+
+Español:
+
+```text
+contraseña
+credenciales
+clave
+temporal
+acceso
+usuario
+servidor
+respaldo
+base de datos
+administrador
+```
+
+## 48. Reutilización de credenciales
+
+Si encuentras credenciales en correos, pruébalas en:
+
+```bash
+ssh usuario@<IP>
+smbclient -L //<IP> -U usuario
+ftp <IP>
+nxc smb <IP> -u usuario -p 'password'
+crackmapexec smb <IP> -u usuario -p 'password'
+```
+
+También revisa paneles web:
+
+```text
+/admin
+/login
+/dashboard
+/webmail
+```
+
+## 49. Cadena completa típica con correo en OSCP
+
+```text
+1. Escaneas la máquina y encuentras puertos de correo:
+   - 25 SMTP
+   - 110 POP3
+   - 143 IMAP
+   - 993 IMAPS
+   - 995 POP3S
+
+2. Empiezas por SMTP:
+   - Banner grabbing.
+   - EHLO.
+   - Revisas comandos.
+   - Pruebas VRFY, EXPN o RCPT TO.
+   - Buscas usuarios válidos.
+
+3. Con usuarios válidos:
+   - Pruebas POP3.
+   - Pruebas IMAP.
+   - Pruebas SSH.
+   - Pruebas SMB.
+   - Pruebas FTP.
+   - Pruebas paneles web.
+
+4. Si entras a POP3 o IMAP:
+   - Lees INBOX.
+   - Revisas Sent.
+   - Revisas Drafts.
+   - Revisas Trash.
+   - Buscas credenciales, backups, tokens, rutas internas o pistas.
+
+5. Si encuentras credenciales:
+   - Reutilizas contra SSH, SMB, FTP, web o base de datos.
+
+6. Si funcionan:
+   - Consigues acceso inicial.
+   - Continúas enumeración local y escalada de privilegios.
+```
+
+## 50. Resumen final
+
+```text
+SMTP = usuarios válidos, open relay, comandos habilitados.
+POP3 = lectura simple de correos.
+IMAP = lectura avanzada, carpetas y búsqueda de correos.
+```
+
+La idea práctica para OSCP es:
+
+```text
+SMTP te ayuda a encontrar usuarios.
+POP3 e IMAP te ayudan a leer correos.
+Los correos pueden contener contraseñas.
+Las contraseñas pueden funcionar en SSH, SMB, FTP o web.
+Eso puede darte acceso inicial.
+```
+
 ## Sysreptor
 
 > Username: reptor
