@@ -1,5 +1,31 @@
 # Acordeon
 
+# Python problema con exploits problemas de tabulacion parsear parseo python scripts exploitdb probelma
+
+Ya instalaste esta herramienta en tu kali usala
+
+```python
+Problema resuelto con los erroes de indentacion de los scripts bajados de internet
+
+sudo apt install python3-autopep8 -y
+
+
+autopep8 --in-place --aggressive --aggressive 52254.py
+
+
+Para python2
+
+dos2unix exploit_work.py
+
+expand -t 4 exploit_work.py > exploit_fixed.py
+
+python2 -m tabnanny exploit_fixed.py
+
+python2 -m py_compile exploit_fixed.py
+
+> Esto no ejecuta el exploit, solo revisa sintaxis.
+```
+
 # Protocolos de correo para OSCP: SMTP, POP3 e IMAP
 
 ## 1. Idea general
