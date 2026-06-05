@@ -1,6 +1,49 @@
 # Acordeon
 
-# Python problema con exploits problemas de tabulacion parsear parseo python scripts exploitdb probelma
+## firepwd desencryptar passwords guardados en fire fox
+
+Firefox guarda las contraseñas en logins.json y la llave para descifrarlas en key4.db; ambos deben corresponder al mismo perfil para que funcione. firepwd.py soporta Firefox moderno con key4.db + logins.json, y versiones viejas con key3.db / signons.sqlite
+
+> Moderno: logins.json y la llave para descifrarlas en key4.db
+
+> Antiguo:  key3.db / signons.sqlite
+
+```
+Para firepwd, lo más importante es:
+
+
+logins.json
+key4.db
+
+```
+Las rutas son 
+
+```
+	#Rutas en Linux
+
+/home/USUARIO/.mozilla/firefox/
+/home/cassie/.mozilla/firefox/abcd1234.default-release/logins.json
+/home/cassie/.mozilla/firefox/abcd1234.default-release/key4.db
+/home/USUARIO/snap/firefox/common/.mozilla/firefox/
+
+find /home -type f -name "logins.json" 2>/dev/null
+find /home -type f -name "key4.db" 2>/dev/null
+find /home -type f -name "profiles.ini" 2>/dev/null
+
+		# Rutas en windows
+
+C:\Users\USUARIO\AppData\Roaming\Mozilla\Firefox\Profiles\
+C:\Users\Tim\AppData\Roaming\Mozilla\Firefox\Profiles\abcd1234.default-release\logins.json
+C:\Users\Tim\AppData\Roaming\Mozilla\Firefox\Profiles\abcd1234.default-release\key4.db
+C:\Users\USUARIO\AppData\Local\Mozilla\Firefox\Profiles\
+
+Get-ChildItem -Path "C:\Users" -Recurse -Force -Filter "logins.json" -ErrorAction SilentlyContinue
+Get-ChildItem -Path "C:\Users" -Recurse -Force -Filter "key4.db" -ErrorAction SilentlyContinue
+Get-ChildItem -Path "C:\Users" -Recurse -Force -Filter "profiles.ini" -ErrorAction SilentlyContinue
+
+```
+
+## Python problema con exploits problemas de tabulacion parsear parseo python scripts exploitdb probelma
 
 Ya instalaste esta herramienta en tu kali usala
 
