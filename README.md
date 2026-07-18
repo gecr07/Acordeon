@@ -43,7 +43,7 @@ Get-ChildItem -Path "C:\Users" -Recurse -Force -Filter "profiles.ini" -ErrorActi
 
 ```
 
-## Python problema con exploits problemas de tabulacion parsear parseo python scripts exploitdb probelma
+## Python problema con exploits problemas de tabulacion parsear parseo python scripts exploitdb probelma (arreglar exploits)
 
 Ya instalaste esta herramienta en tu kali usala
 
